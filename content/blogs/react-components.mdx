@@ -1,0 +1,48 @@
+---
+title: "Creating Components in React: A Step-by-Step Guide"
+description: "React is a popular JavaScript library for building user interfaces, primarily using reusable components."
+date: 07-10-2024
+tags: ["react", "css", "next"]
+published: true
+author: "Mahendra"
+---
+
+React is a popular JavaScript library for building user interfaces, primarily using reusable components. Components are the heart of React applications, allowing developers to break down UIs into small, manageable pieces that can be reused across the app. In this blog, we'll walk through creating both functional and class-based components in React, discuss their differences, and explore how they fit into modern React development.
+
+# 1. What is a React Component?
+
+A React component is a small, reusable piece of code that returns a part of the user interface (UI). Components can manage their own state (using hooks in functional components or this.state in class components) and accept props (parameters) to make them more dynamic.
+
+**Example: Component Breakdown**
+Imagine you are building a web application with a navigation bar, a content section, and a footer. Each of these sections can be represented as a component in React:
+
+- `NavbarComponent`
+- `ContentComponent`
+- `FooterComponent`
+  Each of these can be reused across different parts of your app.
+
+# 2. Types of Components
+
+In React, there are two main types of components:
+
+- Functional Components (use hooks for state and lifecycle management)
+- Class Components (older method, uses lifecycle methods)
+
+# 3. Creating Functional Components
+
+Functional components are simple JavaScript functions that return JSX (a syntax extension that looks like HTML) to render the UI. They are the modern way to build React components, and with the introduction of Hooks in React 16.8, they can also manage state and side effects.
+
+## Example: Basic Functional Component
+
+```react
+import React from 'react';
+
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+export default Greeting;
+
+```
+
+In this example, the Greeting component takes a name prop and renders a heading displaying the greeting message.
