@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import { LineElement } from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { title } from "process";
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
@@ -21,14 +22,35 @@ export const blogs = defineCollection({
       title: s.string().max(99),
       description: s.string().max(999),
       date: s.isodate(),
-      published: s.boolean().default(true),
+      published: s.boolean(),
       tags: s.array(s.string()),
       body: s.mdx(),
       toc: s.toc(),
-      author: s.string(),
+      authors : s.array(s.object({
+        name : s.string(),
+        social : s.string().url().optional()
+      }))
     })
     .transform(computedFields),
 });
+
+export const thoughts = defineCollection({
+  name : "Thoughts",
+  pattern : "thoughts/**/*.mdx",
+  schema : s.object({
+    slug : s.path(),
+    title : s.string(),
+    description : s.string().max(999),
+    date : s.isodate(),
+    published : s.boolean(),
+    body : s.mdx(),
+    toc : s.toc(),
+    authors : s.array(s.object({
+      name : s.string(),
+      social : s.string().url().optional()
+    }))
+  }).transform(computedFields)
+})
 
 export default defineConfig({
   root: "content",
@@ -39,7 +61,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { blogs },
+  collections: { blogs, thoughts },
   mdx: {
     rehypePlugins: [
       rehypeSlug,

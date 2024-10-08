@@ -60,7 +60,8 @@ export const mdxComponents = {
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium underline underline-offset-4", className)}
+      target="_blank"
+      className={cn("font-medium underline underline-offset-2", className)}
       {...props}
     />
   ),

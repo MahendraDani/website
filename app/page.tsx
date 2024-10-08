@@ -1,8 +1,6 @@
-import { ThemeToggleButton } from "@/components/theme/theme-toggle";
-
 export default function Home() {
   return (
-    <div className="font-giestSans">
+    <div>
       <div>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
         quaerat ad eveniet provident ratione dolore accusantium eius nulla
@@ -17,7 +15,7 @@ export default function Home() {
         optio quaerat ipsa debitis doloremque voluptas placeat labore molestiae
         reiciendis praesentium. Culpa iusto fugit aut quia beatae assumenda,
         laudantium, perspiciatis fugiat placeat quaerat voluptatem iste deleniti
-        dolorem in soluta? Doloribus nisi aliquid corrupti quaerat odit commodi,
+        dolorem in soluta? Doloribus  nisi aliquid corrupti quaerat odit commodi ,pnisi aliquid corrupti quaerat odit commodi,
         iusto necessitatibus perferendis fugiat cumque facere ipsa corporis
         omnis? Exercitationem, quo? Fugit, perferendis nobis libero tempore
         incidunt accusantium beatae dolores at voluptatum debitis blanditiis
@@ -31,9 +29,9 @@ export default function Home() {
         exercitationem esse natus dolorum maiores nesciunt itaque ex quibusdam,
         autem corporis dolores
       </div>
-      <div>
+      {/* <div>
         <ThemeToggleButton />
-      </div>
+      </div> */}
     </div>
   );
 }

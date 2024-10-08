@@ -7,15 +7,15 @@ const navMenu = [
     href: "/blogs",
   },
   {
-    name: "papers",
-    href: "/papers",
-  },
+    name: "thoughts",
+    href: "/thoughts",
+  }
 ];
 export const Navbar = () => {
   return (
     <div className="w-full flex justify-between items-center">
       <Link href={"/"}>
-        <p>Mahendra</p>
+        <h3 className="text-xl font-medium">Mahendra</h3>
       </Link>
 
       <nav className="flex justify-center items-center gap-3">
