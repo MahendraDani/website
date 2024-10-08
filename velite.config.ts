@@ -7,6 +7,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import { LineElement } from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { title } from "process";
+import { metadata } from "./app/layout";
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
@@ -29,7 +30,10 @@ export const blogs = defineCollection({
       authors : s.array(s.object({
         name : s.string(),
         social : s.string().url().optional()
-      }))
+      })),
+      excerpt : s.excerpt(),
+      metadata : s.metadata(),
+      markdown : s.markdown(),
     })
     .transform(computedFields),
 });
@@ -48,8 +52,34 @@ export const thoughts = defineCollection({
     authors : s.array(s.object({
       name : s.string(),
       social : s.string().url().optional()
-    }))
+    })),
+    excerpt : s.excerpt(),
+    metadata : s.metadata(),
+    markdown : s.markdown(),
   }).transform(computedFields)
+})
+
+export const projects = defineCollection({
+  name : "Projects",
+  pattern : "projects/**/*.mdx",
+  schema : s.object({
+    slug : s.path(),
+    name : s.string().max(99),
+    abstract : s.string(),
+    private : s.boolean(),
+    body : s.mdx(),
+    demo : s.string().url().optional(),
+    website : s.string().url().optional(),
+    github : s.array(s.object({name : s.string(), repo : s.string().url()})).optional(),
+    stack : s.array(s.string()).optional(),
+    collaborators : s.array(s.object({
+      name : s.string(),
+      social : s.string().url().optional()
+    })).optional(),
+    excerpt : s.excerpt(),
+    metadata : s.metadata(),
+    markdown : s.markdown(),
+  })
 })
 
 export default defineConfig({
@@ -61,7 +91,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { blogs, thoughts },
+  collections: { blogs, thoughts,projects },
   mdx: {
     rehypePlugins: [
       rehypeSlug,
