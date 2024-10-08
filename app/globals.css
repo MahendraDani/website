@@ -76,3 +76,21 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.underLine {
+  background-size: 100% 1px;
+  background-position: 0 1.25rem;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    rgba(108, 122, 137, 10),
+    rgba(108, 122, 137, 10)
+  );
+}
+
+/* .underLine:hover {
+  background-image: linear-gradient(
+    rgba(209, 213, 219, 30),
+    rgba(209, 213, 219, 30)
+  );
+  background-size: 100% 1px;
+} */
