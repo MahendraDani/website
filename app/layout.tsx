@@ -4,6 +4,7 @@ import "./globals.css";
 import { ContentWrapper } from "@/components/content-wrapper";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Navbar } from "@/components/nav/navbar";
+import { Footer } from "@/components/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` font-giestSans antialiased`}
+        className={`font-giestSans antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -41,6 +42,9 @@ export default function RootLayout({
                 <Navbar />
               </ContentWrapper>
               <ContentWrapper>{children}</ContentWrapper>
+              <ContentWrapper className={"sm:mt-8"}>
+              <Footer/>
+              </ContentWrapper>
             </div>
         </ThemeProvider>
       </body>

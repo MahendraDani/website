@@ -70,6 +70,7 @@ export const projects = defineCollection({
     body : s.mdx(),
     demo : s.string().url().optional(),
     website : s.string().url().optional(),
+    primaryLink : s.string().url(), 
     github : s.array(s.object({name : s.string(), repo : s.string().url()})).optional(),
     stack : s.array(s.string()).optional(),
     collaborators : s.array(s.object({

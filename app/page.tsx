@@ -1,37 +1,23 @@
+import {projects} from "#site/content"
+import Link from "next/link"
 export default function Home() {
   return (
     <div>
       <div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
-        quaerat ad eveniet provident ratione dolore accusantium eius nulla
-        reiciendis ducimus. Repellendus, consequuntur? Hic, exercitationem
-        nulla! Quae accusantium soluta, explicabo error doloribus molestias?
-        Totam qui voluptates sequi nulla aliquid exercitationem, asperiores
-        placeat consequatur aut, doloribus suscipit iste magni magnam sint. Modi
-        ab id libero, minus commodi enim voluptatem. Et dolorem, doloribus,
-        molestias at quasi sed modi, animi dolor veritatis quisquam a ratione
-        blanditiis quia! Qui eaque corporis distinctio dolore veritatis nihil,
-        eius deserunt amet quidem quibusdam molestias quo autem doloribus quia
-        optio quaerat ipsa debitis doloremque voluptas placeat labore molestiae
-        reiciendis praesentium. Culpa iusto fugit aut quia beatae assumenda,
-        laudantium, perspiciatis fugiat placeat quaerat voluptatem iste deleniti
-        dolorem in soluta? Doloribus  nisi aliquid corrupti quaerat odit commodi ,pnisi aliquid corrupti quaerat odit commodi,
-        iusto necessitatibus perferendis fugiat cumque facere ipsa corporis
-        omnis? Exercitationem, quo? Fugit, perferendis nobis libero tempore
-        incidunt accusantium beatae dolores at voluptatum debitis blanditiis
-        nisi eligendi reiciendis voluptatem distinctio dolorem, itaque
-        temporibus! Corrupti natus tenetur fuga nihil quia sed atque aperiam ex
-        id maiores velit, laboriosam temporibus reiciendis iste dolore harum
-        officiis autem voluptates laborum sequi ipsa! Non aperiam distinctio
-        commodi, amet aspernatur natus doloribus, tempora illum architecto
-        repellat quod ut sit dicta eos qui ratione expedita repudiandae id
-        dolorem officia! Fuga suscipit dicta veritatis voluptates consequuntur
-        exercitationem esse natus dolorum maiores nesciunt itaque ex quibusdam,
-        autem corporis dolores
+        <p>Hi! I am a developer and programmer. I am learning to solve problems using computers and developing web apps in my free time. I get excited by seeing how science is applied in real life.</p>
+        <br />
+        <p>My life goal is to be on wikipedia by developing something {"(i don't know rn)"} that blows up the internet. Unemployed and working on getting my fundamentals right.</p>
       </div>
-      {/* <div>
-        <ThemeToggleButton />
-      </div> */}
+      <section className="mt-4 flex justify-between items-start flex-wrap">
+      {projects.map((project,index)=>(
+        <div key={index} className="w-1/2 py-2">
+          <Link href={project.primaryLink} target="_blank">
+          <h3 className="font-medium underline underline-offset-2">{project.name}</h3>
+          </Link>
+          <p className="pt-1">{project.abstract}</p>
+        </div>
+      ))}
+      </section>
     </div>
   );
 }
