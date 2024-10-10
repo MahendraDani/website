@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`font-giestSans antialiased`}
+        className={`font-giestSans relative antialiased selection:bg-[#00fff61d] selection:text-[#67ffe8d2]`}
       >
         <ThemeProvider
           attribute="class"
@@ -39,8 +39,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
             <div className="w-full min-h-[100vh] flex flex-col items-center">
-              <div className="darkapp ">
-              </div>
+              <div className="bg-grainy"/>
               <ContentWrapper className={"sm:mt-20"}>
                 <Navbar />
               </ContentWrapper>
