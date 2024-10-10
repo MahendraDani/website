@@ -1,6 +1,6 @@
 import {projects} from "#site/content"
 import Link from "next/link"
-export default function Home() {
+export default function Page() {
   return (
     <div>
       <div>
