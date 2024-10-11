@@ -43,7 +43,7 @@ export default function RootLayout({
               <ContentWrapper className={"sm:mt-20"}>
                 <Navbar />
               </ContentWrapper>
-              <ContentWrapper>{children}</ContentWrapper>
+              <ContentWrapper className="min-h-[72vh]">{children}</ContentWrapper>
               <ContentWrapper className={"sm:mt-8"}>
               <Footer/>
               </ContentWrapper>

@@ -2,6 +2,7 @@ import { blogs } from "#site/content";
 import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { notFound } from "next/navigation";
 import { DashboardTableOfContents } from "@/components/mdx/toc";
+import { FadeUp } from "@/components/fade-up";
 
 interface BlogPageParams {
   params: {
@@ -41,10 +42,12 @@ export default function BlogPage({ params }: BlogPageParams) {
           <DashboardTableOfContents toc={blog.toc} />
         </div>
       </div>
+      <FadeUp>
       <div className="mx-auto w-full min-w-0">
         <MDXContentRenderer code={blog.body} />
         <hr className="my-4 md:my-6" />
       </div>
+      </FadeUp>
     </article>
   );
 }
