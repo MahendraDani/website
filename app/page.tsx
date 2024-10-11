@@ -1,5 +1,5 @@
 import {projects} from "#site/content"
-import Link from "next/link"
+import { A } from "@/components/a";
 export default function Page() {
   return (
     <div>
@@ -11,11 +11,7 @@ export default function Page() {
       <section className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
       {projects.map((project,index)=>(
         <div key={index} className="py-2">
-          <h3 className="font-medium underline underline-offset-2">
-          <Link href={project.primaryLink} target="_blank">
-            {project.name}
-          </Link>
-          </h3>
+          <A variant={"underline"} href={project.primaryLink} className={"text-lg"}>{project.name}</A>
           <p className="pt-1">{project.abstract}</p>
         </div>
       ))}

@@ -2,21 +2,25 @@ import { cn } from "@/lib/utils";
 import Image, { type ImageProps } from "next/image";
 import { Callout } from "./callout";
 import { CodeBlock } from "./codeblock";
+import { usePathname } from "next/navigation";
+
 
 export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h1
+      <h1
       className={cn(
-        "mt-2 scroll-m-20 text-3xl font-bold tracking-tight",
+        "mt-2 text-3xl font-bold tracking-tight",
         className
       )}
       {...props}
-    />
+    >
+      {props.children}
+    </h1>
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "mt-10 scroll-m-20 pb-1 text-2xl font-semibold tracking-tight first:mt-0 mdx-heading",
+        "mt-4 scroll-m-20 pb-1 text-2xl font-semibold tracking-tight first:mt-0 mdx-heading",
         className
       )}
       {...props}
@@ -67,7 +71,7 @@ export const mdxComponents = {
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+      className={cn("leading-7 [&:not(:first-child)]:mt-4", className)}
       {...props}
     />
   ),
@@ -78,7 +82,7 @@ export const mdxComponents = {
     <ol className={cn("my-2 ml-6 list-decimal", className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
-    <li className={cn("mt-1", className)} {...props} />
+    <li className={cn("mt-1 font-giestSans", className)} {...props} />
   ),
   blockquote: ({
     className,

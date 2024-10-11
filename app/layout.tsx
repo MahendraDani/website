@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`font-giestSans relative antialiased selection:bg-[#00fff61d] selection:text-[#67ffe8d2]`}
+        className={`antialiased selection:bg-[#00fff61d] selection:text-[#67ffe8d2]`}
       >
         <ThemeProvider
           attribute="class"

@@ -8,4 +8,4 @@
 - [ ] Improve landing page and write more about yourself
 - [ ] measure view on each writing (thought/blog) ref: [nexxel](nexxel.dev)
 - [x] on scroll fade up animation component using framer motions
-- [ ] improve code block styles
+- [ ] improve code block styles -- ongoing
