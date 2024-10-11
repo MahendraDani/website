@@ -8,7 +8,7 @@ export const CodeBlock = ({
 }: React.HTMLAttributes<HTMLPreElement>) => {
   return (
     <div className="mb-4 mt-6 relative rounded-lg font-mono text-sm">
-      <div className="flex justify-end py-1 pr-3 bg-zinc-600 text-gray-300 rounded-t-lg">
+      <div className="flex justify-end py-1 pr-3 bg-zinc-600 text-gray-300 rounded-t-lg border-2 ">
         <CopyButton>{children}</CopyButton>
       </div>
       <pre
