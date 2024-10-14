@@ -3,6 +3,7 @@ import Image, { type ImageProps } from "next/image";
 import { Callout } from "./callout";
 import { CodeBlock } from "./codeblock";
 import { usePathname } from "next/navigation";
+import React, { HTMLAttributes } from "react";
 
 
 export const mdxComponents = {
@@ -140,16 +141,37 @@ export const mdxComponents = {
       {...props}
     />
   ),
-  pre: CodeBlock,
-  code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+  pre: ({ className, ...props } : React.HTMLAttributes<HTMLPreElement>) => (
+    <pre
+      className={cn(
+        "mb-4 mt-6 overflow-x-auto rounded-lg border bg-black",
+        className
+      )}
+
+      {...props}
+    />
+  ),
+  code: ({ className, ...props } : React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
         "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm",
         className
       )}
-      {...props}
+      {...props} 
     />
   ),
   Image: (props: ImageProps) => <Image {...props} alt="blog image" />,
   Callout,
 };
+
+
+// pre: CodeBlock,
+//   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+//     <code
+//       className={cn(
+//         "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm",
+//         className
+//       )}
+//       {...props}
+//     />
+//   )
