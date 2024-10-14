@@ -5,6 +5,8 @@ import { ContentWrapper } from "@/components/content-wrapper";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Navbar } from "@/components/nav/navbar";
 import { Footer } from "@/components/footer";
+import {Happy_Monkey} from "next/font/google"
+import { cn } from "@/lib/utils";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,6 +17,12 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+export const happyMonkey = Happy_Monkey({
+  subsets : ["latin"],
+  weight : "400",
+  variable : "--font-happy-monkey",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased selection:bg-[#00fff61d] selection:text-[#67ffe8d2]`}
+        className={cn(`antialiased selection:bg-[#00fff61d] selection:text-[#67ffe8d2]`, happyMonkey.className)}
       >
         <ThemeProvider
           attribute="class"

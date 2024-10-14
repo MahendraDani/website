@@ -17,7 +17,7 @@ function getThoughtFromParams({params} : PageProps){
 }
 export default function Page({params} : PageProps){
     const thought = getThoughtFromParams({params});
-    console.log(thought);
+    // console.log(thought);
     return         <MDXContentRenderer code={thought.body} />
 
 }

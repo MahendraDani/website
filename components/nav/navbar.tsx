@@ -14,7 +14,7 @@ const navMenu = [
 ];
 export const Navbar = () => {
   return (
-    <div className="w-full flex justify-between items-center">
+    <div className="w-full flex justify-between items-center border-t border-b py-2">
       <Link href={"/"}>
         <h3 className="text-xl font-medium">Mahendra Dani.</h3>
       </Link>

@@ -3,7 +3,8 @@ import { CodeBlock } from "./codeblock";
 import Image, { type ImageProps } from "next/image";
 import { Callout } from "./callout";
 import React from "react";
-
+import {happyMonkey} from "@/app/layout"
+;
 export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1

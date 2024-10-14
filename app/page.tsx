@@ -16,6 +16,8 @@ export default function Page() {
         </div>
       ))}
       </section>
+      <h2>Hi Folks</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque quia ex a amet ut voluptates error deleniti neque impedit quasi voluptas consequatur et molestias ratione velit magni ipsum, possimus suscipit veritatis. Culpa facere a dicta! Iure laboriosam vero ducimus cum laborum cupiditate debitis molestiae deserunt pariatur, alias, nobis similique magnam?</p>
     </div>
   );
 }
