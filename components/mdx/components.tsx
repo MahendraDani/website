@@ -1,27 +1,23 @@
 import { cn } from "@/lib/utils";
+import { CodeBlock } from "./codeblock";
 import Image, { type ImageProps } from "next/image";
 import { Callout } from "./callout";
-import { CodeBlock } from "./codeblock";
-import { usePathname } from "next/navigation";
-import React, { HTMLAttributes } from "react";
-
+import React from "react";
 
 export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-      <h1
+    <h1
       className={cn(
-        "mt-2 text-3xl font-bold tracking-tight",
+        "mt-2 scroll-m-20 text-4xl font-bold tracking-tight",
         className
       )}
       {...props}
-    >
-      {props.children}
-    </h1>
+    />
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "mt-4 scroll-m-20 pb-1 text-2xl font-semibold tracking-tight first:mt-0 mdx-heading",
+        "mt-10 scroll-m-20 pb-1 text-3xl font-semibold tracking-tight first:mt-0 mdx-heading",
         className
       )}
       {...props}
@@ -30,7 +26,7 @@ export const mdxComponents = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "mt-8 scroll-m-20 text-xl font-semibold tracking-tight mdx-heading",
+        "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight mdx-heading",
         className
       )}
       {...props}
@@ -39,7 +35,7 @@ export const mdxComponents = {
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cn(
-        "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
         className
       )}
       {...props}
@@ -65,14 +61,16 @@ export const mdxComponents = {
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      target="_blank"
-      className={cn("font-medium underline underline-offset-2", className)}
+      className={cn("font-medium underline underline-offset-4", className)}
       {...props}
     />
   ),
-  p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
+  p: ({
+    className,
+    ...props
+  }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-4", className)}
+      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
       {...props}
     />
   ),
@@ -83,7 +81,7 @@ export const mdxComponents = {
     <ol className={cn("my-2 ml-6 list-decimal", className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
-    <li className={cn("mt-1 font-giestSans", className)} {...props} />
+    <li className={cn("mt-1", className)} {...props} />
   ),
   blockquote: ({
     className,
@@ -103,15 +101,25 @@ export const mdxComponents = {
     ...props
   }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img className={cn("rounded-md border", className)} alt={alt} {...props} />
+    <img
+      className={cn("rounded-md border", className)}
+      alt={alt}
+      {...props}
+    />
   ),
   hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
-  table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
+  table: ({
+    className,
+    ...props
+  }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-y-auto">
       <table className={cn("w-full", className)} {...props} />
     </div>
   ),
-  tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
+  tr: ({
+    className,
+    ...props
+  }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
       className={cn("m-0 border-t p-0 even:bg-muted", className)}
       {...props}
@@ -141,37 +149,18 @@ export const mdxComponents = {
       {...props}
     />
   ),
-  pre: ({ className, ...props } : React.HTMLAttributes<HTMLPreElement>) => (
-    <pre
-      className={cn(
-        "mb-4 mt-6 overflow-x-auto rounded-lg border bg-black",
-        className
-      )}
-
-      {...props}
-    />
-  ),
-  code: ({ className, ...props } : React.HTMLAttributes<HTMLElement>) => (
+  pre: CodeBlock,
+  code: ({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm",
+        "overflow-x-auto relative rounded-sm border px-[0.3rem] py-[0.2rem] font-mono text-sm bg-black/70",
         className
       )}
-      {...props} 
-    />
+      {...props}
+    >
+      {children}
+    </code>
   ),
   Image: (props: ImageProps) => <Image {...props} alt="blog image" />,
   Callout,
 };
-
-
-// pre: CodeBlock,
-//   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-//     <code
-//       className={cn(
-//         "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm",
-//         className
-//       )}
-//       {...props}
-//     />
-//   )

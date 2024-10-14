@@ -6,8 +6,6 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import { LineElement } from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { title } from "process";
-import { metadata } from "./app/layout";
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
@@ -100,7 +98,6 @@ export default defineConfig({
       [
         rehypePrettyCode,
         {
-          theme: "one-dark-pro",
           onVisitLine(node: LineElement) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
@@ -129,3 +126,42 @@ export default defineConfig({
     remarkPlugins: [remarkMath, remarkGfm],
   },
 });
+
+
+// mdx: {
+//   rehypePlugins: [
+//     rehypeSlug,
+//     rehypeKatex,
+//     [
+//       rehypePrettyCode,
+//       {
+//         theme: "one-dark-pro",
+//         onVisitLine(node: LineElement) {
+//           // Prevent lines from collapsing in `display: grid` mode, and allow empty
+//           // lines to be copy/pasted
+//           if (node.children.length === 0) {
+//             node.properties.className?.push("hi")
+//             node.children = [{ type: "text", value: " " }];
+//           }
+//         },
+//         onVisitHighlightedLine(node: LineElement) {
+//           node.properties.className?.push("line--highlighted");
+//         },
+//         onVisitHighlightedWord(node: LineElement) {
+//           node.properties.className = ["word--highlighted"];
+//         },
+//       },
+//     ],
+//     [
+//       rehypeAutolinkHeadings,
+//       {
+//         properties: {
+//           className: ["subheading-anchor"],
+//           ariaLabel: "Link to section",
+//         },
+//       },
+//     ],
+//   ],
+
+//   remarkPlugins: [remarkMath, remarkGfm],
+// },

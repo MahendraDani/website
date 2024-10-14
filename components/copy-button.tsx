@@ -1,5 +1,6 @@
 "use client";
 
+import { Clipboard } from "lucide-react";
 import React, { useState } from "react";
 
 export const CopyButton = ({ children }: { children: React.ReactNode }) => {
@@ -38,7 +39,7 @@ export const CopyButton = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <button disabled={isCopied} onClick={copy}>
-      {isCopied ? "Copied!" : "Copy"}
+      {isCopied ? "Copied!" : <Clipboard height={12} width={12} />}
     </button>
   );
 };
