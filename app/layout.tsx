@@ -48,10 +48,10 @@ export default function RootLayout({
         >
             <div className="w-full min-h-[100vh] flex flex-col items-center">
               <div className="bg-grainy"/>
-              <ContentWrapper className={"sm:mt-20"}>
+              <ContentWrapper className={"sm:mt-12"}>
                 <Navbar />
               </ContentWrapper>
-              <ContentWrapper className="min-h-[72vh]">{children}</ContentWrapper>
+              <ContentWrapper className="min-h-[76vh]">{children}</ContentWrapper>
               <ContentWrapper className={"sm:mt-8"}>
               <Footer/>
               </ContentWrapper>

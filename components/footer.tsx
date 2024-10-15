@@ -24,7 +24,7 @@ const footerLinks = [
 ]
 export const Footer = ()=>{
     return (
-        <footer className="flex justify-between items-center border-t-[1px]">
+        <footer className="flex justify-between items-center border-t-[1px] pt-2">
             <div>
                 <p>Onto the summit</p>
             </div>
