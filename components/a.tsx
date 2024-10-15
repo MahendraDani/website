@@ -9,8 +9,8 @@ const AVariants = cva(
   {
     variants: {
       variant: {
-        default: "hover:text-sky-100/90",
-        underline : "decoration-sky-50/20 hover:decoration-sky-50/40 hover:text-sky-100/80 underline underline-offset-2",
+        default: "hover:text-paragraph/90",
+        underline : "decoration-heading-secondary/50 hover:decoration-heading hover:text-sky-100/80 underline underline-offset-2",
         colored : "text-emerald-300/80 hover:text-emerald-300",
         arrow : "text-emerald-300/80 hover:text-emerald-300"
       },

@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(`antialiased selection:bg-[#00fff61d] selection:text-[#67ffe8d2]`, happyMonkey.className)}
+        className={cn(`antialiased selection:bg-[#00fff61d] selection:text-teal-300`, happyMonkey.className)}
       >
         <ThemeProvider
           attribute="class"
@@ -51,7 +51,7 @@ export default function RootLayout({
               <ContentWrapper className={"sm:mt-12"}>
                 <Navbar />
               </ContentWrapper>
-              <ContentWrapper className="min-h-[76vh]">{children}</ContentWrapper>
+              <ContentWrapper className="min-h-[76vh] px-1">{children}</ContentWrapper>
               <ContentWrapper className={"sm:mt-8"}>
               <Footer/>
               </ContentWrapper>

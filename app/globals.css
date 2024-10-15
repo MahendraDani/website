@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
 
 /* body {
@@ -11,6 +12,14 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  p {
+    @apply text-paragraph/60
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    @apply text-heading/60
   }
 }
 
@@ -110,7 +119,7 @@
   filter: contrast(180%) brightness(100%);
   background-position: center;
   background: 
-	linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.58)),
+	linear-gradient(145deg,rgba(33, 15, 40, 0.5), rgba(36, 54, 40, 1),rgba(30, 15, 40, 0.5)),
 	url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='40' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 
 }

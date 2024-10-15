@@ -11,13 +11,11 @@ export default function Page() {
       <section className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
       {projects.map((project,index)=>(
         <div key={index} className="py-2">
-          <A variant={"underline"} href={project.primaryLink} className={"text-lg"}>{project.name}</A>
+          <A variant={"underline"} href={project.primaryLink} className={"text-lg text-heading-secondary/80 hover:text-heading"}>{project.name}</A>
           <p className="pt-1">{project.abstract}</p>
         </div>
       ))}
       </section>
-      <h2>Hi Folks</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque quia ex a amet ut voluptates error deleniti neque impedit quasi voluptas consequatur et molestias ratione velit magni ipsum, possimus suscipit veritatis. Culpa facere a dicta! Iure laboriosam vero ducimus cum laborum cupiditate debitis molestiae deserunt pariatur, alias, nobis similique magnam?</p>
     </div>
   );
 }

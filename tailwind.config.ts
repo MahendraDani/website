@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors"
 
 const config: Config = {
   darkMode: ["class"],
@@ -11,7 +12,10 @@ const config: Config = {
     extend: {
       colors: {
         background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        foreground: colors.sky,
+        heading : colors.teal[400],
+        "heading-secondary" : colors.teal[500],
+        paragraph : colors.teal[100],
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
