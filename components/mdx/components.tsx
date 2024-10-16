@@ -3,13 +3,13 @@ import { CodeBlock } from "./codeblock";
 import Image, { type ImageProps } from "next/image";
 import { Callout } from "./callout";
 import React from "react";
-import {happyMonkey} from "@/app/layout"
+import {happyMonkey} from "@/app/fonts"
 ;
 export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "mt-2 scroll-m-20 text-4xl font-bold tracking-tight",
+        "mt-8 scroll-m-20 text-4xl font-bold tracking-tight text-heading/80",
         className
       )}
       {...props}
@@ -18,7 +18,7 @@ export const mdxComponents = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "mt-10 scroll-m-20 pb-1 text-3xl font-semibold tracking-tight first:mt-0 mdx-heading",
+        "mt-6 scroll-m-20 pb-1 text-3xl font-semibold tracking-tight first:mt-0 text-heading/70",
         className
       )}
       {...props}
@@ -27,7 +27,7 @@ export const mdxComponents = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight mdx-heading",
+        "mt-5 scroll-m-20 text-2xl font-semibold tracking-tight mdx-heading text-heading/60",
         className
       )}
       {...props}
@@ -36,7 +36,7 @@ export const mdxComponents = {
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cn(
-        "mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
+        "mt-5 scroll-m-20 text-xl font-semibold tracking-tight text-heading/50",
         className
       )}
       {...props}
@@ -45,7 +45,7 @@ export const mdxComponents = {
   h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h5
       className={cn(
-        "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "mt-5 scroll-m-20 text-lg font-semibold tracking-tight text-heading/50",
         className
       )}
       {...props}
@@ -54,7 +54,7 @@ export const mdxComponents = {
   h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h6
       className={cn(
-        "mt-8 scroll-m-20 text-base font-semibold tracking-tight",
+        "mt-5 scroll-m-20 text-base font-semibold tracking-tight text-heading/50",
         className
       )}
       {...props}
@@ -62,7 +62,7 @@ export const mdxComponents = {
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium underline underline-offset-4", className)}
+      className={cn("font-medium text-heading-secondary/90 hover:text-heading", className)}
       {...props}
     />
   ),
@@ -71,18 +71,18 @@ export const mdxComponents = {
     ...props
   }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+      className={cn("leading-7 [&:not(:first-child)]:mt-3 ", className)}
       {...props}
     />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn("my-2 ml-6 list-disc", className)} {...props} />
+    <ul className={cn("my-2 ml-6 list-disc ", className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className={cn("my-2 ml-6 list-decimal", className)} {...props} />
+    <ol className={cn("my-2 ml-6 list-decimal ", className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
-    <li className={cn("mt-1", className)} {...props} />
+    <li className={cn("mt-1 ", className)} {...props} />
   ),
   blockquote: ({
     className,
@@ -154,7 +154,7 @@ export const mdxComponents = {
   code: ({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "overflow-x-auto relative rounded-sm border px-[0.3rem] py-[0.2rem] font-mono text-sm bg-black/70",
+        " overflow-x-auto relative rounded-sm border px-[0.3rem] py-[0.2rem] font-mono text-sm bg-black text-heading-secondary/90 selection:bg-blue-500",
         className
       )}
       {...props}

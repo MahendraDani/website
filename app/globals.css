@@ -14,13 +14,17 @@
     text-wrap: balance;
   }
 
-  p {
+  /* p, li {
     @apply text-paragraph/60
-  }
+  } */
 
-  h1,h2,h3,h4,h5,h6 {
+  /* a {
+    @apply text-paragraph/80
+  } */
+
+  /* h1,h2,h3,h4,h5,h6 {
     @apply text-heading/60
-  }
+  } */
 }
 
 @layer base {

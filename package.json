@@ -6,7 +6,6 @@
     "dev": "velite && next dev",
     "build": "velite && next build",
     "start": "next start",
-    "lint": "next lint",
     "velite:build": "npx velite build"
   },
   "dependencies": {
