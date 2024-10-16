@@ -8,6 +8,9 @@
 - [ ] Improve landing page and write more about yourself
 - [x] on scroll fade up animation component using framer motions
 - [x] code highlighter: improve code block styles -- ongoing
-- [ ] abstract API for blog card
+- [x] abstract API for blog card
+- [ ] write blog on reusable react components
+- [ ] write a blog/thought on why personal website?
+
 ## Later
 - [ ] measure view on each writing (thought/blog) ref: [nexxel](nexxel.dev)

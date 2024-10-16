@@ -14,5 +14,5 @@ interface MDXProps {
 
 export const MDXContentRenderer = ({ code, components }: MDXProps) => {
   const Component = useMDXComponent(code)
-  return <Component components={{ ...mdxComponents, ...components }} />
+  return <Component components={{ ...mdxComponents, ...components}} />
 }

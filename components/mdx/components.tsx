@@ -5,6 +5,8 @@ import { Callout } from "./callout";
 import React from "react";
 import { CalSans, geistMono, geistSans, happyMonkey} from "@/app/fonts"
 import { Caladea } from "next/font/google";
+import {ButtonExample} from "@/components/examples/button"
+
 
 export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -165,4 +167,5 @@ export const mdxComponents = {
   ),
   Image: (props: ImageProps) => <Image {...props} alt="blog image" />,
   Callout,
+  ButtonExample,
 };
