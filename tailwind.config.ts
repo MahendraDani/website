@@ -64,7 +64,8 @@ const config: Config = {
       fontFamily: {
         giestSans: "var(--font-geist-sans)",
         giestMono: "var(--font-geist-mono)",
-        happyMonkey : "var(--font-happy-monkey)"
+        happyMonkey : "var(--font-happy-monkey)",
+        calSans : "var(--font-cal-sans)"
       },
     },
   },

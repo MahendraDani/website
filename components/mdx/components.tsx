@@ -3,8 +3,9 @@ import { CodeBlock } from "./codeblock";
 import Image, { type ImageProps } from "next/image";
 import { Callout } from "./callout";
 import React from "react";
-import {happyMonkey} from "@/app/fonts"
-;
+import { CalSans, geistMono, geistSans, happyMonkey} from "@/app/fonts"
+import { Caladea } from "next/font/google";
+
 export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
@@ -71,7 +72,7 @@ export const mdxComponents = {
     ...props
   }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-3 ", className)}
+      className={cn("leading-7 [&:not(:first-child)]:mt-3 ",className)}
       {...props}
     />
   ),
