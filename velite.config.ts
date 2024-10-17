@@ -20,7 +20,7 @@ export const blogs = defineCollection({
       slug: s.path(),
       title: s.string().max(99),
       description: s.string().max(999),
-      date: s.string(),
+      date: s.string().datetime(),
       published: s.boolean(),
       tags: s.array(s.string()),
       body: s.mdx(),
@@ -43,7 +43,7 @@ export const thoughts = defineCollection({
     slug : s.path(),
     title : s.string(),
     description : s.string().max(999),
-    date : s.string(),
+    date : s.string().datetime(), // YYYY-MM-DDTHH:MM:SSZ
     published : s.boolean(),
     body : s.mdx(),
     toc : s.toc(),

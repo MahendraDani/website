@@ -1,7 +1,7 @@
 ---
 title: "Creating Components in React: A Step-by-Step Guide"
 description: "React is a popular JavaScript library for building user interfaces, primarily using reusable components."
-date: 07-10-2024
+date: 2024-10-07T09:00:00Z
 tags: ["react", "css", "next"]
 published: true
 authors:
@@ -86,13 +86,21 @@ export const CodeBlock = ({
 
 ---
 
-<Tabs defaultValue="account" className="w-[400px]">
+<Tabs defaultValue="preview" className="">
   <TabsList>
-    <TabsTrigger value="account">Account</TabsTrigger>
-    <TabsTrigger value="password">Password</TabsTrigger>
+    <TabsTrigger value="preview">{"Preview"}</TabsTrigger>
+    <TabsTrigger value="account">{"account.tsx"}</TabsTrigger>
+    <TabsTrigger value="password">{"password.tsx"}</TabsTrigger>
   </TabsList>
+  <TabsContent value="preview" className="">
+    <div className="h-96 flex justify-center items-center">
+      <ButtonExample size={"md"} colour={"red"}>
+    Button
+  </ButtonExample>
+    </div>
+  </TabsContent>
   <TabsContent value="account">
-    ```js
+```js
 import { CopyButton } from "../copy-button";
 import { cn } from "@/lib/utils";
 
