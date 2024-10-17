@@ -6,6 +6,7 @@ import React from "react";
 import { CalSans, geistMono, geistSans, happyMonkey} from "@/app/fonts"
 import { Caladea } from "next/font/google";
 import {ButtonExample} from "@/components/examples/button"
+import { Tabs, TabsContent, TabsList,TabsTrigger } from "../ui/tabs";
 
 
 export const mdxComponents = {
@@ -157,7 +158,7 @@ export const mdxComponents = {
   code: ({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        " overflow-x-auto relative rounded-sm border px-[0.3rem] py-[0.2rem] font-mono text-sm bg-black text-heading-secondary/90 selection:bg-blue-500",
+        " overflow-x-auto relative rounded-sm border px-[0.3rem] py-[0.2rem] font-mono text-sm bg-black/70 text-heading-secondary/90 selection:bg-blue-500",
         className
       )}
       {...props}
@@ -168,4 +169,8 @@ export const mdxComponents = {
   Image: (props: ImageProps) => <Image {...props} alt="blog image" />,
   Callout,
   ButtonExample,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
 };

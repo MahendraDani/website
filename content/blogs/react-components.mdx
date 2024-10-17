@@ -60,7 +60,6 @@ export default Greeting;
 In this example, the Greeting component takes a name prop and renders a heading displaying the greeting message.
 
 ```js
-// acme.ts
 import { CopyButton } from "../copy-button";
 import { cn } from "@/lib/utils";
 
@@ -84,6 +83,54 @@ export const CodeBlock = ({
   );
 };
 ```
+
+---
+
+<Tabs defaultValue="account" className="w-[400px]">
+  <TabsList>
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">
+    ```js
+import { CopyButton } from "../copy-button";
+import { cn } from "@/lib/utils";
+
+export const CodeBlock = ({
+  children,
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLPreElement>) => {
+  return (
+    <div className="mb-4 mt-6 relative rounded-lg font-mono text-sm">
+      <div className="flex justify-end py-1 pr-3 text-gray-300 rounded-t-lg border-2 ">
+        <CopyButton>{children}</CopyButton>
+      </div>
+      <pre
+        className={cn("overflow-x-auto bg-black py-4 rounded-b-lg", className)}
+        {...props}
+      >
+        <code>{children}</code>
+      </pre>
+    </div>
+  );
+};
+```
+  </TabsContent>
+  <TabsContent value="password">
+```js
+import React from "react";
+
+function Greeting(props) {
+return <h1>Hello, {props.name}!</h1>;
+}
+
+export default Greeting;
+```
+  </TabsContent>
+</Tabs>
+
+---
 
 <div className="flex justify-between items-center flex-wrap">
   <ButtonExample size={"md"} colour={"cyan"}>

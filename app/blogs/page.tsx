@@ -6,8 +6,8 @@ export default function Blogs() {
   return (
 
     <div>
-      {Array.from({ length: 100 }).map((_, i) => (
-        <div key={i}>
+      {/* {Array.from({ length: 100 }).map((_, i) => ( */}
+        <div>
           {blogs.map((blog, index) => {
             // TODO : Create a BlogCard component abstraction API
             return (
@@ -17,7 +17,7 @@ export default function Blogs() {
             );
           })}
         </div>
-      ))}
+      {/* ))} */}
     </div>
   );
 }
