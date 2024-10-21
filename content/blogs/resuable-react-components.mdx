@@ -1,21 +1,167 @@
 ---
-title : Are your React components really reusable?
-description : Developing reusable react components
-published : false
-tags : ["react", "ui"]
-authors : [{"name" : "Mahendra", "social" : "https://x.com/MahendraDani"}]
-date : 2024-10-16T23:00:00Z
+title: Are Your React Components Really Reusable?
+description: Developing reusable react components
+published: false
+tags: ["react", "ui"]
+authors: [{ "name": "Mahendra", "social": "https://x.com/MahendraDani" }]
+date: 2024-10-16T23:00:00Z
 ---
 
-# Introduction
+# Are Your React Components Really **_Reusable_**?
+
+According to the [react docs](https://react.dev/learn/thinking-in-react) we should start by **_thinking in React_** :
+
+> When you build a user interface with React, you will first break it apart into pieces called components. Then, you will describe the different visual states for each of your components. Finally, you will connect your components together so that the data flows through them.
+
+We have all been following this model in our mind while developing react apps and yet we end up re-writing the same code multiple times instead of using reusable components.
+But wait, do you really know the definition of _reusable components_?
+
+In React, reusable components are **self-contained**, **modular pieces** of UI that can be used multiple times within an application or across different projects.They promote **code reusability**, **maintainability**, and **efficiency**.
+
+Too complicated, right? I know.
+
+Lets understand with an example of a simple `Button` component.
+
+Requirements:
+
+- Colors : Green, Yellow, Cyan, Red and Purple
+- Size : sm, md and lg
+- Radius : sm, md and lg
+
+Let's get it out of the way that we don't need to create separate components as `GreenButton`, `RedButton`, etc as shown below.
+
+<div style={{marginTop : "1rem"}}>
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">{"preview"}</TabsTrigger>
+    <TabsTrigger value="green-button">{"green-button.tsx"}</TabsTrigger>
+    <TabsTrigger value="red-button">{"red-button.tsx"}</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <div className="bg-black/70 flex justify-center items-center" style={{height : "12rem"}}>
+      <div className="flex justify-center items-center gap-4">
+        <div>
+          <GreenButtonExample />
+        </div>
+        <div>
+          <RedButtonExample />
+        </div>
+      </div>
+    </div>
+  </TabsContent>
+  <TabsContent value="green-button">
+    ```js
+    export const GreenButton =()=>{
+      return (
+        <button className="bg-green-400 hover:bg-green-400/90 p-2 px-4 min-w-20 ease-in duration-150 text-black rounded-sm">
+          Button
+        </button>
+     )
+    }
+    ```
+  </TabsContent>
+  <TabsContent value="red-button">
+    ```js
+    export const RedButton =()=>{
+      return (
+        <button className="bg-red-400 hover:bg-red-400/90 p-2 px-4 min-w-20 ease-in duration-150 text-black rounded-sm">
+          Button
+        </button>
+     )
+    }
+    ```
+  </TabsContent>
+  </Tabs>
+</div>
+
+We can observe that with the helps of props we can combine both the components into a single component.
+
+<div style={{marginTop : "1rem"}}>
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">{"preview"}</TabsTrigger>
+    <TabsTrigger value="page">{"page.tsx"}</TabsTrigger>
+    <TabsTrigger value="button">{"button.tsx"}</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <div className="bg-black/70 flex justify-center items-center" style={{height : "12rem"}}>
+      <div className="w-full flex justify-center items-center gap-4">
+        <ButtonWithPropsExample variant={"green"}>Green</ButtonWithPropsExample>
+        <ButtonWithPropsExample variant={"red"}>Red</ButtonWithPropsExample>
+        <ButtonWithPropsExample variant={"purple"}>Purple</ButtonWithPropsExample>
+        <ButtonWithPropsExample variant={"cyan"}>Cyan</ButtonWithPropsExample>
+        <ButtonWithPropsExample variant={"yellow"}>Yellow</ButtonWithPropsExample>
+      </div>
+    </div>
+  </TabsContent>
+  <TabsContent value="page">
+    ```js
+    <div className="w-full flex justify-center items-center gap-4">
+      <Button variant={"green"}>Green</Button>
+      <Button variant={"red"}>Red</Button>
+      <Button variant={"purple"}>Purple</Button>
+      <Button variant={"cyan"}>Cyan</Button>
+      <Button variant={"yellow"}>Yellow</Button>
+    </div>
+    ```
+  </TabsContent>
+  <TabsContent value="button">
+    ```ts
+    const variants = ["red", "yellow", "green", "purple", "cyan"] as const;
+    type Variant = (typeof variants)[number];
+
+    const VARIANT_MAPS: Record<Variant, string> = {
+    red: "bg-red-400 hover:bg-red-400/90",
+    yellow: "bg-yellow-400 hover:bg-yellow-400/90",
+    green: "bg-green-400 hover:bg-green-400/90",
+    purple: "bg-purple-400 hover:bg-purple-400/90",
+    cyan: "bg-cyan-400 hover:bg-cyan-400/90",
+    };
+
+    type ButtonProps = {
+    variant: Variant;
+    children?: ReactNode;
+    };
+
+    export const Button = ({ variant, children }: ButtonProps) => {
+      return (
+        <button
+          className={cn(
+            "p-2 px-4 min-w-20 ease-in duration-150 text-black rounded-sm",
+            VARIANT_MAPS[variant]
+          )}
+        >
+          {children}
+        </button>
+      );
+    };
+    ```
+  </TabsContent>
+  </Tabs>
+</div>
+
+There are a few problems with this approach:
+- No accessibility
+- Native HTML props of `button` tag can't be used
+- States of the button can't be controlled
+- Can't use `ref` of the button
+
+## Convetion
+
+1. Atom : Fundaments Reusable components which can't be broken down further (Buttons, Checkbox)
+2. Molecules : Components derived from two or more atoms (Accordians, Modals)
+3. Compounds : Pages or screens of web app
 
 # Flow
-1. Introduction to topic : defining what "really" means by resuable components 
+
+1. Introduction to topic : defining what "really" means by resuable components
 2. Two ways of developing componens
-  - Restricted
-  - Flexible
-  - variants 
-3. Advantages and Disadvantages of both ways 
+
+- Restricted
+- Flexible
+- variants
+
+3. Advantages and Disadvantages of both ways
 4. How to really think when creating reusable react components
 5. My views
 6. Resources/References

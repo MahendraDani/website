@@ -5,7 +5,7 @@ import { Callout } from "./callout";
 import React from "react";
 import { CalSans, geistMono, geistSans, happyMonkey} from "@/app/fonts"
 import { Caladea } from "next/font/google";
-import {ButtonExample} from "@/components/examples/button"
+import {ButtonExample, GreenButtonExample, RedButtonExample, ButtonWithPropsExample} from "@/components/examples/button"
 import { Tabs, TabsContent, TabsList,TabsTrigger } from "../ui/tabs";
 
 
@@ -13,7 +13,7 @@ export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "mt-8 scroll-m-20 text-4xl font-bold tracking-tight text-heading/80",
+        "mt-6 scroll-m-20 text-3xl font-bold tracking-tight text-heading/80",
         className
       )}
       {...props}
@@ -22,7 +22,7 @@ export const mdxComponents = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "mt-6 scroll-m-20 pb-1 text-3xl font-semibold tracking-tight first:mt-0 text-heading/70",
+        "mt-5 scroll-m-20 pb-1 text-2xl font-semibold tracking-tight first:mt-0 text-heading/70",
         className
       )}
       {...props}
@@ -31,7 +31,7 @@ export const mdxComponents = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "mt-5 scroll-m-20 text-2xl font-semibold tracking-tight mdx-heading text-heading/60",
+        "mt-4 scroll-m-20 text-xl font-semibold tracking-tight mdx-heading text-heading/60",
         className
       )}
       {...props}
@@ -40,7 +40,7 @@ export const mdxComponents = {
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cn(
-        "mt-5 scroll-m-20 text-xl font-semibold tracking-tight text-heading/50",
+        "mt-3 scroll-m-20 text-xl font-semibold tracking-tight text-heading/50",
         className
       )}
       {...props}
@@ -49,7 +49,7 @@ export const mdxComponents = {
   h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h5
       className={cn(
-        "mt-5 scroll-m-20 text-lg font-semibold tracking-tight text-heading/50",
+        "mt-3 scroll-m-20 text-lg font-semibold tracking-tight text-heading/50",
         className
       )}
       {...props}
@@ -58,7 +58,7 @@ export const mdxComponents = {
   h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h6
       className={cn(
-        "mt-5 scroll-m-20 text-base font-semibold tracking-tight text-heading/50",
+        "mt-3 scroll-m-20 text-base font-semibold tracking-tight text-heading/50",
         className
       )}
       {...props}
@@ -158,7 +158,7 @@ export const mdxComponents = {
   code: ({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        " overflow-x-auto relative rounded-sm border px-[0.3rem] py-[0.2rem] font-mono text-sm bg-black/70 text-heading-secondary/90 selection:bg-blue-500",
+        "min-h-[12rem] overflow-x-auto relative rounded-sm px-[0.3rem] py-2 font-mono text-sm bg-black/70 text-heading-secondary/90 selection:bg-blue-500",
         className
       )}
       {...props}
@@ -172,5 +172,9 @@ export const mdxComponents = {
   Tabs,
   TabsContent,
   TabsList,
-  TabsTrigger
+  TabsTrigger,
+  CodeBlock,
+  GreenButtonExample,
+  RedButtonExample,
+  ButtonWithPropsExample
 };

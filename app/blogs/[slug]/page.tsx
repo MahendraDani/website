@@ -36,9 +36,9 @@ export default function BlogPage({ params }: BlogPageParams) {
           year: "numeric",
         })}
       </p> */}
-      <FadeUp delay={0.3}>
+      {/* <FadeUp delay={0.3}>
       <h1 className="text-4xl text-pretty font-bold my-3">{blog.title}</h1>
-      </FadeUp>
+      </FadeUp> */}
       {/* <div className="hidden text-sm min-[1400px]:inline-flex">
         <div className="fixed top-36 right-[100px] h-full z-50">
           <DashboardTableOfContents toc={blog.toc} />

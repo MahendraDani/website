@@ -16,7 +16,7 @@ export const Navbar = () => {
   return (
     <div className="w-full flex justify-between items-center border-t border-b px-1 py-2">
       <Link href={"/"}>
-        <h3 className="text-xl font-bold text-heading">Mahendra Dani</h3>
+        <h3 className="text-xl text-heading">Mahendra Dani</h3>
       </Link>
 
       <nav className="flex justify-center items-center gap-3">

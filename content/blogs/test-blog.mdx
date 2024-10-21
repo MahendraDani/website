@@ -1,5 +1,5 @@
 ---
-title: "Creating Components in React: A Step-by-Step Guide"
+title: "Test blog"
 description: "React is a popular JavaScript library for building user interfaces, primarily using reusable components."
 date: 2024-10-07T09:00:00Z
 tags: ["react", "css", "next"]
@@ -93,11 +93,13 @@ export const CodeBlock = ({
     <TabsTrigger value="password">{"password.tsx"}</TabsTrigger>
   </TabsList>
   <TabsContent value="preview" className="">
-    <div className="h-96 flex justify-center items-center">
+    <code>
+    <div className="h-96 bg-black/70 flex justify-center items-center">
       <ButtonExample size={"md"} colour={"red"}>
     Button
   </ButtonExample>
     </div>
+    </code>
   </TabsContent>
   <TabsContent value="account">
 ```js

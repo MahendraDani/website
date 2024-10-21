@@ -1,23 +1,30 @@
 import { blogs } from "#site/content";
 import { FadeUp } from "@/components/fade-up";
-import Post from "@/components/post";
-import Link from "next/link";
-export default function Blogs() {
-  return (
+import { ListItem } from "@/components/list-item";
+import { NotebookPen } from "lucide-react";
 
+export default function Blogs() {
+  const publishedBlogs = blogs.filter((blog)=> blog.published);
+  return (
     <div>
-      {/* {Array.from({ length: 100 }).map((_, i) => ( */}
-        <div>
-          {blogs.map((blog, index) => {
-            // TODO : Create a BlogCard component abstraction API
-            return (
-              <FadeUp key={index}>
-              <Post key={index} title={blog.title} href={`/blogs/${blog.slugAsParams}`} date={blog.date} />
-              </FadeUp>
-            );
-          })}
-        </div>
-      {/* ))} */}
+         {publishedBlogs.map((blog, index) => {
+           return (
+             <FadeUp key={index}>
+             {/* <Post key={index} title={blog.title} href={`/blogs/${blog.slugAsParams}`} date={blog.date} /> */}
+             <ListItem>
+               <ListItem.Link href={`blogs/${blog.slugAsParams}`}>
+               <ListItem.Content>
+                 <div className="flex items-center justify-between gap-4">
+                 <NotebookPen className="text-heading-secondary/60" height={15} width={15} />
+                 <ListItem.Title>{blog.title}</ListItem.Title>  
+                 </div>
+                 <ListItem.Date date={blog.date}/>
+               </ListItem.Content>
+               </ListItem.Link>
+             </ListItem>
+             </FadeUp>
+           );
+         })}
     </div>
   );
 }
