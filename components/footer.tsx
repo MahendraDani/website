@@ -7,12 +7,12 @@ const footerLinks = [
         href : "https://github.com/MahendraDani"
     },
     {
-        name : "Twitter (X)",
-        href : "https://x.com/MahendraDani09"
-    },
-    {
         name : "Linkedin",
         href : "https://linkedin.com/in/mahendra-dani"
+    },
+    {
+        name : "X",
+        href : "https://x.com/MahendraDani09"
     }
 ]
 export const Footer = ()=>{
@@ -26,7 +26,7 @@ export const Footer = ()=>{
                     <Link href={item.href} target="_blank" key={index}>
                         <div className="inline-flex justify-center items-center">
                         <p className="hover:underline underline-offset-2 text-sm text-slate-500">{item.name}</p>
-                        <span> <ArrowUpRight strokeWidth={1}  height={12} width={12} /></span>
+                        {/* <span> <ArrowUpRight strokeWidth={1}  height={12} width={12} /></span> */}
                         </div>
                     </Link>
                 ))}

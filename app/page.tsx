@@ -20,8 +20,7 @@ export default function Page() {
         </p>
         <br />
         <p>
-          My life goal is to be on wikipedia by developing something{" "}
-          {"(i don't know rn)"} that blows up the internet.
+          My goal is to be on wikipedia by developing something that blows up the internet.
         </p>
         <br />
         <p>
