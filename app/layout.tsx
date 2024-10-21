@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(`font-sans antialiased selection:bg-[#00fff61d] selection:text-teal-300 px-4 `,happyMonkey.className)}
+        className={cn(`font-sans antialiased selection:bg-[#00fff61d] selection:text-teal-300 px-4 w-[100vw] overflow-hidden `,happyMonkey.className)}
       >
         <ThemeProvider
           attribute="class"
