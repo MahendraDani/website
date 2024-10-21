@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(`font-sans antialiased selection:bg-[#00fff61d] selection:text-teal-300`,happyMonkey.className)}
+        className={cn(`font-sans antialiased selection:bg-[#00fff61d] selection:text-teal-300 px-6 `,happyMonkey.className)}
       >
         <ThemeProvider
           attribute="class"
@@ -31,13 +31,9 @@ export default function RootLayout({
         >
             <div className="w-full min-h-[100vh] flex flex-col items-center">
               <div className="bg-grainy"/>
-              <ContentWrapper className={"sm:mt-12"}>
                 <Navbar />
-              </ContentWrapper>
               <ContentWrapper className="min-h-[76vh] px-1">{children}</ContentWrapper>
-              <ContentWrapper className={"sm:mt-8"}>
               <Footer/>
-              </ContentWrapper>
             </div>
         </ThemeProvider>
       </body>

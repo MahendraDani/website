@@ -13,19 +13,11 @@ const footerLinks = [
     {
         name : "Linkedin",
         href : "https://linkedin.com/in/mahendra-dani"
-    },
-    {
-        name : "Codeforces",
-        href : ""
-    },
-    {
-        name : "Leetcode",
-        href : "https://leetcode.com/u/danimahendra0904/"
     }
 ]
 export const Footer = ()=>{
     return (
-        <footer className="flex justify-between items-center border-t-[1px] pt-2">
+        <footer className="w-[35rem] sm:w-[40rem] mt-8 flex justify-between items-center border-t-[1px] pt-2">
             <div>
                 <h3 className="text-slate-500">Onto the summit</h3>
             </div>
