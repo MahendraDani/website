@@ -7,6 +7,7 @@ import { CalSans, geistMono, geistSans, happyMonkey} from "@/app/fonts"
 import { Caladea } from "next/font/google";
 import {ButtonExample, GreenButtonExample, RedButtonExample, ButtonWithPropsExample} from "@/components/examples/button"
 import { Tabs, TabsContent, TabsList,TabsTrigger } from "../ui/tabs";
+import { ArrowUpRight, MoveUpRight } from "lucide-react";
 
 
 export const mdxComponents = {
@@ -64,11 +65,17 @@ export const mdxComponents = {
       {...props}
     />
   ),
-  a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
+  a: ({ className,children,...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium text-heading-secondary/90 hover:text-heading", className)}
+      className={cn("font-medium text-heading-secondary/70 hover:text-heading/80 underline decoration-dashed decoration-[0.8px] underline-offset-4 inline-flex items-center", className)}
+      target="_blank"
       {...props}
-    />
+    >
+
+      {children}
+      <span> <ArrowUpRight strokeWidth={1}  height={12} width={12} /></span>
+    </a>
+    
   ),
   p: ({
     className,
@@ -86,7 +93,7 @@ export const mdxComponents = {
     <ol className={cn("my-2 ml-6 list-decimal ", className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
-    <li className={cn("mt-1 ", className)} {...props} />
+    <li className={cn("", className)} {...props} />
   ),
   blockquote: ({
     className,
@@ -94,7 +101,7 @@ export const mdxComponents = {
   }: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
       className={cn(
-        "mt-6 border-l-2 pl-6 italic [&>*]:text-muted-foreground",
+        "mt-6 border-l-2 border-l-heading/60 pl-6 italic text-slate-500",
         className
       )}
       {...props}
@@ -158,7 +165,7 @@ export const mdxComponents = {
   code: ({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "min-h-[12rem] overflow-x-auto relative rounded-sm px-[0.3rem] py-2 font-mono text-sm bg-black/70 text-heading-secondary/90 selection:bg-blue-500",
+        "min-h-[12rem] border overflow-x-auto relative rounded-sm px-[0.3rem] py-1 font-mono text-sm bg-black/70 text-heading-secondary/90 selection:bg-blue-500",
         className
       )}
       {...props}

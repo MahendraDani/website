@@ -12,7 +12,7 @@ export const ListItem = ({
   return (
     <div
       className={cn(
-        "group hover:bg-[#00fff61d] p-1 m-1 ease-in-out duration-75",
+        "group hover:bg-[#00fff61d] p-1 my-1 ease-in-out duration-75",
         className
       )}
       {...props}
