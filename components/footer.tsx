@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 
 const footerLinks = [
@@ -31,7 +32,10 @@ export const Footer = ()=>{
             <div className="flex justify-between items-center gap-2">
                 {footerLinks.map((item,index)=>(
                     <Link href={item.href} target="_blank" key={index}>
+                        <div className="inline-flex justify-center items-center">
                         <p className="hover:underline underline-offset-2 text-sm text-slate-500">{item.name}</p>
+                        <span> <ArrowUpRight strokeWidth={1}  height={12} width={12} /></span>
+                        </div>
                     </Link>
                 ))}
             </div>

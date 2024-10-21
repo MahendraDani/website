@@ -31,7 +31,7 @@ export const A = ({ children,className, variant,href, ...props }: AProps) => {
     <p className={cn(AVariants({variant,className}))}>
       <Link href={href} {...props} className="inline-flex relative group">
         {children}
-        {variant === "arrow" && <ArrowUpRight height={12} width={12} className={cn("group-hover:scale-125 ease-in duration-100",{"text-emerald-300/50" : variant==="arrow"})}/>}
+        {variant === "arrow" && <ArrowUpRight height={15} width={15} className={cn("group-hover:scale-125 ease-in duration-100",{"text-emerald-300/50" : variant==="arrow"})}/>}
       </Link>
     </p>
   );

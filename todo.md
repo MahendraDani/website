@@ -9,7 +9,7 @@
 - [x] code highlighter: improve code block styles -- ongoing
 - [x] abstract API for blog card
 - [ ] write blog on reusable react components
-- [ ] why `nav-link` component?! Where's my resuable react components principle? Create a reusable link component for all link(a tag) use cases
+- [ ] why two different link components `A` and `nav-link`?! Where's my resuable react components principle? Create a reusable link component for all link(a tag) use cases
 
 # Launch checklist
 - [] update readme

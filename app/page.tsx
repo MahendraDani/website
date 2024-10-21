@@ -38,19 +38,21 @@ export default function Page() {
           </Link>
         </p>
       </div>
-      <section className="my-6 grid grid-cols-1 md:grid-cols-2 gap-2">
+
+      <section className="my-6">
+      <div>
+          <h2 className="text-xl mb-2 text-heading/70">Projects</h2>
+        </div>
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-3">
         {projects.map((project, index) => (
-          <div key={index} className="py-1 px-1 border rounded-sm">
-            <A
-              variant={"underline"}
-              href={project.primaryLink}
-              className={"text-lg text-heading-secondary/80 hover:text-heading"}
-            >
-              {project.name}
-            </A>
-            <p className="pt-1 text-sm">{project.abstract}</p>
+          <div key={index} className="py-1 px-1 border rounded-sm hover:bg-[#00fff61d] hover:border-[#00fff61d]">
+            <Link href={project.primaryLink} key={index}>
+            <p className="text-lg">{project.name}</p>
+            <p className="pt-1 text-sm text-slate-500">{project.abstract}</p>
+          </Link>
           </div>
         ))}
+      </div>
       </section>
 
       <section className="my-6">
