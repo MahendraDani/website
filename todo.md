@@ -25,3 +25,4 @@
 - [] write a thought on "About me"
 - [ ] measure view on each writing (thought/blog) ref: [nexxel](nexxel.dev)
 - [] make cards for projects -> fetch data from GitHub
+- [] Vercel analytics for website is paid (Let's make our own analytics!)
