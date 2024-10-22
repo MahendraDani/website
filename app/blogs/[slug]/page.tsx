@@ -3,6 +3,8 @@ import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { notFound } from "next/navigation";
 import { DashboardTableOfContents } from "@/components/mdx/toc";
 import { FadeUp } from "@/components/fade-up";
+import { siteConfig } from "@/configs/site.config";
+import { Metadata } from "next";
 
 interface BlogPageParams {
   params: {
@@ -25,6 +27,33 @@ function getBlogFromParam(params: { slug: string }) {
   }
   return blog;
 }
+
+export async function generateMetadata({
+  params,
+}: BlogPageParams): Promise<Metadata> {
+  const blog = getBlogFromParam(params);
+
+  if (!blog) {
+    return {};
+  }
+  return {
+    title: `${blog.title} | ${siteConfig.name} | ${siteConfig.creator.name}`,
+    description: blog.description,
+    keywords: [...blog.tags, ...siteConfig.keywords, blog.title],
+    openGraph: {
+      title: `${blog.title} | ${siteConfig.name} | ${siteConfig.creator.name}`,
+      description: blog.description,
+      type: "article",
+      url: `${siteConfig.siteUrl}/blogs/${blog.slugAsParams}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${blog.title} | ${siteConfig.name}`,
+      description: blog.description,
+    },
+  };
+}
+
 export default function BlogPage({ params }: BlogPageParams) {
   const blog = getBlogFromParam(params);
   return (
