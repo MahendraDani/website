@@ -54,7 +54,8 @@ export async function generateMetadata({
   };
 }
 
-export default function BlogPage({ params }: BlogPageParams) {
+export default async function BlogPage({ params }: BlogPageParams) {
+
   const blog = getBlogFromParam(params);
   return (
     <article className="relative max-w-3xl px-2 lg:px-0">

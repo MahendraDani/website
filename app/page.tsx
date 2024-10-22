@@ -7,6 +7,7 @@ import Image from "next/image";
 import { blogs } from "#site/content";
 import { ListItem } from "@/components/list-item";
 import { FadeUp } from "@/components/fade-up";
+import SkeletonParagraph, { SkeletonText } from "@/components/skeletons";
 
 export default function Page() {
   const latestBlogs = blogs.filter((blog) => blog.published);
@@ -37,7 +38,7 @@ export default function Page() {
           </Link>
         </p>
       </div>
-
+    
       <section className="my-6">
       <div>
           <h2 className="text-xl mb-2 text-heading/70">Projects</h2>
