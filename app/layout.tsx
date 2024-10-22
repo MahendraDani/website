@@ -6,11 +6,58 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Navbar } from "@/components/nav/navbar";
 import { Footer } from "@/components/footer";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/configs/site.config";
 import { happyMonkey } from "./fonts";
 
 export const metadata: Metadata = {
-  title: "Mahendra Dani",
-  description: "Mahendra's personal website",
+  metadataBase: new URL(siteConfig.siteUrl),
+  title: siteConfig.title,
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [
+    {
+      name: siteConfig.creator.name,
+      url: siteConfig.creator.url,
+    },
+  ],
+  creator: siteConfig.creator.name,
+
+  // icons: {
+  //   icon: "/favicon.png",
+  //   shortcut: "/favicon-16x16.png",
+  //   apple: "/apple-touch-icon.png",
+  // },
+  // OpenGraph metadata
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.siteUrl,
+    siteName: siteConfig.name,
+    // images: [
+    //   {
+    //     url: siteConfig.ogImage,
+    //     width: 1800,
+    //     height: 1000,
+    //     alt: siteConfig.name,
+    //   },
+    // ],
+    type: "website",
+    locale: "en_US",
+  },
+
+  // Twitter metadata
+  twitter: {
+    card: "summary_large_image",
+    site: siteConfig.creator.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    // images: {
+    //   url: siteConfig.ogImage,
+    //   width: 1800,
+    //   height: 1000,
+    //   alt: siteConfig.name,
+    // },
+  },
 };
 
 export default function RootLayout({
