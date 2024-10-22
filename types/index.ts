@@ -14,3 +14,22 @@ export type TSite = {
     github: string;
   }
 }
+
+export type TNavItem = {
+  title : string,
+  url : string
+}
+
+export type TPortfolio = {
+  name: string;
+  tagline: string;
+  resume: string;
+  links: {
+    twitter: string;
+    github: string;
+    linkedin: string;
+    mail: string;
+    codeforces : string,
+    leetcode : string
+  }
+}
