@@ -4,8 +4,10 @@ import { FadeUp } from "@/components/fade-up";
 import { ListItem } from "@/components/list-item";
 import { ArrowUpRight, BrainCircuit } from "lucide-react";
 import Link from "next/link";
+
 export default function Page() {
-  const publishedThoughts = thoughts.filter((thought) => thought.published);
+  const publishedThoughts = thoughts.filter((thought)=> thought.published);
+
   return (
     <div>
       <p>Hey! I understand that you want to read my thoughts. I really do! </p>

@@ -1,3 +1,8 @@
+# Todo: 22/10/2024
+- [x] render blogs and thoughts using SSG and [`generateStaticParams`](https://github.com/rudrodip/rdsx.dev/blob/main/src/app/blogs/%5Bslug%5D/page.tsx). Will SSG effect mdx components in code preview?
+- [ ] configure [sitemaps](https://nextjs.org/docs/app/api-reference/file-conventions) and metadata for SEO optimizations 
+- [ ] update velite build scripts and `next.config.ts` to render web app only after content is generated using mdx and velite
+
 # Todo
 - [x] Write about my projects in `/content/projects/**`
 - [x] Build a design system for website

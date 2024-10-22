@@ -60,7 +60,7 @@ export default function Page() {
         </div>
         <div>
           {latestBlogs.map((blog, i) => (
-              <ListItem key={i} className="border rounded-sm hover:border-[#00fff61d]">
+              <ListItem key={i} className="border rounded-sm hover:border-[#00fff61d] my-4">
                 <ListItem.Link href={`blogs/${blog.slugAsParams}`}>
                   <ListItem.Content className="px-2">
                     <div>
