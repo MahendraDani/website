@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { ContentWrapper } from "@/components/content-wrapper";
 import { ThemeProvider } from "@/components/theme/theme-provider";
@@ -21,26 +20,11 @@ export const metadata: Metadata = {
     },
   ],
   creator: siteConfig.creator.name,
-
-  // icons: {
-  //   icon: "/favicon.png",
-  //   shortcut: "/favicon-16x16.png",
-  //   apple: "/apple-touch-icon.png",
-  // },
-  // OpenGraph metadata
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
     url: siteConfig.siteUrl,
     siteName: siteConfig.name,
-    // images: [
-    //   {
-    //     url: siteConfig.ogImage,
-    //     width: 1800,
-    //     height: 1000,
-    //     alt: siteConfig.name,
-    //   },
-    // ],
     type: "website",
     locale: "en_US",
   },
@@ -51,12 +35,6 @@ export const metadata: Metadata = {
     site: siteConfig.creator.url,
     title: siteConfig.title,
     description: siteConfig.description,
-    // images: {
-    //   url: siteConfig.ogImage,
-    //   width: 1800,
-    //   height: 1000,
-    //   alt: siteConfig.name,
-    // },
   },
 };
 
@@ -68,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(`font-sans antialiased selection:bg-[#00fff61d] selection:text-teal-300 px-4 w-[100vw]`,happyMonkey.className)}
+        className={cn(`font-sans antialiased selection:bg-[#00fff61d] selection:text-teal-300 px-4 max-w-[100vw]`,happyMonkey.className)}
       >
         <ThemeProvider
           attribute="class"

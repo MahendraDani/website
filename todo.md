@@ -1,3 +1,8 @@
+# Todo : 24/10/2024
+- [x] Replace`w-[100vw]` with `max-w-[100vw]` to avoid horizontal scroll
+- [x] Publish `Push Yourself` post.
+- [ ] In-house analytics
+
 # Todo: 22/10/2024
 - [x] render blogs and thoughts using SSG and [`generateStaticParams`](https://github.com/rudrodip/rdsx.dev/blob/main/src/app/blogs/%5Bslug%5D/page.tsx). Will SSG effect mdx components in code preview?
 - [x] configure [sitemaps](https://nextjs.org/docs/app/api-reference/file-conventions) and metadata for SEO optimizations 
@@ -21,7 +26,7 @@
 - [x] refactor `PostHead` component to `ListItem` component and to display list of blogs and thoughts in `/blogs` and `/thoughts` pages
 - [x] show only `published==true` blogs and thoughts on `/blogs` and `/thoughts` pages. 
 - [x] skeleton loading for `/blogs/**` ,`/thoughts/**` pages
-- [ ] skeleton loading for `/blogs` ,`/thoughts` pages
+- [x] skeleton loading for `/blogs` ,`/thoughts` pages
 - [x] update about me on landing page
 - [x] write a hello world blog -> should I write why I created this website in this blog? or in the "About me" thought?
 - [x] ui fixes : font colors, bg colors, font sizes and hovers states
