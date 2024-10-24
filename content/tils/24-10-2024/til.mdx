@@ -1,0 +1,71 @@
+# Computer Networks
+I am reading computer networks from [Computer Networks: A Top-Down Approach](https://gaia.cs.umass.edu/kurose_ross/online_lectures.htm) and the following are my notes (raw). 
+I write in easy, no-jargon words that are easier to grasp different topics.
+
+## The Internet
+1. What is the internet?
+  - Nuts and Bolts of Internet 
+  - network of infrastructure that provides internet 
+
+## Key Terminologies
+1. **End Systems (Hosts)** : laptops, smartphones, TV, smart watches are called **End-system** or **Hosts** in a network.
+2. **Communication Links** : End systems are connected together by commnuication links and **Packet switches**.
+3. **Transmission Rate** : The rate at with data is transfered. Measured in *bits/secon*d.
+4. **Packets** : Packages of information transfered over the network. Chunks of data transported in small bundles (packets).
+  - Example : A *cargo*(data) shipment in divided in multiple *trucks*(packets) via *highways* (network).
+5. **Packet Switches: To route packet from source to destination. 
+  1. Routers
+  2. Link-layer switches
+6. **Route (Path)** :  The sequence of communication links and packet switches traversed by a packet from the sending 
+end system to the receiving end system is known as a route or path.
+7. Internet Service Provider (ISP) : Players like Jio, Airtel, AT&T, BSNL who set up infrastructure, both software and hardware, to provide internet services (connectivity to the *network*) are called ISPs.
+8. **Protocols** : The set of rules followed at each stage of data transmission on the network.
+  1. Transmission Control Protocol (TCP)
+  2. Internet Protocol (IP)
+9. **Request for Comments (RFCs)** : To resolve network and protocol design problems that faced the precursor to the Internet
+10. **Socket Interface** : End systems attached to the Internet provide a socket interface that specifies 
+how a program running on one end system asks the Internet infrastructure to deliver 
+data to a specific destination program running on another end system
+
+### Analogy with post office
+![Post office analogy](/public/static/tils/24-10-2024/analogy.png)
+
+From the above example, the following analogy can be established:
+- Sender -> Alice
+- Receiver -> Bob
+- Data -> Letter
+- Socket interface -> destination on letter, stamp in center (post-office interface)
+
+## Protocols
+**A protocol defines the format and the order of messages exchanged between two 
+or more communicating entities, as well as the actions taken on the transmission 
+and/or receipt of a message or other event.**
+
+More than *__A set of rules that govern that transmission of data on the internet__*
+
+### Analogy : Human Protocols
+After a lecture on, teacher stops to ask,
+
+- "Are there any questions" (message transmitted to, and received by all students in class who are _not sleeping_)
+- You raise your hand (transmitting an implicit message to the teacher that you want to ask question)
+- Teacher says "Yes" (transmitting message to you to ask question)
+- You then ask your question (transmitting your message to the teacher)
+- Your teacher hears your question (receiving your message) and the answers (transmitting reply to question).
+
+NOTE : If you don't understand teacher's language (can't receive teacher's message), or no one asks a question (no reply/action from receive) are also probable cases.
+
+> we see that the transmission and receipt of messages, and a set of conventional actions taken when these messages are sent and received, are at the heart  of this question-and-answer protocol
+
+### Network Protocols
+A network protocol is similar to a human protocol, except that the entities exchanging messages and taking actions are hardware or software components of some 
+device (for example, computer, smartphone, tablet, router, or other network-capable 
+device).
+
+> All activity in the Internet that involves two or more communicating remote  entities is governed by a protocol.
+Examples:
+1. For hardware implemented protocols govern flow of bits in a wire.
+2. Congestion-control protocols in end systems control the rate at which packets are transmitted between sender and receiver
+3. Protocols in routers determine a packet's path from source to destination
+
+Example : Requesting a web page on the browser
+![Proctol](/public/static/tils/24-10-2024/protocol.png)
