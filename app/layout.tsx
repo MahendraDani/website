@@ -7,8 +7,7 @@ import { Footer } from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/configs/site.config";
 import { happyMonkey } from "./fonts";
-// import { VercelAnalytics } from "@/components/vercel-analytics";
-import {Analytics} from "@vercel/analytics/next"
+import { VercelAnalytics } from "@/components/vercel-analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -62,7 +61,7 @@ export default function RootLayout({
             <div className="bg-grainy w-full min-h-[100vh]" />
             <Navbar />
             <ContentWrapper className="min-h-[76vh] px-1">
-              <Analytics/>
+              <VercelAnalytics/>
               {children}
             </ContentWrapper>
             <Footer />

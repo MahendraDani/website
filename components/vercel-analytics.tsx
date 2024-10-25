@@ -1,6 +1,5 @@
-"use client";
-import {Analytics} from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 export const VercelAnalytics = ()=>{
-  return <Analytics  />
+  return <Analytics   />
 }
