@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/configs/site.config";
 import { happyMonkey } from "./fonts";
-import { Analytics } from "@vercel/analytics/react" 
+import { VercelAnalytics } from "@/components/vercel-analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -47,22 +47,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(`font-sans antialiased selection:bg-[#00fff61d] selection:text-teal-300 px-4 max-w-[100vw]`,happyMonkey.className)}
+        className={cn(
+          `font-sans antialiased selection:bg-[#00fff61d] selection:text-teal-300 px-4 max-w-[100vw]`,
+          happyMonkey.className
+        )}
       >
-        <Analytics/>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
           forcedTheme="dark"
           disableTransitionOnChange
         >
-            <div className="w-full min-h-[100vh] flex flex-col items-center">
-              <div className="bg-grainy w-full min-h-[100vh]"/>
-                <Navbar />
-              <ContentWrapper className="min-h-[76vh] px-1">{children}
-              </ContentWrapper>
-              <Footer/>
-            </div>
+          <div className="w-full min-h-[100vh] flex flex-col items-center">
+            <div className="bg-grainy w-full min-h-[100vh]" />
+            <Navbar />
+            <ContentWrapper className="min-h-[76vh] px-1">
+              <VercelAnalytics/>
+              {children}
+            </ContentWrapper>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
