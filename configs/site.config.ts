@@ -30,6 +30,6 @@ export const siteConfig : TSite = {
   links : {
     x : "https://x.com/MahendraDani09",
     github : "https://github.com/MahendraDani"
-  }
+  },
 
 }
