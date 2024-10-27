@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Blogs | ${siteConfig.name}`,
     description:
-      "Blogs | Hey! I am Mahendra Dani, and its my personal blog where I write about my learnings, experiences, hackathons and technologies.",
+      "Hey! I am Mahendra Dani, and its my personal blog where I write about my learnings, experiences, hackathons and technologies.",
     url: `${siteConfig.siteUrl}/blogs`,
     siteName: siteConfig.name,
     type: "website",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     site: siteConfig.creator.url,
     title: `Blogs | ${siteConfig.name}`,
     description:
-     "Blogs | Hey! I am Mahendra Dani, and its my personal blog where I write about my learnings, experiences, hackathons and technologies.",
+     "Hey! I am Mahendra Dani, and its my personal blog where I write about my learnings, experiences, hackathons and technologies.",
   },
 };
 
