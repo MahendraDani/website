@@ -15,7 +15,7 @@ export default function Page() {
     <div>
       <div>
         <p>
-          Hi! I am a developer and programmer. I am learning to solve problems
+          I am a developer and programmer. I am learning to solve problems
           using computers and developing web apps for fun. I get excited by
           seeing how science is applied in real life.
         </p>
@@ -41,14 +41,14 @@ export default function Page() {
     
       <section className="my-6">
       <div>
-          <h2 className="text-xl mb-2 text-heading/70">Projects</h2>
+          <h2 className="text-xl mb-2 text-heading">Projects</h2>
         </div>
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-3">
         {projects.map((project, index) => (
-          <div key={index} className="py-1 px-1 border rounded-sm hover:bg-[#00fff61d] hover:border-[#00fff61d]">
+          <div key={index} className="p-2 px-3 border rounded-sm hover:bg-[#00fff61d] hover:border-[#00fff61d]">
             <Link href={project.primaryLink} key={index}>
-            <p className="text-lg">{project.name}</p>
-            <p className="pt-1 text-sm text-slate-500">{project.abstract}</p>
+            <h3 className="text-lg text-heading-secondary/80">{project.name}</h3>
+            <p className="pt-1 text-sm">{project.abstract}</p>
           </Link>
           </div>
         ))}
@@ -57,23 +57,23 @@ export default function Page() {
 
       <section className="my-6">
         <div>
-          <h2 className="text-xl mb-2 text-heading/70">Blogs</h2>
+          <h2 className="text-xl mb-2 text-heading">Blogs</h2>
         </div>
         <div>
           {latestBlogs.map((blog, i) => (
-              <ListItem key={i} className="border rounded-sm hover:border-[#00fff61d] my-4">
+              <ListItem key={i} className="border rounded-sm hover:border-[#00fff61d] my-2">
                 <ListItem.Link href={`blogs/${blog.slugAsParams}`}>
                   <ListItem.Content className="px-2">
                     <div>
                       <div className="flex items-center justify-start gap-2">
                         <NotebookPen
-                          className="text-heading-secondary/60"
+                          className="text-heading-secondary/80"
                           height={15}
                           width={15}
                         />
-                          <ListItem.Title className="text-left">{blog.title}</ListItem.Title>
+                          <ListItem.Title className="text-left text-heading-secondary/80">{blog.title}</ListItem.Title>
                       </div>
-                      <p className="text-sm text-slate-500">The begining of my new journey on the internet</p>
+                      <p className="text-sm font-light">The begining of my new journey on the internet</p>
                     </div>
                     <ListItem.Date date={blog.date} />
                   </ListItem.Content>

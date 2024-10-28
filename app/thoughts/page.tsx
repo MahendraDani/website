@@ -23,11 +23,11 @@ export default function Page() {
                         height={15}
                         width={15}
                       />
-                      <ListItem.Title className="text-left">
+                      <ListItem.Title className="text-left text-heading-secondary/80">
                         {thought.title}
                       </ListItem.Title>
                     </div>
-                    <p className="text-sm text-slate-500">{thought.description}</p>
+                    <p className="text-sm">{thought.description}</p>
                   </div>
                   <ListItem.Date date={thought.date} />
                 </ListItem.Content>

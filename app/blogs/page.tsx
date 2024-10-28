@@ -33,11 +33,11 @@ export default function Blogs() {
                         height={15}
                         width={15}
                       />
-                      <ListItem.Title className="text-left">
+                      <ListItem.Title className="text-left text-heading-secondary/80">
                         {blog.title}
                       </ListItem.Title>
                     </div>
-                    <p className="text-sm text-slate-500">{blog.description}</p>
+                    <p className="text-sm">{blog.description}</p>
                   </div>
                   <ListItem.Date date={blog.date} />
                 </ListItem.Content>
