@@ -1,6 +1,26 @@
+"use client";
+import { toast } from "sonner";
 import React, { ReactNode } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+
+const ReactJokes = [
+  "Why did the React developer break up? Too many dependencies!",
+  "React: Where “hello world” takes 10 imports",
+  "Writing React code is 10% logic, 90% fighting the linter",
+  "A React app without bugs is like useEffect without dependencies—rare and mysterious.",
+  "React classes retired to “pursue other hooks”",
+  "React devs don't take breaks; they just call useCallback.",
+  "In React, nothing's really lost... it's just unmounted.",
+  "useState is like coffee: you always need one more to keep going.",
+  "Props to React for keeping us functional.",
+  "In React, even our jokes are “state”-dependent!",
+];
+
+const getRandomJoke = () => {
+  const randomIndex = Math.floor(Math.random() * ReactJokes.length);
+  return ReactJokes[randomIndex];
+};
 
 const EButtonVariants = cva("p-2 ease-in duration-150 text-zinc-800/80", {
   variants: {
@@ -30,34 +50,17 @@ const EButtonVariants = cva("p-2 ease-in duration-150 text-zinc-800/80", {
   },
 });
 
-// const btnVariants = cva("",{
-//   variants : {
-//     variant : {
-//       primary : "bg-primary",
-//       secondary : "bg-secondary"
-//     },
-//     size : {
-//       default : "text-lg",
-//       large : "text-xl"
-//     }
-//   },
-//   defaultVariants : {
-//     variant : "primary",
-//     size : "large"
-//   }
-// })
-
 interface EButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof EButtonVariants> {}
 
-// export function EButton({ className, children }: EButtonProps= {}) {
-//   return <button className="">{children}</button>;
-// }
 export const ButtonExample = React.forwardRef<HTMLButtonElement, EButtonProps>(
   ({ className, children, size, colour, radius, ...props }, ref) => {
     return (
       <button
+        onClick={() => {
+          toast.info(getRandomJoke());
+        }}
         className={cn(EButtonVariants({ size, colour, radius, className }))}
         ref={ref}
         {...props}
@@ -87,6 +90,9 @@ type ButtonProps = {
 export const ButtonWithPropsExample = ({ variant, children }: ButtonProps) => {
   return (
     <button
+      onClick={() => {
+        toast.info(getRandomJoke());
+      }}
       className={cn(
         "p-2 px-4 min-w-20 ease-in duration-150 text-black rounded-sm",
         VARIANT_MAPS[variant]
@@ -99,7 +105,12 @@ export const ButtonWithPropsExample = ({ variant, children }: ButtonProps) => {
 
 export const GreenButtonExample = () => {
   return (
-    <button className="bg-green-400 hover:bg-green-400/90 p-2 px-4 min-w-20 ease-in duration-150 text-black rounded-sm">
+    <button
+      onClick={() => {
+        toast.info(getRandomJoke());
+      }}
+      className="bg-green-400 hover:bg-green-400/90 p-2 px-4 min-w-20 ease-in duration-150 text-black rounded-sm"
+    >
       Button
     </button>
   );
@@ -107,7 +118,12 @@ export const GreenButtonExample = () => {
 
 export const RedButtonExample = () => {
   return (
-    <button className="bg-red-400 hover:bg-red-400/90 p-2 px-4 min-w-20 ease-in duration-150 text-black rounded-sm">
+    <button
+      onClick={() => {
+        toast.info(getRandomJoke());
+      }}
+      className="bg-red-400 hover:bg-red-400/90 p-2 px-4 min-w-20 ease-in duration-150 text-black rounded-sm"
+    >
       Button
     </button>
   );

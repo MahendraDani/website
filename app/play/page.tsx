@@ -1,3 +1,4 @@
+"use client"
 import { ButtonExample, ButtonWithPropsExample } from "@/components/examples/button";
 import { cn } from "@/lib/utils";
 import { geistSans } from "../fonts";
@@ -6,8 +7,13 @@ import {
   GreenButtonExample,
   RedButtonExample,
 } from "@/components/examples/button";
+import { redirect } from "next/navigation";
+import { toast } from "sonner";
 
 export default function Page() {
+  if(process.env.NODE_ENV == "production"){
+    redirect("/")
+  }
   return (
     <main className="flex flex-col gap-4">
       <div className="flex justify-between items-center flex-wrap">
@@ -27,25 +33,45 @@ export default function Page() {
           Button
         </ButtonExample>
       </div>
+    <br />
+      <div className="flex justify-between items-center flex-wrap">
+        <ButtonExample size={"md"} colour={"cyan"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"md"} colour={"green"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"md"} colour={"purple"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"md"} colour={"red"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"md"} colour={"yellow"} radius={"lg"}>
+          Button
+        </ButtonExample>
+      </div>
 
       <br />
-      <div className="flex justify-center items-center gap-4">
-        <div>
-          <GreenButtonExample />
-        </div>
-        <div>
-          <RedButtonExample />
-        </div>
+      <div className="flex justify-between items-center flex-wrap">
+        <ButtonExample size={"sm"} colour={"cyan"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"sm"} colour={"green"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"sm"} colour={"purple"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"sm"} colour={"red"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"sm"} colour={"yellow"} radius={"lg"}>
+          Button
+        </ButtonExample>
       </div>
 
-
-      <div className="flex justify-start items-center gap-4">
-        <ButtonWithPropsExample variant={"green"}>Button</ButtonWithPropsExample>
-        <ButtonWithPropsExample variant={"red"}>Button</ButtonWithPropsExample>
-        <ButtonWithPropsExample variant={"purple"}>Button</ButtonWithPropsExample>
-        <ButtonWithPropsExample variant={"cyan"}>Button</ButtonWithPropsExample>
-        <ButtonWithPropsExample variant={"yellow"}>Button</ButtonWithPropsExample>
-      </div>
+      <br />
       <div className="space-x-4">
         <ButtonExample
           className={cn(
@@ -68,6 +94,9 @@ export default function Page() {
           Learn Nextjs
         </ButtonExample>
       </div>
+      <button onClick={() => toast('My first toast')}>
+        Give me a toast
+      </button>
       {/* <Tabs defaultValue="preview" className="">
   <TabsList>
     <TabsTrigger value="preview">{"Preview"}</TabsTrigger>

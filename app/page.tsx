@@ -73,7 +73,7 @@ export default function Page() {
                         />
                           <ListItem.Title className="text-left text-heading-secondary/80">{blog.title}</ListItem.Title>
                       </div>
-                      <p className="text-sm font-light">The begining of my new journey on the internet</p>
+                      <p className="text-sm font-light">{blog.description}</p>
                     </div>
                     <ListItem.Date date={blog.date} />
                   </ListItem.Content>

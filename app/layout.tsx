@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { siteConfig } from "@/configs/site.config";
 import { happyMonkey } from "./fonts";
 import { VercelAnalytics } from "@/components/vercel-analytics";
+import {Toaster} from "sonner"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -60,6 +61,7 @@ export default function RootLayout({
           <div className="w-full min-h-[100vh] flex flex-col items-center">
             <div className="bg-grainy w-full min-h-[100vh]" />
             <Navbar />
+            <Toaster richColors={true} position="top-right"/>
             <ContentWrapper className="min-h-[76vh] px-1">
               <VercelAnalytics/>
               {children}

@@ -8,6 +8,7 @@ import { Caladea } from "next/font/google";
 import {ButtonExample, GreenButtonExample, RedButtonExample, ButtonWithPropsExample} from "@/components/examples/button"
 import { Tabs, TabsContent, TabsList,TabsTrigger } from "../ui/tabs";
 import { ArrowUpRight, MoveUpRight } from "lucide-react";
+import { toast } from "sonner";
 
 
 export const mdxComponents = {
@@ -183,5 +184,6 @@ export const mdxComponents = {
   CodeBlock,
   GreenButtonExample,
   RedButtonExample,
-  ButtonWithPropsExample
+  ButtonWithPropsExample,
+  toast
 };
