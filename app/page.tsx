@@ -8,9 +8,20 @@ import { blogs } from "#site/content";
 import { ListItem } from "@/components/list-item";
 import { FadeUp } from "@/components/fade-up";
 import SkeletonParagraph, { SkeletonText } from "@/components/skeletons";
+import  dayjs from "dayjs";
 
 export default function Page() {
-  const latestBlogs = blogs.filter((blog) => blog.published);
+  const publishedBlogs = blogs
+    .filter((blog) => blog.published)
+    .sort((a, b) => {
+      const newBlogDate = dayjs(a.date);
+      const prevBlogDate = dayjs(b.date);
+      return newBlogDate.isBefore(prevBlogDate)
+        ? 1
+        : newBlogDate.isSame(prevBlogDate)
+        ? 0
+        : -1;
+    });
   return (
     <div>
       <div>
@@ -60,7 +71,7 @@ export default function Page() {
           <h2 className="text-xl mb-2 text-heading">Blogs</h2>
         </div>
         <div>
-          {latestBlogs.map((blog, i) => (
+          {publishedBlogs.map((blog, i) => (
               <ListItem key={i} className="border rounded-sm hover:border-[#00fff61d] my-2">
                 <ListItem.Link href={`blogs/${blog.slugAsParams}`}>
                   <ListItem.Content className="px-2">

@@ -60,7 +60,7 @@ export default async function BlogPage({ params }: BlogPageParams) {
   return (
     <article className="relative max-w-3xl px-2 lg:px-0">
       <FadeUp delay={0.6}>
-      <div className="mx-auto w-full min-w-0">
+      <div className="mx-auto w-[90vw] sm:w-auto min-w-0">
         <MDXContentRenderer code={blog.body} />
       </div>
       </FadeUp>

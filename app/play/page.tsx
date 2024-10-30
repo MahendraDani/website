@@ -148,6 +148,43 @@ export default Greeting;
 `}
   </TabsContent>
 </Tabs> */}
+
+<main className="p-4 flex flex-wrap flex-col justify-between items-center gap-4">
+     <div className="flex justify-between items-center flex-wrap gap-4" style={{"marginTop" : "1rem"}}>
+        <ButtonExample size={"md"} colour={"cyan"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"md"} colour={"purple"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"md"} colour={"green"}>
+          Button
+        </ButtonExample>
+      </div>
+      <div className="flex justify-between items-center flex-wrap gap-4">
+        <ButtonExample size={"md"} colour={"cyan"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"md"} colour={"purple"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"md"} colour={"green"} radius={"lg"}>
+          Button
+        </ButtonExample>
+      </div>
+      <div className="flex justify-between items-center flex-wrap gap-4 mb-[1rem]" style={{"marginBottom" : "1rem"}}>
+        <ButtonExample size={"sm"} colour={"cyan"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"sm"} colour={"purple"} radius={"lg"}>
+          Button
+        </ButtonExample>
+        <ButtonExample size={"sm"} colour={"green"} radius={"lg"}>
+          Button
+        </ButtonExample>
+      </div>
+
+   </main>
     </main>
   );
 }

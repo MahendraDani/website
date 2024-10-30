@@ -94,7 +94,7 @@ By mapping css classes for each variant with props, we constraint the use the co
   </TabsList>
   <TabsContent value="preview">
     <div className="bg-black/70 flex justify-center items-center" style={{height : "12rem"}}>
-      <div className="w-full flex justify-center items-center gap-4">
+      <div className="w-full flex flex-wrap justify-center items-center gap-4">
         <ButtonWithPropsExample variant={"green"}>Button</ButtonWithPropsExample>
         <ButtonWithPropsExample variant={"red"}>Button</ButtonWithPropsExample>
         <ButtonWithPropsExample variant={"purple"}>Button</ButtonWithPropsExample>
@@ -109,7 +109,7 @@ By mapping css classes for each variant with props, we constraint the use the co
 
     export default function Page(){
       return (
-        <div className="w-full flex justify-center items-center gap-4">
+        <div className="w-full flex flex-col flex-wrap justify-center items-center gap-4">
           <Button variant={"green"}>Button</Button>
           <Button variant={"red"}>Button</Button>
           <Button variant={"purple"}>Button</Button>
@@ -181,62 +181,40 @@ This process can be break down into three steps :
     <TabsTrigger value="button">{"button.tsx"}</TabsTrigger>
   </TabsList>
   <TabsContent value="preview">
-   <main className="p-4" style={{height : "20rem"}}>
-     <div className="flex justify-between items-center flex-wrap" style={{"marginTop" : "3rem"}}>
+<main className="p-4 flex flex-wrap flex-col justify-between items-center gap-4">
+     <div className="flex justify-between items-center flex-wrap gap-4" style={{"marginTop" : "1rem"}}>
         <ButtonExample size={"md"} colour={"cyan"}>
-          Button
-        </ButtonExample>
-        <ButtonExample size={"md"} colour={"green"}>
           Button
         </ButtonExample>
         <ButtonExample size={"md"} colour={"purple"}>
           Button
         </ButtonExample>
-        <ButtonExample size={"md"} colour={"red"}>
-          Button
-        </ButtonExample>
-        <ButtonExample size={"md"} colour={"yellow"}>
+        <ButtonExample size={"md"} colour={"green"}>
           Button
         </ButtonExample>
       </div>
-    <br />
-      <div className="flex justify-between items-center flex-wrap">
+      <div className="flex justify-between items-center flex-wrap gap-4">
         <ButtonExample size={"md"} colour={"cyan"} radius={"lg"}>
-          Button
-        </ButtonExample>
-        <ButtonExample size={"md"} colour={"green"} radius={"lg"}>
           Button
         </ButtonExample>
         <ButtonExample size={"md"} colour={"purple"} radius={"lg"}>
           Button
         </ButtonExample>
-        <ButtonExample size={"md"} colour={"red"} radius={"lg"}>
-          Button
-        </ButtonExample>
-        <ButtonExample size={"md"} colour={"yellow"} radius={"lg"}>
+        <ButtonExample size={"md"} colour={"green"} radius={"lg"}>
           Button
         </ButtonExample>
       </div>
-
-      <br />
-      <div className="flex justify-between items-center flex-wrap">
+      <div className="flex justify-between items-center flex-wrap gap-4 mb-[1rem]" style={{"marginBottom" : "1rem"}}>
         <ButtonExample size={"sm"} colour={"cyan"} radius={"lg"}>
-          Button
-        </ButtonExample>
-        <ButtonExample size={"sm"} colour={"green"} radius={"lg"}>
           Button
         </ButtonExample>
         <ButtonExample size={"sm"} colour={"purple"} radius={"lg"}>
           Button
         </ButtonExample>
-        <ButtonExample size={"sm"} colour={"red"} radius={"lg"}>
-          Button
-        </ButtonExample>
-        <ButtonExample size={"sm"} colour={"yellow"} radius={"lg"}>
+        <ButtonExample size={"sm"} colour={"green"} radius={"lg"}>
           Button
         </ButtonExample>
       </div>
-
    </main>
   </TabsContent>
   <TabsContent value="page">
@@ -245,29 +223,23 @@ This process can be break down into three steps :
 
     export default function Page(){
       return (
-        <div className="flex justify-between items-center flex-wrap">
-          <Button size={"md"} colour={"cyan"}>Button</Button>
-          <Button size={"md"} colour={"green"}>Button</Button>
-          <Button size={"md"} colour={"purple"}>Button</Button>
-          <Button size={"md"} colour={"red"}>Button</Button>
-          <Button size={"md"} colour={"yellow"}>Button</Button>
-      </div>
-        <br/>
-      <div className="flex justify-between items-center flex-wrap">
-        <Button size={"md"} colour={"cyan"} radius={"lg"}>Button</Button>
-        <Button size={"md"} colour={"green"} radius={"lg"}>Button</Button>
-        <Button size={"md"} colour={"purple"} radius={"lg"}>Button</Button>
-        <Button size={"md"} colour={"red"} radius={"lg"}>Button</Button>
-        <Button size={"md"} colour={"yellow"} radius={"lg"}>Button</Button>
-      </div>
-        <br/>
-      <div className="flex justify-between items-center flex-wrap">
-        <Button size={"sm"} colour={"cyan"} radius={"lg"}>Button</Button>
-        <Button size={"sm"} colour={"green"} radius={"lg"}>Button</Button>
-        <Button size={"sm"} colour={"purple"} radius={"lg"}>Button</Button>
-        <Button size={"sm"} colour={"red"} radius={"lg"}>Button</Button>
-        <Button size={"sm"} colour={"yellow"} radius={"lg"}>Button</Button>
-      </div>
+        <main className="p-4 flex flex-wrap flex-col justify-between items-center gap-4">
+          <div className="flex justify-between items-center flex-wrap gap-4" style={{"marginTop" : "1rem"}}>
+            <Button size={"md"} colour={"cyan"}>Button</Button>
+            <Button size={"md"} colour={"purple"}>Button</Button>
+            <Button size={"md"} colour={"green"}>Button</Button>
+          </div>
+          <div className="flex justify-between items-center flex-wrap gap-4">
+            <Button size={"md"} colour={"cyan"} radius={"lg"}>Button</Button>
+            <Button size={"md"} colour={"purple"} radius={"lg"}>Button</Button>
+            <Button size={"md"} colour={"green"} radius={"lg"}>Button</Button>
+          </div>
+          <div className="flex justify-between items-center flex-wrap gap-4 mb-[1rem]" style={{"marginBottom" : "1rem"}}>
+            <Button size={"sm"} colour={"cyan"} radius={"lg"}>Button</Button>
+            <Button size={"sm"} colour={"purple"} radius={"lg"}>Button</Button>
+            <Button size={"sm"} colour={"green"} radius={"lg"}>Button</Button>
+          </div>
+        </main>
       )
     }
     ```
@@ -340,7 +312,7 @@ Yes! Let's re-create the `Get Started` and `Learn Next.js` buttons from Next.js 
     <TabsTrigger value="page">{"page.tsx"}</TabsTrigger>
   </TabsList>
   <TabsContent value="preview">
-   <main className="p-4 flex justify-center items-center" style={{height : "20rem"}}>
+   <main className="p-4 flex justify-center items-center" style={{"height" : "10rem"}}>
      <div className="space-x-4">
         <ButtonExample
           className={
