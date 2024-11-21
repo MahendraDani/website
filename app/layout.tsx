@@ -6,7 +6,7 @@ import { Navbar } from "@/components/nav/navbar";
 import { Footer } from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/configs/site.config";
-import { CalSans, geistMono, geistSans, happyMonkey } from "./fonts";
+import { happyMonkey, handlee, splineSans, splineSansMono } from "./fonts";
 import { VercelAnalytics } from "@/components/vercel-analytics";
 import {Toaster} from "sonner"
 
@@ -50,7 +50,7 @@ export default function RootLayout({
       <body
         className={cn(
           `font-sans antialiased selection:bg-[#00fff61d] selection:text-teal-300 px-4 max-w-[100vw]`,
-          geistMono.className
+          splineSansMono.className
         )}
       >
         <ThemeProvider
