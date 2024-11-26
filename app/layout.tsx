@@ -50,7 +50,7 @@ export default function RootLayout({
       <body
         className={cn(
           `font-sans antialiased selection:bg-[#00fff61d] selection:text-teal-300 px-4 max-w-[100vw]`,
-          splineSansMono.className
+          happyMonkey.className
         )}
       >
         <ThemeProvider
