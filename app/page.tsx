@@ -21,7 +21,7 @@ export default function Page() {
         : newBlogDate.isSame(prevBlogDate)
         ? 0
         : -1;
-    });
+    }).slice(0,5);
   return (
     <div>
       <div>
