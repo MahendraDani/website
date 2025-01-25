@@ -49,17 +49,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          `font-sans antialiased selection:bg-[#00fff61d] selection:text-teal-300 px-4 max-w-[100vw]`,
-          happyMonkey.className
+          `font-sans antialiased px-4 max-w-[100vw]`,
+          splineSansMono.className
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          forcedTheme="dark"
-          disableTransitionOnChange
-        >
-          <div className="w-full min-h-[100vh] flex flex-col items-center">
-            <div className="bg-grainy w-full min-h-[100vh]" />
+          <div className="w-full flex flex-col items-center">
+            <div className="w-full" />
             <Navbar />
             <Toaster richColors={true} position="top-right"/>
             <ContentWrapper className="min-h-[76vh] px-1">
@@ -68,7 +63,6 @@ export default function RootLayout({
             </ContentWrapper>
             <Footer />
           </div>
-        </ThemeProvider>
       </body>
     </html>
   );

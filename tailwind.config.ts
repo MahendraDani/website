@@ -13,10 +13,6 @@ const config: Config = {
     extend: {
       colors: {
         background: "hsl(var(--background))",
-        foreground: colors.sky,
-        heading : colors.teal[400],
-        "heading-secondary" : colors.teal[500],
-        paragraph : colors.teal[100],
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",

@@ -12,7 +12,7 @@ export const ListItem = ({
   return (
     <div
       className={cn(
-        "group hover:bg-[#00fff61d] p-1 my-1 ease-in-out duration-75",
+        "group p-1 my-1 ease-in-out duration-75",
         className
       )}
       {...props}
@@ -63,7 +63,7 @@ type TListItemDateProps = IListDate & React.HTMLAttributes<HTMLParagraphElement>
 
 const ListItemDate  = ({date,className,...props}:TListItemDateProps)=>{
   const formattedDate = dayjs(date).format('DD-MMM-YYYY')
-  return <p className={cn("text-slate-500 text-sm text-balance min-w-[6rem]",className)} {...props}>{formattedDate}</p>
+  return <p className={cn("text-sm text-balance min-w-[6rem]",className)} {...props}>{formattedDate}</p>
 }
 ListItem.Content = ListItemContent;
 ListItem.Title = ListItemTitle;

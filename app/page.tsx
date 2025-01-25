@@ -1,13 +1,9 @@
 import { projects } from "#site/content";
-import { A } from "@/components/a";
 import { ArrowUpRight, NotebookPen } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 import { blogs } from "#site/content";
 import { ListItem } from "@/components/list-item";
-import { FadeUp } from "@/components/fade-up";
-import SkeletonParagraph, { SkeletonText } from "@/components/skeletons";
 import  dayjs from "dayjs";
 
 export default function Page() {
@@ -38,7 +34,7 @@ export default function Page() {
         <p>
           If that isn't convincing enough read my{" "}
           <Link href={"/blogs/hello-world"}>
-            <span className="font-medium text-heading-secondary/70 hover:text-heading/80 underline decoration-dashed decoration-[0.8px] underline-offset-4 inline-flex items-center">
+            <span className="font-medium underline decoration-dashed decoration-[0.8px] underline-offset-4 inline-flex items-center">
               <span>hello-world</span>
               <span>
                 {" "}
@@ -52,13 +48,13 @@ export default function Page() {
     
       <section className="my-6">
       <div>
-          <h2 className="text-xl mb-2 text-heading">Projects</h2>
+          <h2 className="text-xl mb-2 ">Projects</h2>
         </div>
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-3">
         {projects.map((project, index) => (
-          <div key={index} className="p-2 px-3 border rounded-sm hover:bg-[#00fff61d] hover:border-[#00fff61d]">
+          <div key={index} className="p-2 px-3 border rounded-sm">
             <Link href={project.primaryLink} key={index}>
-            <h3 className="text-lg text-heading-secondary/80">{project.name}</h3>
+            <h3 className="text-lg ">{project.name}</h3>
             <p className="pt-1 text-sm">{project.abstract}</p>
           </Link>
           </div>
@@ -68,21 +64,21 @@ export default function Page() {
 
       <section className="my-6">
         <div>
-          <h2 className="text-xl mb-2 text-heading">Blogs</h2>
+          <h2 className="text-xl mb-2 ">Blogs</h2>
         </div>
         <div>
           {publishedBlogs.map((blog, i) => (
-              <ListItem key={i} className="border rounded-sm hover:border-[#00fff61d] my-2">
+              <ListItem key={i} className="border rounded-sm my-2">
                 <ListItem.Link href={`blogs/${blog.slugAsParams}`}>
                   <ListItem.Content className="px-2">
                     <div>
                       <div className="flex items-center justify-start gap-2">
                         <NotebookPen
-                          className="text-heading-secondary/80"
+                          className=""
                           height={15}
                           width={15}
                         />
-                          <ListItem.Title className="text-left text-heading-secondary/80">{blog.title}</ListItem.Title>
+                          <ListItem.Title className="text-left">{blog.title}</ListItem.Title>
                       </div>
                       <p className="text-sm font-light">{blog.description}</p>
                     </div>
