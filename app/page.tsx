@@ -41,7 +41,7 @@ export default function Page() {
                 <ArrowUpRight strokeWidth={1} height={12} width={12} />
               </span>
             </span>{" "}
-            blog?
+            blog.
           </Link>
         </p>
       </div>
