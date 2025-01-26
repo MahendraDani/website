@@ -13,6 +13,10 @@
     text-wrap: balance;
   }
 
+  p {
+    @apply text-sm
+  }
+
   /* p, li {
     @apply text-paragraph/60
   } */

@@ -1,4 +1,4 @@
-import {Happy_Monkey,Spline_Sans_Mono, Spline_Sans, Handlee} from "next/font/google"
+import {Happy_Monkey,Spline_Sans_Mono, Spline_Sans, Inter} from "next/font/google"
 import localFont from "next/font/local"
 
 export const happyMonkey = Happy_Monkey({
@@ -40,9 +40,8 @@ export const splineSans = Spline_Sans({
   variable :"--font-spline-sans",
 })
 
-export const handlee = Handlee({
+export const inter = Inter({
   subsets : ["latin"],
-  weight : "400",
-  variable :"--font-handlee",
-  display : "fallback",
+  weight : ["400","500","600","700","800","900"],
+  variable : "--font-inter"
 })

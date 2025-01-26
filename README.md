@@ -5,3 +5,11 @@ My personal website.
 By [Brian Kernighan](https://youtu.be/NTfOnGZUZDk)
 
 I need to update this readme!
+
+## Redesign Checklist
+- [ ] Update `/` page layout : sidebar, main, nav and footer
+- [ ] Subtle colors, links, hover effects and animations
+- [ ] mdx -> css mapping and theme
+- [ ] codeblock theme fix
+- [ ] `/projects` page
+- [ ] appropriate fonts for the website
