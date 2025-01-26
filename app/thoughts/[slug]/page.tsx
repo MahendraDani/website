@@ -63,28 +63,30 @@ export default function Page({ params }: ThoughtPageProps) {
     return dayjs(rawDate).format("MMM D, YYYY [at] h:m a");
   };
   return (
-    // <article className="relative max-w-3xl px-2 lg:px-0">
-    //   <FadeUp delay={0.6}>
-    //   <div className="mx-auto w-full min-w-0">
-    //     <MDXContentRenderer code={thought.body} />
-    //   </div>
-    //   </FadeUp>
-    // </article>
     <FadeUp delay={0.6}>
       <div>
-        {/* <h3 className="font-bold">{formatDate(blog.date)}</h3> */}
         <article className="relative max-w-3xl px-2 lg:px-0">
           <div>
-            <h1 className="scroll-m-20 text-3xl font-bold tracking-tight lg:text-3xl [&:not(:first-child)]:mt-6">
+            <p className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
               {thought.title}
-            </h1>
-            <p className="text-muted-foreground my-2">{formatDate(thought.date)}</p>
+            </p>
+            <div className="my-2 py-1 border-t border-b border-dashed flex justify-between items-center">
+              <div className="flex justify-start items-center gap-2">
+                {thought.tags.map((tag, idx) => (
+                  <span className="bg-purple-400/70 px-2 rounded-md" key={idx}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <p className="text-muted-foreground">
+                {formatDate(thought.date)}
+              </p>
+            </div>
           </div>
           <div className="mx-auto sm:w-auto min-w-0">
             <MDXContentRenderer code={thought.body} />
           </div>
         </article>
-        <hr className="mb-2" />
       </div>
     </FadeUp>
   );

@@ -1,8 +1,7 @@
 import { blogs } from "#site/content";
 import dayjs from "dayjs";
-import { FadeUp } from "@/components/fade-up";
 import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
-import { formatDate } from "@/lib/date";
+import { A } from "@/components/a";
 
 export default function Page() {
   const publishedBlogs = blogs
@@ -51,18 +50,25 @@ export default function Page() {
 
     <div className="flex flex-col justify-start gap-2">
       {publishedBlogs.slice(0, 3).map((blog, idx) => (
-        <FadeUp key={idx} delay={0.6}>
-          <div>
-            {/* <h3 className="font-bold">{formatDate(blog.date)}</h3> */}
+          <div key={idx}>
             <article className="relative max-w-3xl px-2 lg:px-0">
               <div>
-                <h1 className="scroll-m-20 text-3xl font-bold tracking-tight lg:text-3xl [&:not(:first-child)]:mt-6">
-                  {blog.title}
-                </h1>
+                <A
+                  href={`/blogs/${blog.slugAsParams}`}
+                  variant={"underline"}
+                  className="text-black"
+                >
+                  <span className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
+                    {blog.title}
+                  </span>
+                </A>
                 <div className="my-2 py-1 border-t border-b border-dashed flex justify-between items-center">
                   <div className="flex justify-start items-center gap-2">
                     {blog.tags.map((tag, idx) => (
-                      <span className="bg-secondary px-2 rounded-md" key={idx}>
+                      <span
+                        className="bg-emerald-400/60 px-2 rounded-md"
+                        key={idx}
+                      >
                         {tag}
                       </span>
                     ))}
@@ -76,9 +82,8 @@ export default function Page() {
                 <MDXContentRenderer code={blog.body} />
               </div>
             </article>
-            <hr className="my-6" />
+            <hr className="mt-6 mb-2 border-black/70" />
           </div>
-        </FadeUp>
       ))}
     </div>
   );

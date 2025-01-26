@@ -9,9 +9,11 @@ I need to update this readme!
 ## Redesign Checklist
 - [x] Update `/` page layout : sidebar, main, nav and footer
 - [x] unifiy link component to support internal, external links, nav links and footer links using a simple component
-- [ ] do something about headings - they just don't stand out from normal texts
-- [ ] Subtle colors, links, hover effects and animations
-- [ ] mdx -> css mapping and theme
-- [ ] codeblock theme fix
+- [x] do something about headings - they just don't stand out from normal texts
+- [x] Subtle colors, links, hover effects and animations
+- [x] mdx -> css mapping and theme
+- [x] codeblock theme fix
 - [ ] `/projects` page
-- [ ] appropriate fonts for the website
+- [ ] responsive nav on mobile
+- [ ] `/abouts` page
+- [x] appropriate fonts for the website (splineSans Mono)

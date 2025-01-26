@@ -54,6 +54,7 @@ export const thoughts = defineCollection({
     excerpt : s.excerpt(),
     metadata : s.metadata(),
     markdown : s.markdown(),
+    tags: s.array(s.string()),
   }).transform(computedFields)
 })
 
