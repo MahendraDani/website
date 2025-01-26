@@ -16,7 +16,7 @@ export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "mt-6 scroll-m-20 text-3xl font-bold tracking-tight text-heading/80",
+        "mt-3 scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl",
         className
       )}
       {...props}
@@ -25,7 +25,7 @@ export const mdxComponents = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "mt-5 scroll-m-20 pb-1 text-2xl font-semibold tracking-tight first:mt-0 text-heading/70",
+        "mt-2 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -34,7 +34,7 @@ export const mdxComponents = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "mt-4 scroll-m-20 text-xl font-semibold tracking-tight mdx-heading text-heading/60",
+        "mt-2 scroll-m-20 text-2xl font-semibold tracking-tight",
         className
       )}
       {...props}
@@ -43,7 +43,7 @@ export const mdxComponents = {
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cn(
-        "mt-3 scroll-m-20 text-xl font-semibold tracking-tight text-heading/50",
+        "scroll-m-20 text-xl font-semibold tracking-tight",
         className
       )}
       {...props}
@@ -69,7 +69,7 @@ export const mdxComponents = {
   ),
   a: ({className,children,...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium text-heading-secondary/70 hover:text-heading/80 underline decoration-dashed decoration-[0.8px] underline-offset-4 inline-flex items-center", className)}
+      className={cn("font-medium text-blue-700/70 hover:text-blue-800 underline decoration-dashed decoration-[1px] underline-offset-4 inline-flex items-center py-1 text-wrap", className)}
       target="_blank"
       {...props}
     >
@@ -82,12 +82,12 @@ export const mdxComponents = {
     ...props
   }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={cn("leading-7  [&:not(:first-child)]:my-2",className)}
+      className={cn("leading-7 [&:not(:first-child)]:mt-2",className)}
       {...props}
     />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn("my-2 ml-6 list-disc ", className)} {...props} />
+    <ul className={cn("my-2 ml-6 list-disc [&>li]:mt-2", className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
     <ol className={cn("my-2 ml-6 list-decimal ", className)} {...props} />
@@ -101,7 +101,7 @@ export const mdxComponents = {
   }: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
       className={cn(
-        "mt-6 border-l-2 border-l-heading/60 pl-6 italic text-slate-500",
+        "mt-6 border-l-4 pl-6 text-muted-foreground",
         className
       )}
       {...props}
@@ -163,13 +163,16 @@ export const mdxComponents = {
   ),
   pre: CodeBlock,
   code: ({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <code
-      className={cn(
-        "min-h-[12rem] border overflow-x-auto relative rounded-sm px-[0.3rem] py-1 font-mono text-sm bg-black/70 text-heading-secondary/90 selection:bg-blue-500",
-        className
-      )}
-      {...props}
-    >
+    // <code
+    //   className={cn(
+    //     "min-h-[12rem] border overflow-x-auto relative rounded-sm px-[0.3rem] py-1 font-mono text-sm bg-black/70 text-heading-secondary/90 selection:bg-blue-500",
+    //     className
+    //   )}
+    //   {...props}
+    // >
+    //   {children}
+    // </code>
+    <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
       {children}
     </code>
   ),
