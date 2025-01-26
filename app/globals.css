@@ -13,7 +13,7 @@
     text-wrap: balance;
   }
 
-  p {
+  p,a,li,ul,span {
     @apply text-sm
   }
 
@@ -93,7 +93,7 @@
 
 }
 
-/* .underLine {
+.underLine {
   background-size: 100% 1px;
   background-position: 0 1.25rem;
   background-repeat: no-repeat;
@@ -101,7 +101,7 @@
     rgba(108, 122, 137, 10) 90%,
     rgba(108, 122, 137, 10)
   );
-} */
+}
 
 /* .underLine:hover {
   background-image: linear-gradient(

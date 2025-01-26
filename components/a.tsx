@@ -10,7 +10,7 @@ const AVariants = cva(
     variants: {
       variant: {
         default: "hover:text-paragraph/90",
-        underline : "decoration-heading-secondary/50 hover:decoration-heading hover:text-sky-100/80 underline underline-offset-2",
+        underline : "text-black/60 hover:text-black underline decoration-dashed decoration-[0.8px] underline-offset-4 hover",
         colored : "text-emerald-300/80 hover:text-emerald-300",
         arrow : "text-emerald-300/80 hover:text-emerald-300"
       },
@@ -29,7 +29,7 @@ type AProps = {
 export const A = ({ children,className, variant,href, ...props }: AProps) => {
   return (
     <p className={cn(AVariants({variant,className}))}>
-      <Link href={href} {...props} className="inline-flex relative group">
+      <Link href={href} {...props} className="relative group text-balance">
         {children}
         {variant === "arrow" && <ArrowUpRight height={15} width={15} className={cn("group-hover:scale-125 ease-in duration-100",{"text-emerald-300/50" : variant==="arrow"})}/>}
       </Link>
