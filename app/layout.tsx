@@ -54,7 +54,7 @@ export default function RootLayout({
           <Toaster richColors={true} position="top-right" />
           <ContentWrapper className="min-h-[76vh] px-1">
             <VercelAnalytics />
-            <div className="flex gap-4 ">
+            <div className="flex gap-6">
               <Sidebar />
               <div className="w-full sm:w-3/4">
                 {children}
