@@ -12,7 +12,7 @@ export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "mt-3 scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl",
+        "scroll-m-20 text-3xl font-bold tracking-tight lg:text-4xl [&:not(:first-child)]:mt-6",
         className
       )}
       {...props}
@@ -21,7 +21,7 @@ export const mdxComponents = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "mt-2 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
+        "scroll-m-20 mt-4 text-2xl font-semibold tracking-tight",
         className
       )}
       {...props}
@@ -30,7 +30,7 @@ export const mdxComponents = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "mt-2 scroll-m-20 text-2xl font-semibold tracking-tight",
+        "mt-2 scroll-m-20 text-2xl font-medium tracking-tight",
         className
       )}
       {...props}
@@ -83,10 +83,10 @@ export const mdxComponents = {
     />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn("my-1 ml-6 list-disc [&>li]:mt-2", className)} {...props} />
+    <ul className={cn("my-1 ml-6 list-disc [&>li]:mt-1", className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className={cn("my-1 ml-6 list-decimal ", className)} {...props} />
+    <ol className={cn("my-1 ml-6 list-decimal", className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
     <li className={cn("", className)} {...props} />

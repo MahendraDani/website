@@ -15,7 +15,7 @@ export const Sidebar = () => {
         {blogs.map((blog, idx) => (
           <SidebarLink
             key={idx}
-            slug={blog.slugAsParams}
+            slug={`/blogs/${blog.slugAsParams}`}
             title={blog.title}
             date={blog.date}
           />
@@ -26,7 +26,7 @@ export const Sidebar = () => {
         {thoughts.map((thought, idx) => (
           <SidebarLink
             key={idx}
-            slug={thought.slugAsParams}
+            slug={`/thoughts/${thought.slugAsParams}`}
             title={thought.title}
             date={thought.date}
           />
@@ -48,7 +48,7 @@ function SidebarLink({
   const formattedDate = formatDate(date);
   return (
     <div>
-      <A variant={"underline"} href={`/blogs/${slug}`}>
+      <A variant={"underline"} href={slug}>
         {title}
       </A>
     </div>
