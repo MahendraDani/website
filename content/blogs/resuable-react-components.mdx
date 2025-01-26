@@ -44,7 +44,7 @@ Let's get it out of the way that we don't need to create separate components as 
     <TabsTrigger value="red-button">{"red-button.tsx"}</TabsTrigger>
   </TabsList>
   <TabsContent value="preview">
-    <div className="bg-black/70 flex justify-center items-center" style={{height : "12rem"}}>
+    <div className="flex justify-center items-center" style={{height : "12rem"}}>
       <div className="flex justify-center items-center gap-4">
         <div>
           <GreenButtonExample />
@@ -91,7 +91,7 @@ By mapping css classes for each variant with props, we constraint the use the co
     <TabsTrigger value="button">{"button.tsx"}</TabsTrigger>
   </TabsList>
   <TabsContent value="preview">
-    <div className="bg-black/70 flex justify-center items-center" style={{height : "12rem"}}>
+    <div className="flex justify-center items-center" style={{height : "12rem"}}>
       <div className="w-full flex flex-wrap justify-center items-center gap-4">
         <ButtonWithPropsExample variant={"green"}>Button</ButtonWithPropsExample>
         <ButtonWithPropsExample variant={"red"}>Button</ButtonWithPropsExample>

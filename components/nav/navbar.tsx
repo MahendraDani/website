@@ -5,13 +5,21 @@ import Image from "next/image";
 
 const navMenu = [
   {
+    name: "about",
+    href: "/about",
+  },
+  {
+    name: "projects",
+    href: "/projects",
+  },
+  {
     name: "blogs",
     href: "/blogs",
   },
   {
     name: "thoughts",
     href: "/thoughts",
-  }
+  },
 ];
 export const Navbar = () => {
   return (
