@@ -17,6 +17,10 @@ export default function Page() {
         : -1;
     })
     .slice(0, 5);
+
+  const formatDate = (rawDate: string) => {
+    return dayjs(rawDate).format("MMM D, YYYY [at] h:m a");
+  };
   return (
     // <div>
     //   <div>
@@ -51,11 +55,28 @@ export default function Page() {
           <div>
             {/* <h3 className="font-bold">{formatDate(blog.date)}</h3> */}
             <article className="relative max-w-3xl px-2 lg:px-0">
+              <div>
+                <h1 className="scroll-m-20 text-3xl font-bold tracking-tight lg:text-3xl [&:not(:first-child)]:mt-6">
+                  {blog.title}
+                </h1>
+                <div className="my-2 py-1 border-t border-b border-dashed flex justify-between items-center">
+                  <div className="flex justify-start items-center gap-2">
+                    {blog.tags.map((tag, idx) => (
+                      <span className="bg-secondary px-2 rounded-md" key={idx}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground">
+                    {formatDate(blog.date)}
+                  </p>
+                </div>
+              </div>
               <div className="mx-auto sm:w-auto min-w-0">
                 <MDXContentRenderer code={blog.body} />
               </div>
             </article>
-            <hr className="mb-2"/>
+            <hr className="my-6" />
           </div>
         </FadeUp>
       ))}
