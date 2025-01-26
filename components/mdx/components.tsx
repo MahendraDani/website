@@ -3,14 +3,10 @@ import { CodeBlock } from "./codeblock";
 import Image, { type ImageProps } from "next/image";
 import { Callout } from "./callout";
 import React from "react";
-import { CalSans, geistMono, geistSans, happyMonkey} from "@/app/fonts"
-import { Caladea } from "next/font/google";
 import {ButtonExample, GreenButtonExample, RedButtonExample, ButtonWithPropsExample} from "@/components/examples/button"
 import { Tabs, TabsContent, TabsList,TabsTrigger } from "../ui/tabs";
-import { ArrowUpRight, MoveUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { toast } from "sonner";
-import {A} from "@/components/a"
-
 
 export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -82,15 +78,15 @@ export const mdxComponents = {
     ...props
   }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-2",className)}
+      className={cn("leading-6 my-1 [&:not(:first-child)]:mt-2",className)}
       {...props}
     />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn("my-2 ml-6 list-disc [&>li]:mt-2", className)} {...props} />
+    <ul className={cn("my-1 ml-6 list-disc [&>li]:mt-2", className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className={cn("my-2 ml-6 list-decimal ", className)} {...props} />
+    <ol className={cn("my-1 ml-6 list-decimal ", className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
     <li className={cn("", className)} {...props} />
@@ -101,7 +97,7 @@ export const mdxComponents = {
   }: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
       className={cn(
-        "mt-6 border-l-4 pl-6 text-muted-foreground",
+        "my-3 border-l-4 pl-4 text-muted-foreground",
         className
       )}
       {...props}
