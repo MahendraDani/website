@@ -8,7 +8,8 @@ I need to update this readme!
 
 ## Redesign Checklist
 - [x] Update `/` page layout : sidebar, main, nav and footer
-- [ ] unifiy link component to support internal, external links, nav links and footer links using a simple component
+- [x] unifiy link component to support internal, external links, nav links and footer links using a simple component
+- [ ] do something about headings - they just don't stand out from normal texts
 - [ ] Subtle colors, links, hover effects and animations
 - [ ] mdx -> css mapping and theme
 - [ ] codeblock theme fix

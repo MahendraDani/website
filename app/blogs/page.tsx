@@ -19,29 +19,22 @@ export default function Blogs() {
     });
   return (
     <div>
-      {publishedBlogs.map((blog, index) => {
+      <div>
+        <h3>blogs</h3>
+        <hr className="my-1" />
+      </div>
+      {publishedBlogs.map((blog, idx) => {
         return (
-          <FadeUp key={index}>
-            {/* <Post key={index} title={blog.title} href={`/blogs/${blog.slugAsParams}`} date={blog.date} /> */}
-            <ListItem className="my-2 rounded-sm">
-              <ListItem.Link href={`blogs/${blog.slugAsParams}`}>
-                <ListItem.Content className="text-balance">
-                  <div>
-                    <div className="flex items-center justify-start gap-2">
-                      <NotebookPen
-                        className="text-heading-secondary/60"
-                        height={15}
-                        width={15}
-                      />
-                      <ListItem.Title className="text-left text-heading-secondary/80">
-                        {blog.title}
-                      </ListItem.Title>
-                    </div>
-                    <p className="text-sm">{blog.description}</p>
-                  </div>
-                  <ListItem.Date date={blog.date} />
-                </ListItem.Content>
-              </ListItem.Link>
+          <FadeUp key={idx}>
+            <ListItem>
+              <ListItem.Content className="text-balance">
+                <ListItem.Date date={blog.date} />
+                <ListItem.Link href={`blogs/${blog.slugAsParams}`}>
+                  <ListItem.Title className="text-left hover:text-blue-700 underline underline-offset-4">
+                    {blog.title}
+                  </ListItem.Title>
+                </ListItem.Link>
+              </ListItem.Content>
             </ListItem>
           </FadeUp>
         );

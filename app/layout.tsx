@@ -56,7 +56,7 @@ export default function RootLayout({
             <VercelAnalytics />
             <div className="flex gap-4 ">
               <Sidebar />
-              <div className="w-full sm:w-3/4 p-2">
+              <div className="w-full sm:w-3/4">
                 {children}
               </div>
             </div>

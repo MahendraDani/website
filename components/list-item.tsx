@@ -12,7 +12,7 @@ export const ListItem = ({
   return (
     <div
       className={cn(
-        "group p-1 my-1 ease-in-out duration-75",
+        "group ease-in-out duration-75",
         className
       )}
       {...props}
@@ -28,7 +28,7 @@ const ListItemContent = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>)=> {
   return (
-    <div className={cn("flex justify-between items-center",className)} {...props}>
+    <div className={cn("flex justify-start items-center gap-2 py-1",className)} {...props}>
       {children}
     </div>
   );

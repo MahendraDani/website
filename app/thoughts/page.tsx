@@ -1,37 +1,28 @@
 import { thoughts } from "#site/content";
-import { Date } from "@/components/date";
 import { FadeUp } from "@/components/fade-up";
 import { ListItem } from "@/components/list-item";
-import { ArrowUpRight, BrainCircuit } from "lucide-react";
-import Link from "next/link";
 
 export default function Page() {
-  const publishedThoughts = thoughts.filter((thought)=> thought.published);
+  const publishedThoughts = thoughts.filter((thought) => thought.published);
 
   return (
     <div>
-      {publishedThoughts.map((thought, index) => {
+      <div>
+        <h3>thoughts</h3>
+        <hr className="my-1" />
+      </div>
+      {publishedThoughts.map((thought, idx) => {
         return (
-          <FadeUp key={index}>          
-            <ListItem className="my-2 rounded-sm">
-              <ListItem.Link href={`thoughts/${thought.slugAsParams}`}>
-                <ListItem.Content className="text-balance">
-                  <div>
-                    <div className="flex items-center justify-start gap-2">
-                      <BrainCircuit
-                        className="text-heading-secondary/60"
-                        height={15}
-                        width={15}
-                      />
-                      <ListItem.Title className="text-left text-heading-secondary/80">
-                        {thought.title}
-                      </ListItem.Title>
-                    </div>
-                    <p className="text-sm">{thought.description}</p>
-                  </div>
-                  <ListItem.Date date={thought.date} />
-                </ListItem.Content>
-              </ListItem.Link>
+          <FadeUp key={idx}>
+            <ListItem className="">
+              <ListItem.Content className="text-balance">
+                <ListItem.Date date={thought.date} />
+                <ListItem.Link href={`thoughts/${thought.slugAsParams}`}>
+                  <ListItem.Title className="text-left hover:text-blue-700 underline underline-offset-4">
+                    {thought.title}
+                  </ListItem.Title>
+                </ListItem.Link>
+              </ListItem.Content>
             </ListItem>
           </FadeUp>
         );
