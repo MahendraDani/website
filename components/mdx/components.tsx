@@ -9,6 +9,7 @@ import {ButtonExample, GreenButtonExample, RedButtonExample, ButtonWithPropsExam
 import { Tabs, TabsContent, TabsList,TabsTrigger } from "../ui/tabs";
 import { ArrowUpRight, MoveUpRight } from "lucide-react";
 import { toast } from "sonner";
+import {A} from "@/components/a"
 
 
 export const mdxComponents = {
@@ -66,17 +67,15 @@ export const mdxComponents = {
       {...props}
     />
   ),
-  a: ({ className,children,...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
+  a: ({className,children,...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
       className={cn("font-medium text-heading-secondary/70 hover:text-heading/80 underline decoration-dashed decoration-[0.8px] underline-offset-4 inline-flex items-center", className)}
       target="_blank"
       {...props}
     >
-
       {children}
       <span> <ArrowUpRight strokeWidth={1}  height={12} width={12} /></span>
-    </a>
-    
+    </a>   
   ),
   p: ({
     className,

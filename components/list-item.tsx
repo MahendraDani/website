@@ -62,7 +62,7 @@ interface IListDate {
 type TListItemDateProps = IListDate & React.HTMLAttributes<HTMLParagraphElement>;
 
 const ListItemDate  = ({date,className,...props}:TListItemDateProps)=>{
-  const formattedDate = dayjs(date).format('DD-MMM-YYYY')
+  const formattedDate = dayjs(date).format('MMM DD, YYYY')
   return <p className={cn("text-sm text-balance min-w-[6rem]",className)} {...props}>{formattedDate}</p>
 }
 ListItem.Content = ListItemContent;

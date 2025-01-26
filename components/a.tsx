@@ -10,28 +10,48 @@ const AVariants = cva(
     variants: {
       variant: {
         default: "hover:text-paragraph/90",
-        underline : "text-black/60 hover:text-black underline decoration-dashed decoration-[0.8px] underline-offset-4 hover",
-        colored : "text-emerald-300/80 hover:text-emerald-300",
-        arrow : "text-emerald-300/80 hover:text-emerald-300"
+        underline:
+          "text-blue-700/70 hover:text-blue-800 underline decoration-dashed decoration-[1px] underline-offset-4",
+        colored: "text-emerald-300/80 hover:text-emerald-300",
+        arrow: "text-emerald-300/80 hover:text-emerald-300",
       },
     },
     defaultVariants: {
       variant: "default",
     },
   }
-)
+);
 
 type AProps = {
   children: ReactNode;
-  className ?: string
-} & LinkProps & VariantProps<typeof AVariants>;
+  className?: string;
+} & LinkProps &
+  VariantProps<typeof AVariants>;
 
-export const A = ({ children,className, variant,href, ...props }: AProps) => {
+export const A = ({ children, className, variant, href, ...props }: AProps) => {
+  let isExternal = false;
+  if(!href.toString().startsWith("/")){
+    if(process.env.NODE_ENV==="production"){
+      if(!href.toString().includes("mahendradani.vercel.app")){
+        isExternal = true;
+      }
+    }else{
+      if(!href.toString().includes("localhost")){
+        isExternal = true;
+      }
+    }
+  }
   return (
-    <p className={cn(AVariants({variant,className}))}>
+    <p className={cn(AVariants({ variant, className }))}>
       <Link href={href} {...props} className="relative group text-balance">
         {children}
-        {variant === "arrow" && <ArrowUpRight height={15} width={15} className={cn("group-hover:scale-125 ease-in duration-100",{"text-emerald-300/50" : variant==="arrow"})}/>}
+        <span>{isExternal && (
+          <ArrowUpRight
+            height={15}
+            width={15}
+            className={cn("group-hover:scale-125 ease-in duration-100")}
+          />
+        )}</span>
       </Link>
     </p>
   );

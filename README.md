@@ -7,7 +7,8 @@ By [Brian Kernighan](https://youtu.be/NTfOnGZUZDk)
 I need to update this readme!
 
 ## Redesign Checklist
-- [ ] Update `/` page layout : sidebar, main, nav and footer
+- [x] Update `/` page layout : sidebar, main, nav and footer
+- [ ] unifiy link component to support internal, external links, nav links and footer links using a simple component
 - [ ] Subtle colors, links, hover effects and animations
 - [ ] mdx -> css mapping and theme
 - [ ] codeblock theme fix

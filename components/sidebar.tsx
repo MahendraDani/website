@@ -8,7 +8,8 @@ export const Sidebar = () => {
   return (
     <aside className="hidden sm:flex w-1/4 flex-col justify-start gap-4">
       <div>
-        <h3 className="mb-1">Blogs</h3>
+        <h3 className="font-medium">blogs</h3>
+        <hr className="mb-1" />
         <div className="flex flex-col justify-start items-start gap-1">
           {blogs.map((blog, idx) => (
             <SidebarLink
@@ -22,7 +23,8 @@ export const Sidebar = () => {
       </div>
 
       <div>
-        <h3 className="mb-1">Thoughts</h3>
+        <h3 className="font-medium">thoughts</h3>
+        <hr className="mb-1"/>
         <div className="flex flex-col justify-start items-start gap-1">
           {thoughts.map((thought, idx) => (
             <SidebarLink
@@ -53,7 +55,6 @@ function SidebarLink({
       <A variant={"underline"} href={`/blogs/${slug}`}>
         {title}
       </A>
-      {/* <span>{" "} - {formattedDate}</span> */}
     </div>
   );
 }
