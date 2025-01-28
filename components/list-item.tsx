@@ -51,7 +51,7 @@ interface IListItemLinkChildren {
 }
 
 type ListItemLinkProps = IListItemLinkChildren & LinkProps;
-const ListItemLink = ({children ,href,...props} : ListItemLinkProps)=>{
+const ListItemLink = ({children,href,...props} : ListItemLinkProps)=>{
   return <Link href={href} {...props}>{children}</Link>
 }
 

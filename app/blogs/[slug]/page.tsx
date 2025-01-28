@@ -59,7 +59,7 @@ export async function generateMetadata({
 export default async function BlogPage({ params }: BlogPageParams) {
   const blog = getBlogFromParam(params);
   const formatDate = (rawDate: string) => {
-    return dayjs(rawDate).format("MMM D, YYYY [at] h:m a");
+    return dayjs(rawDate).format("MMM D, YYYY [at] H:M a");
   };
   return (
     <FadeUp delay={0.6}>

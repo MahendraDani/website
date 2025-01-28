@@ -60,7 +60,7 @@ export async function generateMetadata({
 export default function Page({ params }: ThoughtPageProps) {
   const thought = getThoughtFromParams({ params });
   const formatDate = (rawDate: string) => {
-    return dayjs(rawDate).format("MMM D, YYYY [at] h:m a");
+    return dayjs(rawDate).format("MMM D, YYYY [at] H:M a");
   };
   return (
     <FadeUp delay={0.6}>
