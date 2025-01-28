@@ -23,7 +23,7 @@ About page
 - [x] me, myself and my education, my skills
 - [ ] my knowledge
 - [ ] hobbies
-- [ ] projects
+- [ ] projects - write good descriptions of project
 - [ ] hackathons
 - [ ] certifications
 - [ ] open source contributions

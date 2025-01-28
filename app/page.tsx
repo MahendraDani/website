@@ -51,7 +51,7 @@ export default function Page() {
 
     <div className="flex flex-col justify-start gap-2">
       {publishedBlogs.slice(0, 3).map((blog, idx) => (
-          <FadeUp delay={0.3} key={idx}>
+          <div>
             <article className="relative max-w-3xl">
               <div>
                 <A
@@ -84,7 +84,7 @@ export default function Page() {
               </div>
             </article>
             <hr className="mt-6 mb-2 border-black/70" />
-          </FadeUp>
+          </div>
       ))}
     </div>
   );
