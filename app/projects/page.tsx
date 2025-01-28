@@ -18,9 +18,9 @@ export default function Blogs() {
         : -1;
     });
   return (
-    <div>
+    <div className="w-[90vw]">
       <div>
-        <h3>blogs</h3>
+        <h3>projects</h3>
         <hr className="my-1" />
       </div>
       {allProjects.map((project, idx) => {
