@@ -30,28 +30,35 @@ type AProps = {
 
 export const A = ({ children, className, variant, href, ...props }: AProps) => {
   let isExternal = false;
-  if(!href.toString().startsWith("/")){
-    if(process.env.NODE_ENV==="production"){
-      if(!href.toString().includes("mahendradani.vercel.app")){
+  if (!href.toString().startsWith("/")) {
+    if (process.env.NODE_ENV === "production") {
+      if (!href.toString().includes("mahendradani.vercel.app")) {
         isExternal = true;
       }
-    }else{
-      if(!href.toString().includes("localhost")){
+    } else {
+      if (!href.toString().includes("localhost")) {
         isExternal = true;
       }
     }
   }
   return (
     <p className={cn(AVariants({ variant, className }))}>
-      <Link href={href} {...props} className="relative group text-balance">
+      <Link
+        href={href}
+        {...props}
+        className="inline-flex items-center py-1 text-wrap relative group"
+      >
         {children}
-        <span>{isExternal && (
-          <ArrowUpRight
-            height={15}
-            width={15}
-            className={cn("group-hover:scale-125 ease-in duration-100")}
-          />
-        )}</span>
+        <span>
+          {isExternal && (
+            <ArrowUpRight
+              strokeWidth={1}
+              height={12}
+              width={12}
+              className={cn("group-hover:scale-125 ease-in duration-100")}
+            />
+          )}
+        </span>
       </Link>
     </p>
   );

@@ -17,3 +17,14 @@ I need to update this readme!
 - [ ] responsive nav on mobile
 - [ ] `/abouts` page
 - [x] appropriate fonts for the website (splineSans Mono)
+
+
+About page
+- [x] me, myself and my education, my skills
+- [ ] my knowledge
+- [ ] hobbies
+- [ ] projects
+- [ ] hackathons
+- [ ] certifications
+- [ ] open source contributions
+- [ ] about this blog and what i plan to do on it

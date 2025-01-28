@@ -2,6 +2,7 @@ import { blogs } from "#site/content";
 import dayjs from "dayjs";
 import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { A } from "@/components/a";
+import { FadeUp } from "@/components/fade-up";
 
 export default function Page() {
   const publishedBlogs = blogs
@@ -50,13 +51,13 @@ export default function Page() {
 
     <div className="flex flex-col justify-start gap-2">
       {publishedBlogs.slice(0, 3).map((blog, idx) => (
-          <div key={idx}>
+          <FadeUp delay={0.3} key={idx}>
             <article className="relative max-w-3xl px-2 lg:px-0">
               <div>
                 <A
                   href={`/blogs/${blog.slugAsParams}`}
                   variant={"underline"}
-                  className="text-black"
+                  className="text-black hover:text-blue-700/70"
                 >
                   <span className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
                     {blog.title}
@@ -83,7 +84,7 @@ export default function Page() {
               </div>
             </article>
             <hr className="mt-6 mb-2 border-black/70" />
-          </div>
+          </FadeUp>
       ))}
     </div>
   );

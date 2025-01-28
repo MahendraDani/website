@@ -25,14 +25,12 @@ export const Navbar = () => {
   return (
     <div className="w-[90vw] sm:w-[54rem] mt-4 sm:mt-12 sm:mb-4 flex justify-between items-center border-t border-b py-2">
       <Link href={"/"}>
-        <h3 className="text-xl text-heading">Mahendra Dani</h3>
-        {/* <Image src={"/static/icon.png"} height={48} width={48} alt="Nav icon" /> */}
+        <h3 className="text-xl text-heading font-medium">Mahendra Dani</h3>
       </Link>
 
       <nav className="flex justify-center items-center gap-3">
         {navMenu.map((navItem, index) => (
-          // <NavLink key={index} name={navItem.name} href={navItem.href} />
-          <A href={navItem.href} key={index} className="text-heading hover:text-heading/80">
+          <A href={navItem.href} key={index} className="text-black/80 hover:text-blue-700/70 underline decoration-white hover:decoration-blue-800/70 underline-offset-4">
             {navItem.name}
           </A>
         ))}

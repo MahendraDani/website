@@ -13,7 +13,7 @@
     text-wrap: balance;
   }
 
-  p,a,li,ul,span {
+  p,a,li,ul,span,div {
     @apply text-sm
   }
 
