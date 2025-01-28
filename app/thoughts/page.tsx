@@ -16,7 +16,7 @@ export default function Page() {
           <FadeUp key={idx}>
             <ListItem>
               <ListItem.Content className="text-balance">
-                <ListItem.Date date={thought.date}  className="hidden sm:block"/>
+                <ListItem.Date date={thought.date}  className=""/>
                 <ListItem.Link href={`thoughts/${thought.slugAsParams}`}>
                   <ListItem.Title className="text-left hover:text-blue-700 underline underline-offset-4">
                     {thought.title}

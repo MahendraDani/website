@@ -27,8 +27,8 @@ export default function Blogs() {
         return (
           <FadeUp key={idx}>
             <ListItem>
-              <ListItem.Content>
-                <ListItem.Date date={blog.date} className="text-pretty hidden sm:block" />
+              <ListItem.Content className="">
+                <ListItem.Date date={blog.date} className="text-pretty sm:block" />
                 <ListItem.Link href={`blogs/${blog.slugAsParams}`}>
                   <ListItem.Title className="text-left hover:text-blue-700 underline underline-offset-4 text-pretty">
                     {blog.title}
