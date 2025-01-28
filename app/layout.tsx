@@ -48,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(`font-sans antialiased`, splineSansMono.className)}>
+      <body className={cn(`relative font-sans antialiased max-w-full mx-auto px-4`, splineSansMono.className)}>
         <div className="w-full flex flex-col items-center">
           <Navbar />
           <Toaster richColors={true} position="top-right" />

@@ -13,9 +13,9 @@ I need to update this readme!
 - [x] Subtle colors, links, hover effects and animations
 - [x] mdx -> css mapping and theme
 - [x] codeblock theme fix
-- [ ] `/projects` page
+- [x] `/projects` page
 - [ ] responsive nav on mobile
-- [ ] `/abouts` page
+- [x] `/abouts` page
 - [x] appropriate fonts for the website (splineSans Mono)
 
 
