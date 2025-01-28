@@ -28,7 +28,7 @@ const ListItemContent = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>)=> {
   return (
-    <div className={cn("flex justify-start items-center gap-2 py-1",className)} {...props}>
+    <div className={cn("flex justify-start items-start gap-2 py-1",className)} {...props}>
       {children}
     </div>
   );
@@ -52,7 +52,7 @@ interface IListItemLinkChildren {
 
 type ListItemLinkProps = IListItemLinkChildren & LinkProps;
 const ListItemLink = ({children,href,...props} : ListItemLinkProps)=>{
-  return <Link href={href} {...props}>{children}</Link>
+  return <Link href={href} {...props} className="text-wrap">{children}</Link>
 }
 
 interface IListDate {
@@ -62,8 +62,8 @@ interface IListDate {
 type TListItemDateProps = IListDate & React.HTMLAttributes<HTMLParagraphElement>;
 
 const ListItemDate  = ({date,className,...props}:TListItemDateProps)=>{
-  const formattedDate = dayjs(date).format('MMM DD, YYYY')
-  return <p className={cn("text-sm text-balance min-w-[6rem]",className)} {...props}>{formattedDate}</p>
+  const formattedDate = dayjs(date).format('DD/MM/YYYY')
+  return <p className={cn("text-sm text-wrap",className)} {...props}>{formattedDate}</p>
 }
 ListItem.Content = ListItemContent;
 ListItem.Title = ListItemTitle;

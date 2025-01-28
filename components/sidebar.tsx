@@ -11,7 +11,7 @@ export const Sidebar = () => {
         <h3>recent posts</h3>
         <hr className="my-1" />
       </div>
-      <div className="flex flex-col justify-start items-start gap-2">
+      <div className="flex flex-col justify-start items-start gap-1">
         {blogs.map((blog, idx) => (
           <SidebarLink
             key={idx}
@@ -21,7 +21,7 @@ export const Sidebar = () => {
           />
         ))}
       </div>
-      <div className="mt-2 flex flex-col justify-start items-start gap-2">
+      <div className="mt-2 flex flex-col justify-start items-start gap-1">
         {thoughts.map((thought, idx) => (
           <SidebarLink
             key={idx}

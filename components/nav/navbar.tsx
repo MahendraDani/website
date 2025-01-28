@@ -72,6 +72,7 @@ export const Navbar = () => {
                 href={navItem.href}
                 key={index}
                 className="text-black/80 hover:text-blue-700/70 underline decoration-white hover:decoration-blue-800/70 underline-offset-4"
+                onClick={handleShowMobileNav}
               >
                 {navItem.name}
               </A>
