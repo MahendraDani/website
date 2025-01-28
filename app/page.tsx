@@ -51,7 +51,7 @@ export default function Page() {
 
     <div className="flex flex-col justify-start gap-2">
       {publishedBlogs.slice(0, 3).map((blog, idx) => (
-          <div>
+          <div key={idx}>
             <article className="relative max-w-3xl">
               <div>
                 <A
