@@ -6,7 +6,7 @@ export default function Page() {
   const publishedThoughts = thoughts.filter((thought) => thought.published);
 
   return (
-    <div>
+    <div className="w-[90vw]">
       <div>
         <h3>thoughts</h3>
         <hr className="my-1" />
@@ -14,7 +14,7 @@ export default function Page() {
       {publishedThoughts.map((thought, idx) => {
         return (
           <FadeUp key={idx}>
-            <ListItem className="">
+            <ListItem>
               <ListItem.Content className="text-balance">
                 <ListItem.Date date={thought.date}  className="hidden sm:block"/>
                 <ListItem.Link href={`thoughts/${thought.slugAsParams}`}>
