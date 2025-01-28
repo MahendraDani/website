@@ -57,7 +57,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
   return (
     <FadeUp delay={0.6}>
       <div>
-        <article className="relative max-w-3xl px-2 lg:px-0">
+        <article className="relative max-w-3xl">
           <div>
             <p className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
               {project.name}

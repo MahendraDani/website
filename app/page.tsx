@@ -52,7 +52,7 @@ export default function Page() {
     <div className="flex flex-col justify-start gap-2">
       {publishedBlogs.slice(0, 3).map((blog, idx) => (
           <FadeUp delay={0.3} key={idx}>
-            <article className="relative max-w-3xl px-2 lg:px-0">
+            <article className="relative max-w-3xl">
               <div>
                 <A
                   href={`/blogs/${blog.slugAsParams}`}
