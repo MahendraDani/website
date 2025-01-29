@@ -52,7 +52,7 @@ export async function generateMetadata({
 export default async function ProjectPage({ params }: ProjectPageParams) {
   const project = getProjectFromParams(params);
   const formatDate = (rawDate: string) => {
-    return dayjs(rawDate).format("MMM D, YYYY [at] H:M a");
+    return dayjs(rawDate).format("MMM D, YYYY [at] HH:MM a");
   };
   return (
     <FadeUp delay={0.6}>
@@ -62,8 +62,8 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
             <p className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
               {project.name}
             </p>
-            <div className="my-2 py-1 border-t border-b border-dashed flex justify-between items-start">
-              <div className="w-2/3 flex justify-start items-center flex-wrap gap-2">
+            <div className="mt-2 py-1 border-t border-b border-dashed flex justify-between items-start">
+              <div className="w-2/3 py-1 flex justify-start items-center flex-wrap gap-2">
                 {project.stack.map((item, idx) => (
                   <span className="bg-emerald-400/70 px-2 rounded-md" key={idx}>
                     {item}
@@ -73,6 +73,13 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
               <p className="text-muted-foreground">
                 {formatDate(project.publishDate)}
               </p>
+            </div>
+            <div className="mb-2 border-b py-1 border-dashed flex flex-wrap justify-start items-center gap-4">
+              {project.links.map((item, idx) => (
+                <A key={idx} href={item.url} variant={"underline"}>
+                  {item.title}
+                </A>
+              ))}
             </div>
           </div>
           <div className="mx-auto sm:w-auto min-w-0">

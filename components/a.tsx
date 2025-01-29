@@ -44,6 +44,7 @@ export const A = ({ children, className, variant, href, ...props }: AProps) => {
   return (
     <p className={cn(AVariants({ variant, className }))}>
       <Link
+        target={isExternal ? "_blank" : "_self"}
         href={href}
         {...props}
         className="inline-flex items-center py-1 text-wrap relative group"

@@ -7,5 +7,110 @@ links : [
 ]
 publishDate : 2024-07-07T21:30:00Z
 ---
+### abstract
+A C++ library to perform basic operations on vectors such as :
+- vector addition
+- vector subtraction 
+- dot product
+- cross product
+- distance between two points (2D/3D)
 
-Vector, is a minimal library to play with vectors used in physics and maths using C++
+### background
+Last sem, I took a course on Object Oriented Programming in C++ at my university. So I created this library with the objective of revising :
+- Constructors
+- operator overloading
+- template functions and classes
+- friend functions
+- C++ build system using Makefiles
+
+### How to use?
+To use the library, copy the [vector.h](https://github.com/MahendraDani/vector/blob/main/src/inc/vector.h) header file in your project and include it in your source files.
+
+1. Initialize `Vector`
+<Tabs defaultValue="init.cpp">
+<TabsList>
+    <TabsTrigger value="init.cpp">init.cpp</TabsTrigger>
+  </TabsList>
+  <TabsContent value="init.cpp">
+    ```C++
+    #include<iostream>
+    #include "vector.h"
+    int main(){
+      Vector<float> o; // Origin : (0,0,0)
+      Vector<int> v(13,14,25);
+      return 0;
+    }
+    ```
+  </TabsContent>
+</Tabs>
+
+2. Basic operations: Vector addition, subtraction, increment and decrement
+<div className="flex justify-center items-center">
+<Image
+      src="/static/blogs/addition.png"
+      height={300}
+      width={300}
+      alt="Vector Addition"/>
+</div>
+<Tabs defaultValue="addition.cpp">
+<TabsList>
+    <TabsTrigger value="addition.cpp">addition.cpp</TabsTrigger>
+  </TabsList>
+  <TabsContent value="addition.cpp">
+    ```C++
+    #include<iostream>
+    #include "vector.h"
+    int main(){
+      Vector<float> o; // Origin : (0,0,0)
+      Vector<int> v(13,14,25);
+      return 0;
+    }
+    ```
+  </TabsContent>
+</Tabs>
+
+
+3. Cross Product of two vectors
+<div className="flex justify-center items-center">
+<Image
+      src="/static/blogs/cross-product.png"
+      height={300}
+      width={300}
+      alt="Vector Cross Product"/>
+</div>
+<Tabs defaultValue="cross-product.cpp">
+<TabsList>
+    <TabsTrigger value="cross-product.cpp">cross-product.cpp</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cross-product.cpp">
+```C++
+#include<iostream>
+#include "vector.h"
+
+int main(){
+  Vector<int> vectors[5];
+
+  for(int i=0;i<5;i++){
+    Vector<int> temp(i,i,i);
+    vectors[i] = temp;
+  }
+
+  // print all vectors
+  for(auto x :vectors){
+    std::cout << x << std::endl;
+  }
+  // OUTPUT
+  /*
+    (0,0,0)
+    (1,1,1)
+    (2,2,2)
+    (3,3,3)
+    (4,4,4)
+   */
+  return 0;
+}
+```
+  </TabsContent>
+</Tabs>
+
+Advanced usage and more [examples](https://github.com/MahendraDani/vector/tree/main/src/examples) are provided in the GitHub repository.

@@ -7,7 +7,6 @@ import dayjs from "dayjs";
 export default function Blogs() {
   // TODO : Try to sort blogs faster!
   const allProjects = projects
-    .filter((Project) => !Project.private)
     .sort((a, b) => {
       const newProjectDate = dayjs(a.publishDate);
       const prevProjectDate = dayjs(b.publishDate);
