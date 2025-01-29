@@ -65,17 +65,16 @@ export const projects = defineCollection({
     slug : s.path(),
     name : s.string().max(99),
     abstract : s.string(),
-    private : s.boolean(),
     publishDate : s.string().datetime(), // YYYY-MM-DDTHH:MM:SSZ
     body : s.mdx(),
-    demo : s.string().url().optional(),
-    website : s.string().url().optional(),
-    primaryLink : s.string().url(), 
-    github : s.array(s.object({name : s.string(), repo : s.string().url()})).optional(),
+    links : s.array(s.object({
+      title : s.string(),
+      url : s.string().url()
+    })),
     stack : s.array(s.string()),
     collaborators : s.array(s.object({
       name : s.string(),
-      social : s.string().url().optional()
+      social : s.string().url()
     })).optional(),
     excerpt : s.excerpt(),
     metadata : s.metadata(),
