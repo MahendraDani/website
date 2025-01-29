@@ -28,3 +28,21 @@ About page
 - [ ] certifications
 - [ ] open source contributions
 - [ ] about this blog and what i plan to do on it
+
+
+What are the key things one's looking in projects?
+(One glance)
+1. Domain
+2. Languages/Tech used
+3. abstract of the project
+4. links - Github, Youtube, linkedin, any?
+5. dates - start and end
+6. cover image/ thumbnail
+7. one-liner explainer
+
+(Brief)
+1. Why? What and how?
+2. Features of the project
+3. how is it build
+4. concepts used
+5. resources

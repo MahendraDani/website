@@ -6,7 +6,7 @@ export default function Page() {
   const publishedThoughts = thoughts.filter((thought) => thought.published);
 
   return (
-    <div className="w-[90vw]">
+    <div className="w-[90vw] sm:w-auto">
       <div>
         <h3>thoughts</h3>
         <hr className="my-1" />

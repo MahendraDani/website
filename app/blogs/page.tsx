@@ -18,7 +18,7 @@ export default function Blogs() {
         : -1;
     });
   return (
-    <div className="w-[90vw]">
+    <div className="w-[90vw] sm:w-auto">
       <div>
         <h3>blogs</h3>
         <hr className="my-1" />
