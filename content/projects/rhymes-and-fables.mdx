@@ -17,4 +17,29 @@ stack: ["Nextjs", "Supabase", "shadcn UI", "Zod"]
 publishDate: 2023-12-18T13:30:00Z
 ---
 
-Have a crazy story in your mind but can't showcase it to the world? We have just the right solution for you: Rhymes and Fables Rhymes and Fables is a platform where you can convert your crazy ideas into amazing stories and poems. Share your thoughts and opinions as quotes.
+> This project is no longer maintained
+
+### Abstract
+Have a crazy story in your mind but can't showcase it to the world? We have just the right solution for you: Rhymes and Fables is a platform where you can convert your crazy ideas into amazing stories and poems. Share your thoughts and opinions as quotes.
+
+<div className="mt-4 flex justify-center items-center">
+<Image
+      src="/static/blogs/rf-feed.png"
+      height={600}
+      width={640}
+      alt="Rhymes and Fables"/>
+</div>
+
+### Features
+1. Fully functional two factor authentication with Email, Google OAuth and Github OAuth.
+2. Personalized Feeds : Users are recommend content based on their read history
+3. In built editor : Users can draft their own stories, poems and quotes and then publish them to showcase the world
+4. Like and Comments : Users can like and comment on other posts and upvote the best stories.
+5. Light and Dark mode support
+
+### Challenges
+1. The biggest challenge I faced was working with Nextjs and Typescript. Although I had some expirience with using Typescript, Nextjs was completely new to me. Server components and Client components still confuse me!
+
+2. Authentication and Authorization : When I read the docs, I found that there are three libraries provided by supabase @supabase/supabase-js, @supabase/auth-helpers-nextjs and @supabase/ssr and I was confused which one should be used. After a lot of reading and researching I used @supabase/auth-helpers-nextjs throughout my projects.
+
+3. TypeErrors : At multiple instances I had to join two tables, but generating and writing types for joins was something that I just couldn't achieve. I used the supabase cli to generate types for my project, but I found writing types for joins very difficult. And their are very few resources I could find on supabase docs related to this. You might find in some files that I have used @ts-ignore to get rid of type-errors xd

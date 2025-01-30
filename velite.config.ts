@@ -74,7 +74,8 @@ export const projects = defineCollection({
     stack : s.array(s.string()),
     collaborators : s.array(s.object({
       name : s.string(),
-      social : s.string().url()
+      social : s.string().url(),
+      role : s.string()
     })).optional(),
     excerpt : s.excerpt(),
     metadata : s.metadata(),

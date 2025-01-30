@@ -81,6 +81,15 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                 </A>
               ))}
             </div>
+            {project.collaborators && 
+              <div className="mb-2 border-b py-1 border-dashed flex flex-wrap justify-start items-center gap-4">
+              {project.collaborators?.map((item, idx) => (
+                <A key={idx} href={item.social} variant={"underline"}>
+                  {item.name}
+                </A>
+              ))}
+            </div>
+            }
           </div>
           <div className="mx-auto sm:w-auto min-w-0">
             <MDXContentRenderer code={project.body} />
