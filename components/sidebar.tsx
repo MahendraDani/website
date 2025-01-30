@@ -8,7 +8,7 @@ export const Sidebar = () => {
   return (
     <aside className="hidden sm:flex w-1/4 flex-col justify-start">
       <div>
-        <h3>recent posts</h3>
+        <h3>Recent Posts</h3>
         <hr className="my-1" />
       </div>
       <div className="flex flex-col justify-start items-start gap-1">

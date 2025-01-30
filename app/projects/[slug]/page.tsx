@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
             <p className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
               {project.name}
             </p>
-            <div className="mt-2 py-1 border-t border-b border-dashed flex justify-between items-start">
+            <div className="mt-2 py-1 border-t border-b border-dashed flex justify-between items-center">
               <div className="w-2/3 py-1 flex justify-start items-center flex-wrap gap-2">
                 {project.stack.map((item, idx) => (
                   <span className="bg-emerald-400/70 px-2 rounded-md" key={idx}>

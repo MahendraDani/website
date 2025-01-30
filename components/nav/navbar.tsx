@@ -8,19 +8,19 @@ import { useState } from "react";
 
 const navMenu = [
   {
-    name: "about",
+    name: "About",
     href: "/about",
   },
   {
-    name: "projects",
+    name: "Projects",
     href: "/projects",
   },
   {
-    name: "blogs",
+    name: "Blogs",
     href: "/blogs",
   },
   {
-    name: "thoughts",
+    name: "Thoughts",
     href: "/thoughts",
   },
 ];
