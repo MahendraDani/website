@@ -3,9 +3,10 @@ import { A } from "@/components/a";
 import { FadeUp } from "@/components/fade-up";
 import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { siteConfig } from "@/configs/site.config";
-import dayjs from "dayjs";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import {formatDate} from "@/lib/date"
+
 interface TilsPageParams {
   params: {
     slug: string;
@@ -48,10 +49,6 @@ export async function generateMetadata({
 export default async function TilsPage({ params }: TilsPageParams) {
   const til = getTilsFromParams(params);
   const tag = til.slugAsParams.split("/")[0];
-  const formatDate = (rawDate: string) => {
-    return dayjs(rawDate).format("MMM D, YYYY [at] HH:MM a");
-  };
-
   return (
     <FadeUp delay={0.3}>
       <div>

@@ -4,7 +4,7 @@ import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/configs/site.config";
 import { Metadata } from "next";
-import dayjs from "dayjs";
+import {formatDate} from "@/lib/date"
 
 interface ThoughtPageProps {
   params: {
@@ -59,9 +59,6 @@ export async function generateMetadata({
 
 export default function Page({ params }: ThoughtPageProps) {
   const thought = getThoughtFromParams({ params });
-  const formatDate = (rawDate: string) => {
-    return dayjs(rawDate).format("MMM D, YYYY [at] H:M a");
-  };
   return (
     <FadeUp delay={0.3}>
       <div>

@@ -1,12 +1,10 @@
 import { blogs } from "#site/content";
 import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { notFound } from "next/navigation";
-import { DashboardTableOfContents } from "@/components/mdx/toc";
 import { FadeUp } from "@/components/fade-up";
 import { siteConfig } from "@/configs/site.config";
 import { Metadata } from "next";
-import dayjs from "dayjs";
-import { A } from "@/components/a";
+import { formatDate } from "@/lib/date";
 
 interface BlogPageParams {
   params: {
@@ -58,9 +56,6 @@ export async function generateMetadata({
 
 export default async function BlogPage({ params }: BlogPageParams) {
   const blog = getBlogFromParam(params);
-  const formatDate = (rawDate: string) => {
-    return dayjs(rawDate).format("MMM D, YYYY [at] HH:MM a");
-  };
   return (
     <FadeUp delay={0.3}>
       <div>

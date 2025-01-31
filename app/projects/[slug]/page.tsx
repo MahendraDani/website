@@ -1,7 +1,7 @@
 import { projects } from "#site/content";
 import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { notFound } from "next/navigation";
-import { DashboardTableOfContents } from "@/components/mdx/toc";
+import {formatDate} from "@/lib/date"
 import { FadeUp } from "@/components/fade-up";
 import { siteConfig } from "@/configs/site.config";
 import { Metadata } from "next";
@@ -51,9 +51,6 @@ export async function generateMetadata({
 
 export default async function ProjectPage({ params }: ProjectPageParams) {
   const project = getProjectFromParams(params);
-  const formatDate = (rawDate: string) => {
-    return dayjs(rawDate).format("MMM D, YYYY [at] HH:MM a");
-  };
   return (
     <FadeUp delay={0.3}>
       <div>
