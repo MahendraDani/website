@@ -1,34 +1,44 @@
-# Computer Networks
+---
+title : "How are all computers connected?"
+source : "Computer Networking: A top-down approach"
+date: 2025-01-31T10:00:00Z
+---
 I am reading computer networks from [Computer Networks: A Top-Down Approach](https://gaia.cs.umass.edu/kurose_ross/online_lectures.htm) and the following are my notes (raw). 
 I write in easy, no-jargon words that are easier to grasp different topics.
 
 ## The Internet
 1. What is the internet?
-  - Nuts and Bolts of Internet 
-  - network of infrastructure that provides internet 
+    - Nuts and Bolts of Internet 
+    - network of infrastructure that provides internet 
 
 ## Key Terminologies
 1. **End Systems (Hosts)** : laptops, smartphones, TV, smart watches are called **End-system** or **Hosts** in a network.
 2. **Communication Links** : End systems are connected together by commnuication links and **Packet switches**.
 3. **Transmission Rate** : The rate at with data is transfered. Measured in *bits/secon*d.
 4. **Packets** : Packages of information transfered over the network. Chunks of data transported in small bundles (packets).
-  - Example : A *cargo*(data) shipment in divided in multiple *trucks*(packets) via *highways* (network).
-5. **Packet Switches: To route packet from source to destination. 
-  1. Routers
-  2. Link-layer switches
+    - Example : A *cargo*(data) shipment in divided in multiple *trucks*(packets) via *highways* (network).
+5. **Packet Switches**: To route packet from source to destination. 
+    1. Routers
+    2. Link-layer switches
 6. **Route (Path)** :  The sequence of communication links and packet switches traversed by a packet from the sending 
 end system to the receiving end system is known as a route or path.
 7. Internet Service Provider (ISP) : Players like Jio, Airtel, AT&T, BSNL who set up infrastructure, both software and hardware, to provide internet services (connectivity to the *network*) are called ISPs.
 8. **Protocols** : The set of rules followed at each stage of data transmission on the network.
-  1. Transmission Control Protocol (TCP)
-  2. Internet Protocol (IP)
+    1. Transmission Control Protocol (TCP)
+    2. Internet Protocol (IP)
 9. **Request for Comments (RFCs)** : To resolve network and protocol design problems that faced the precursor to the Internet
 10. **Socket Interface** : End systems attached to the Internet provide a socket interface that specifies 
 how a program running on one end system asks the Internet infrastructure to deliver 
 data to a specific destination program running on another end system
 
 ### Analogy with post office
-![Post office analogy](/public/static/tils/24-10-2024/analogy.png)
+<div className="mt-4 flex justify-center items-center">
+<Image
+      src="/static/tils/24-10-2024/analogy.png"
+      height={600}
+      width={580}
+      alt="Post Office Analogy"/>
+</div>
 
 From the above example, the following analogy can be established:
 - Sender -> Alice
@@ -68,4 +78,10 @@ Examples:
 3. Protocols in routers determine a packet's path from source to destination
 
 Example : Requesting a web page on the browser
-![Proctol](/public/static/tils/24-10-2024/protocol.png)
+<div className="mt-4 flex justify-center items-center">
+<Image
+      src="/static/tils/24-10-2024/protocol.png"
+      height={600}
+      width={580}
+      alt="TCP Protocol"/>
+</div>

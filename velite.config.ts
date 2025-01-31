@@ -83,6 +83,21 @@ export const projects = defineCollection({
   }).transform(computedFields)
 })
 
+export const tils = defineCollection({
+  name : "Tils",
+  pattern : "tils/**/*.mdx",
+  schema : s.object({
+    slug : s.path(),
+    title : s.string(),
+    source : s.string().optional(),
+    date : s.string().datetime(),
+    body : s.mdx(),
+    excerpt : s.excerpt(),
+    metadata : s.metadata(),
+    markdown : s.markdown(),
+  }).transform(computedFields)
+})
+
 export default defineConfig({
   root: "content",
   output: {
@@ -92,7 +107,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { blogs, thoughts,projects },
+  collections: { blogs, thoughts,projects,tils },
   mdx: {
     rehypePlugins: [
       rehypeSlug,

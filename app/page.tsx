@@ -1,8 +1,7 @@
-import { blogs } from "#site/content";
+import { blogs} from "#site/content";
 import dayjs from "dayjs";
 import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { A } from "@/components/a";
-import { FadeUp } from "@/components/fade-up";
 
 export default function Page() {
   const publishedBlogs = blogs

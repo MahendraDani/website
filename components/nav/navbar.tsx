@@ -20,6 +20,10 @@ const navMenu = [
     href: "/blogs",
   },
   {
+    name: "Tils",
+    href: "/tils",
+  },
+  {
     name: "Thoughts",
     href: "/thoughts",
   },
