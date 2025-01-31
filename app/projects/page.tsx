@@ -19,7 +19,7 @@ export default function Blogs() {
   return (
     <div className="w-[90vw] sm:w-auto">
       <div>
-        <h3>projects</h3>
+        <h3>Projects</h3>
         <hr className="my-1" />
       </div>
       {allProjects.map((project, idx) => {

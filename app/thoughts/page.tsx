@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <div className="w-[90vw] sm:w-auto">
       <div>
-        <h3>thoughts</h3>
+        <h3>Thoughts</h3>
         <hr className="my-1" />
       </div>
       {publishedThoughts.map((thought, idx) => {
