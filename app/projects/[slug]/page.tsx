@@ -55,7 +55,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
     return dayjs(rawDate).format("MMM D, YYYY [at] HH:MM a");
   };
   return (
-    <FadeUp delay={0.6}>
+    <FadeUp delay={0.3}>
       <div>
         <article className="relative max-w-3xl">
           <div>

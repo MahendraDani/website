@@ -12,7 +12,10 @@ export default function AboutPage() {
   // console.log(aboutBlog);
   return (
     <div>
-      <h2 className="font-medium text-xl mb-2">about</h2>
+      <div>
+        <h3>About</h3>
+        <hr className="my-1" />
+      </div>
       {/* <div className="flex justify-start items-start gap-2">
         <div className="flex flex-col justify-start items-start gap-2">
           <p className="text-pretty">
@@ -38,7 +41,7 @@ export default function AboutPage() {
           />
         </div>
       </div> */}
-      <FadeUp delay={0.6}>
+      <FadeUp delay={0.3}>
         <div>
           <article className="relative max-w-3xl">
             {/* <div>

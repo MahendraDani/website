@@ -63,7 +63,7 @@ export default function Page({ params }: ThoughtPageProps) {
     return dayjs(rawDate).format("MMM D, YYYY [at] H:M a");
   };
   return (
-    <FadeUp delay={0.6}>
+    <FadeUp delay={0.3}>
       <div>
         <article className="relative max-w-3xl">
           <div>
