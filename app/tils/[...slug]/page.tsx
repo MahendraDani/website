@@ -49,7 +49,7 @@ export default async function TilsPage({ params }: TilsPageParams) {
   const til = getTilsFromParams(params);
   const tag = til.slugAsParams.split("/")[0];
   const formatDate = (rawDate: string) => {
-    return dayjs(rawDate).format("HH:MM a, MMM D, YYYY");
+    return dayjs(rawDate).format("MMM D, YYYY [at] HH:MM a");
   };
 
   return (
