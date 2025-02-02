@@ -1,0 +1,59 @@
+---
+title: "How to SHH into an AWS EC2 instance?"
+source: "Computer Networking: A top-down approach"
+date: 2025-02-01T17:00:00Z
+---
+
+The SSH protocol is a network protocol operating network services securely over an unsecured network. In simple terms, it's used to connect to remote machine.
+
+While creating an EC2 instance, keep in mind to download key pair in `.pem` file. The key value pair will be required to connect to the remote EC2 instance from your terminal.
+
+The following commands will work only for EC2 with **Ubuntu** installed.
+
+**Step 1:** Remove write and execute permissions from `Instance.pem` file.
+
+<Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">Terminal</TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    ```bash
+    chmod 400 Instance2.pem 
+    ```
+  </TabsContent>
+</Tabs>
+
+Now, copy the public IPv4 address of the EC2 instance from the AWS console.
+
+**Step 2:** SSH into the remote instance by running the following command.
+ <Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">Terminal</TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    ```bash
+    ssh -i Instance2.pem ubuntu@13.60.34.250
+    ```
+  </TabsContent>
+</Tabs>
+
+Alternatively you can also use the public IPv4 DNS assigned to the instance.
+ <Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">Terminal</TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    ```bash
+    ssh -i Instance2.pem ubuntu@ec2-13-60-34-250.eu-north-1.compute.amazonaws.com
+    ```
+  </TabsContent>
+</Tabs>
+
+And you are in :
+<div className="mt-4 flex justify-center items-center">
+<Image
+      src="/static/tils/01-02-2025/ssh-ec2.png"
+      height={600}
+      width={600}
+      alt="SSH into EC2 instance"/>
+</div>
