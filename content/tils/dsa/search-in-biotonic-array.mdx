@@ -1,0 +1,73 @@
+---
+title: "Search an element in biotonic array"
+source: ""
+date: 2025-02-05T05:00:00Z
+---
+
+An array is said to be **biotonic** if it contains distinct integers such that, the array is monotonically increasing upto index k and then monotonically decreasing.
+
+If the array is plotted on a graph, it forms a mountain-like structure.
+
+<div className="mt-4 flex justify-center items-center">
+  <Image
+    src="/static/tils/05-02-2025/biotonic-array.png"
+    height={600}
+    width={600}
+    alt="Biotonic Array"
+  />
+</div>
+
+The naive approach is to use Linear Search, which runs in O(N) time. The time complexity can be reduced to O(log(N)) using Binary Search.
+
+<div className="mt-4 flex justify-center items-center">
+  <Image
+    src="/static/tils/05-02-2025/biotonic-array-search.png"
+    height={600}
+    width={600}
+    alt="Search in Biotonic Array"
+  />
+</div>
+
+In every iteration, check which half is sorted, then if *target* lies in the sorted half move in its direction else move in opposite direction.
+
+<Tabs defaultValue="search">
+  <TabsList>
+    <TabsTrigger value="search">biotonic-search.cpp</TabsTrigger>
+  </TabsList>
+  <TabsContent value="search">
+```cpp
+int biotonic_search(int arr[], int n, int target){
+  int ans = -1, start =0, end = n-1;
+  int mid;
+  while(start <= end){
+    mid = start + end - 1;
+    if(arr[mid] == target){
+      ans = mid;
+      break;
+    }
+
+    if(arr[start] < arr[mid]){
+      if(target>= arr[start] && target < arr[mid]){
+        end = mid - 1;
+      }else{
+        start = mid + 1;
+      }
+    }else{
+      if(target>arr[mid] && target<= arr[end]){
+        start = mid + 1;
+      }else{
+        end = mid - 1;
+      }
+    }
+  }
+}
+```
+  </TabsContent>
+</Tabs>
+
+The following problems can also be solved by using same approach:
+1. Find maximum element in a biotonic array.
+2. Find minimum element in a rotated sorted array.
+3. Search an element in a rotated sorted array.
+
+Refer to the code for the above problems [here](https://github.com/MahendraDani/problem-solving/blob/main/src/binary-search/binary_rev.cpp)
