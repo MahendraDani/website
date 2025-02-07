@@ -14,6 +14,7 @@ export const getRecentBlogs = () => {
         ? 0
         : -1;
     })
+    .filter((blog)=>blog.slugAsParams!="aboutme")
     .slice(0, 10);
 };
 

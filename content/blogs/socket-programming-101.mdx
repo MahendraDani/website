@@ -1,0 +1,31 @@
+---
+title: Implementing a message transfer application over TCP/IP protocol from scratch using Socket Programming in C
+description: A minimal implementation of a TCP/IP protocol using socket programming in C to create a message transmission application.
+published: true
+tags: ["computer-networks"]
+authors: [{ "name": "Mahendra", "social": "https://x.com/MahendraDani09" }]
+date: 2025-02-07T12:00:00Z
+---
+
+Socket Programming is the core of HTTP/HTTPS, TCP/IP, UDP, FTP protocols used to transfer data over the network from one device to another.
+
+Let's understand the process via a client-server architecture of how sockets are implemented in C programming language.
+
+<div className="mt-4 flex justify-center items-center">
+  <Image
+    src="/static/tils/07-02-2025/socket.png"
+    height={600}
+    width={600}
+    alt="Client-server architecture implementation using socket programming"
+  />
+</div>
+
+The server opens a socket, binds it to an IP address and listens at a particular port. The client connects to the port and the server accepts the request and the connection is thus established between the server and the client.
+
+Then they can send and receive data using `send` and `recv` system calls.
+
+I implemented a minimal client-server message transmission application over TCP/IP protocol using socket programming in C, here's the [source code](https://github.com/MahendraDani/socket-chat) with steps to run locally.
+
+Today I truly understood how we send data(packets) from one device to another separated over thousands of miles, via various guided and unguided media.
+
+My implementation establishes connection between two machines that are over same Local Area Network(Hotspot/Wifi), and transfer messages (data) between with each other without needing to connect the machines physically with any wires.
