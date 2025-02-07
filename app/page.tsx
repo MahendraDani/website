@@ -15,6 +15,7 @@ export default function Page() {
         ? 0
         : -1;
     })
+    .filter((blog)=>blog.slugAsParams!="aboutme")
     .slice(0, 5);
 
   const formatDate = (rawDate: string) => {
