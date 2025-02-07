@@ -1,7 +1,8 @@
-import { blogs} from "#site/content";
+import { blogs } from "#site/content";
 import dayjs from "dayjs";
 import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { A } from "@/components/a";
+import { FadeUp } from "@/components/fade-up";
 
 export default function Page() {
   const publishedBlogs = blogs
@@ -15,42 +16,16 @@ export default function Page() {
         ? 0
         : -1;
     })
-    .filter((blog)=>blog.slugAsParams!="aboutme")
+    .filter((blog) => blog.slugAsParams != "aboutme")
     .slice(0, 5);
 
   const formatDate = (rawDate: string) => {
     return dayjs(rawDate).format("MMM D, YYYY [at] h:m a");
   };
   return (
-    // <div>
-    //   <div>
-    //     <p>
-    //       I am a developer and programmer. I am learning to solve problems
-    //       using computers and developing web apps for fun. I get excited by
-    //       seeing how science is applied in real life.
-    //     </p>
-    //     <br />
-    //     <p>
-    //       My goal is to be on wikipedia by developing something that blows up the internet.
-    //     </p>
-    //     <br />
-    //     <p>
-    //       If that isn't convincing enough read my{" "}
-    //       <Link href={"/blogs/hello-world"}>
-    //         <span className="font-medium underline decoration-dashed decoration-[0.8px] underline-offset-4 inline-flex items-center">
-    //           <span>hello-world</span>
-    //           <span>
-    //             {" "}
-    //             <ArrowUpRight strokeWidth={1} height={12} width={12} />
-    //           </span>
-    //         </span>{" "}
-    //         blog.
-    //       </Link>
-    //     </p>
-    //   </div>
-
-    <div className="flex flex-col justify-start gap-2">
-      {publishedBlogs.slice(0, 3).map((blog, idx) => (
+    <FadeUp delay={0.3}>
+      <div className="flex flex-col justify-start gap-2">
+        {publishedBlogs.slice(0, 3).map((blog, idx) => (
           <div key={idx}>
             <article className="relative max-w-3xl">
               <div>
@@ -85,7 +60,8 @@ export default function Page() {
             </article>
             <hr className="mt-6 mb-2 border-black/70" />
           </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </FadeUp>
   );
 }
