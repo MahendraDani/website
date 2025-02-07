@@ -8,6 +8,7 @@ export default function Blogs() {
   // TODO : Try to sort blogs faster!
   const publishedBlogs = blogs
     .filter((blog) => blog.published)
+    .filter((blog)=> blog.slugAsParams != "aboutme")
     .sort((a, b) => {
       const newBlogDate = dayjs(a.date);
       const prevBlogDate = dayjs(b.date);
