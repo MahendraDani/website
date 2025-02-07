@@ -1,0 +1,28 @@
+---
+title : "How to find my machine's IP address?"
+source : "Computer Networking: A top-down approach"
+date: 2025-02-07T10:00:00Z
+---
+
+An IP address is a unique identifier that is used to locate/identify any device on a network. There are two types of IP addresses :
+1. [IPv4](https://www.geeksforgeeks.org/what-is-ipv4/) : 192.0.2.1
+2. [IPv6](https://support.hpe.com/techhub/eginfolib/networking/docs/switches/5120si/cg/5998-8491_l3-ip-svcs_cg/content/436042795.htm#:~:text=IPv6%20address%20format&text=An%20IPv6%20address%20is%20divided,%3A09C0%3A876A%3A130B.) : 2001:0000:130F:0000:0000:09C0:876A:130B.
+
+I have been learning Computer Networking and Socket Programming lately, and I need the IP address of my machine(MacOS/Linux) to test my programs, so I figured it out.
+
+<Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">Terminal</TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    ```bash
+    ifconfig | grep inet
+    ```
+  </TabsContent>
+</Tabs>
+
+In the above command, we [pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/) the networking details of the machine returned by [ifconfig](https://man7.org/linux/man-pages/man8/ifconfig.8.html) command into [grep](https://man7.org/linux/man-pages/man1/grep.1.html) to obtain IPv4 and IPv6 address of the machine.
+
+I'm definitely not going to attach the output screenshot here and reveal my machine's network configs. 
+
+xd.
