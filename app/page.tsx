@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { A } from "@/components/a";
 import { FadeUp } from "@/components/fade-up";
+import { formatDate } from "@/lib/date";
 
 export default function Page() {
   const publishedBlogs = blogs
@@ -18,10 +19,6 @@ export default function Page() {
     })
     .filter((blog) => blog.slugAsParams != "aboutme")
     .slice(0, 5);
-
-  const formatDate = (rawDate: string) => {
-    return dayjs(rawDate).format("MMM D, YYYY [at] h:m a");
-  };
   return (
     <FadeUp delay={0.3}>
       <div className="flex flex-col justify-start gap-2">
