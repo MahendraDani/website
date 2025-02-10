@@ -1,0 +1,45 @@
+---
+title: "What is a Load Balancing?"
+source: ""
+date: 2025-02-10T17:00:00Z
+---
+
+Load Balancing is the method of __distributing network traffic__ efficiently between the application servers based on the number of incoming requests to avoid __bottlenecks__ and improve __performance__. 
+
+<div className="mt-4 flex justify-center items-center">
+  <Image
+    src="/static/tils/10-02-2025/without-load-balancing.png"
+    height={600}
+    width={600}
+    alt="SSH into EC2 instance"
+  />
+</div>
+
+As shown in the figure above, clients request for resources from servers randomly. In such cases, it might happens that requests are transmitted to only single server and rest are idle which leads to overloading of specific servers and delays in response time.
+
+<div className="mt-4 flex justify-center items-center">
+  <Image
+    src="/static/tils/10-02-2025/with-load-balancer.png"
+    height={600}
+    width={600}
+    alt="SSH into EC2 instance"
+  />
+</div>
+
+A load balancer, handles large traffic and redirects network requests from the clients to servers based on **load balancing algorithms** which reduces response time, and parallel processing.
+
+### What are the benefits?
+
+1. **Availability**: It directs and controls network traffic between application servers and clients efficiently.
+2. **Scalability**: It prevents traffic bottlenecks at any one server. Predicts application traffic which can be use to add or remove servers.
+3. **Security**: Monitors traffic and block malicious content. Automatically redirect attack traffic to multiple backend servers to minimize impact
+4. **Performance** : It distributes load evenly between servers to improve application performance.
+
+### How load balancers choose servers to redirect traffic?
+
+Static load balancing algorithms such as round-robin algorithm, weighted round-robin algorithm, IP hash algorithm and dynamic load balancing algorithms such as least connection method, weighted least connection method, least response time method, etc are used to redirect incoming network traffic to multiple servers using load balancers.
+
+### References
+1. [What is load balancing? (AWS)](https://aws.amazon.com/what-is/load-balancing/)
+2. [What is load balancing? How load balancers work? (Cloudflare)](https://www.cloudflare.com/learning/performance/what-is-load-balancing/)
+3. [What is load balancing? (Digital Ocean)](https://www.digitalocean.com/community/tutorials/what-is-load-balancing)
