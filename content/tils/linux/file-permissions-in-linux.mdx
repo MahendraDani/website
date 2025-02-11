@@ -1,0 +1,90 @@
+---
+title: "File permissions in Linux"
+source: ""
+date: 2025-02-11T17:00:00Z
+---
+
+**Question 01:** 
+
+While [connecting to a remote server using SSH](http://localhost:3000/tils/aws/how-to-ssh-into-aws-ec2), the first step was to change the permissions of the key-pair file using the command : 
+
+<Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">Terminal</TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    ```bash
+    chmod 400 Instance2.pem 
+    ```
+  </TabsContent>
+</Tabs>
+
+Here, [chmod](https://linux.die.net/man/1/chmod) command is used to change permissions of the specified file. But what's the use of 400?
+
+**Question 02:**
+
+When you run `ls -la` it lists all directories and files present in the root, but what's with the `drwxr-xr-x@` and `-rw-r--r--@`?
+
+<div className="mt-4 flex justify-center items-center">
+<Image
+      src="/static/tils/11-02-2025/file-permissions.png"
+      height={600}
+      width={600}
+      alt="File permissions"/>
+</div>
+
+
+...and the solution is (drumroll) __File system in Linux__.
+
+Each directory/file in Linux has associated permissions for users. Users are categorized as follows :
+1. **owner** : The owner of the file/dir.
+2. **group** : The group that owns the file/dir.
+3. **others** : Anyone except the owner and  group.
+
+Each type of user has three permissions for any file/directory : 
+1. read(r)
+2. write(w)
+3. execute(x)
+
+Okay! But what does `drwxr-xr-x@` or `-rw-r--r--@` mean?
+
+As there are 3 permissions for 3 types of users, we can allocated 3 cells to each users. Each cell can have a value 'r', 'w', 'x' or '-' if the user has no permissions. 
+> Note that for each user the sequence is same `rwx`.
+
+Then, for each cell we can store 1 if the user has that permission else 0. Thus we convert the chars to binary system.
+
+<div className="mt-4 flex justify-center items-center">
+<Image
+      src="/static/tils/11-02-2025/permissions.png"
+      height={600}
+      width={600}
+      alt="File permissions system"/>
+</div>
+
+In 3 bits, we can store values from 0-7 in decimal system, and for three types of user it turns combinations of three values that represent permissions.
+
+As shown in the figure above:
+1. owner: permissions `rwx` which in binary system is represented by 111 and in decimal system is 7.
+2. group: permissions `r-x` which in binary system is represented by 101 and in decimal system is 5.
+3. others: permissions `r-x` which in binary system is represented by 101 and in decimal system is 5.
+
+Combining the result for all types of users gives the three-digit number 755.
+
+Thus, all combinations for permissions can be signified with a 3-digit number instead of `drwxr-xr-x@`.
+
+Combining back to Question 01, can you find out which permissions does a file have with code 400?
+<div className="mt-4 flex justify-center items-center">
+<Image
+      src="/static/tils/11-02-2025/permission-400.png"
+      height={600}
+      width={600}
+      alt="File permissions system"/>
+</div>
+
+Observe that, code 400, implies that only owner has read access to the file.
+It's significance is that, the `Instance2.pem` contains SHH key-pair which should be stored securely, hence it has only read access.
+
+It's amazing, how much of thought must have went into designing a file system that supports multiple users using the same machine simultaneously with multiple file permissions. And the complexity is reduced to three digit numbers. It's secure, flexible and user-friendly.
+
+
+Okay! Great! But you don't know what `chmod` command is used for, right? :p

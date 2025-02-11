@@ -30,7 +30,7 @@ export const getRecentThoughts = () => {
         ? 0
         : -1;
     })
-    .slice(0, 5);
+    .slice(0, 10);
 };
 
 export const getRecentTils = () => {
@@ -44,7 +44,7 @@ export const getRecentTils = () => {
         ? 0
         : -1;
     })
-    .slice(0, 5);
+    .slice(0, 10);
 };
 
 export const getRecentProjects = () => {
@@ -58,6 +58,6 @@ export const getRecentProjects = () => {
         ? 0
         : -1;
     })
-    .slice(0, 5);
+    .slice(0, 10);
 };
 
