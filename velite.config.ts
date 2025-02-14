@@ -18,7 +18,7 @@ export const blogs = defineCollection({
   schema: s
     .object({
       slug: s.path(),
-      title: s.string().max(99),
+      title: s.string().max(200),
       description: s.string().max(999),
       date: s.string().datetime(),
       published: s.boolean(),
