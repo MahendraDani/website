@@ -6,7 +6,7 @@ date: 2025-02-11T17:00:00Z
 
 **Question 01:** 
 
-While [connecting to a remote server using SSH](http://localhost:3000/tils/aws/how-to-ssh-into-aws-ec2), the first step was to change the permissions of the key-pair file using the command : 
+While [connecting to a remote server using SSH](https://mahendradani.vercel.app/tils/aws/how-to-ssh-into-aws-ec2), the first step is to change the permissions of the key-pair file using the command : 
 
 <Tabs defaultValue="terminal">
   <TabsList>
@@ -48,7 +48,7 @@ Each type of user has three permissions for any file/directory :
 
 Okay! But what does `drwxr-xr-x@` or `-rw-r--r--@` mean?
 
-As there are 3 permissions for 3 types of users, we can allocated 3 cells to each users. Each cell can have a value 'r', 'w', 'x' or '-' if the user has no permissions. 
+As there are 3 permissions for 3 types of users, we can allocate 3 cells to each users. Each cell can have a value 'r', 'w', 'x' or '-' if the user has no permissions. 
 > Note that for each user the sequence is same `rwx`.
 
 Then, for each cell we can store 1 if the user has that permission else 0. Thus we convert the chars to binary system.
