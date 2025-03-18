@@ -1,0 +1,75 @@
+---
+title: "How to check if the pair-wise bitwise AND of all elements of an array is zero?"
+source: ""
+date: 2025-03-18T15:00:00Z
+---
+
+__Problem__: Given an array, check that the pair-wise bitwise AND of all the elements of an array is zero.
+
+The brute force approach is to just _do_ what is given in the problem: bitwise AND all the elements, if it's not zero return false.
+
+The time complexity will be O(N^2), where N is the length of the array.
+
+__Question 01__: Given two numbers, what really happens when you perform bitwise AND?
+
+Let's perform bitwise AND operation on 3 and 5.
+<div className="mt-4 flex justify-center items-center">
+  <Image
+    src="/static/tils/18-03-2025/bitwise-and.svg"
+    height={600}
+    width={600}
+    alt="Bitwise AND of two numbers"
+  />
+</div>
+
+Observe in the figure that, the `result` contains 1 bit, only if both the bits in operands were 1. That's the truth table of AND gate. I know xd.
+
+To solve our problem we require that the `result` contains all the bits as 0, for each pair in the array. What if we just track the 1 bit after each operation and check that result should not contain any 1 bit? But how?
+
+__Question 02__: Given two numbers, what really happens when you perform bitwise OR?
+
+Let's perform bitwise OR operation on 3 and 5.
+
+<div className="mt-4 flex justify-center items-center">
+  <Image
+    src="/static/tils/18-03-2025/bitwise-or.svg"
+    height={600}
+    width={600}
+    alt="Bitwise OR of two numbers"
+  />
+</div>
+
+What can we infer from the result? That bitwise OR will tell us the positions of 1 bit in the result.
+
+How can we use the two results, we learned above and solve the initial problem?
+
+Consider a variable `mask`, for each element we perform bitwise AND with mask, then update mask, with the bitwise OR of mask with current element.
+
+<Tabs defaultValue="bitwise-and">
+  <TabsList>
+    <TabsTrigger value="bitwise-and">bitwise-and.cpp</TabsTrigger>
+  </TabsList>
+  <TabsContent value="bitwise-and">
+```cpp
+bool bitwiseAND(int arr[], int n){
+  int mask = 0;
+  for(int i=0;i<n;i++){
+    if(mask & arr[i] !=0)
+      return false;
+
+    mask |= arr[i];
+  }
+  return true;
+}
+```
+</TabsContent>
+</Tabs>
+
+The variable `mask` contains the 1 bits, we found in all the previous elements, now if the bitwise AND of `mask` and current element is not equal to zero, that means the current element will not give 0 upon bitwise AND with the element that has 1 bit at a position which couldn't be countered with a 0 bit at that position of current element.
+
+I'd suggest dry-running the above code on a valid example such as [3,8,48] and an counter example such as [3,4,5] while keeping a track on how the 1 bit changes in mask.
+
+__Extras__:
+
+1. How can you remove 1 bits from mask of any previous element using bitwise operation? Hint: XOR
+2. Try to solve the [Longest Nice Subarray](https://leetcode.com/problems/longest-nice-subarray/description/) problem as an application of this concept.
