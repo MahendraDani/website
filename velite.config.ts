@@ -37,7 +37,7 @@ export const blogs = defineCollection({
 });
 
 export const thoughts = defineCollection({
-  name : "Thoughts",
+  name : "Thought",
   pattern : "thoughts/**/*.mdx",
   schema : s.object({
     slug : s.path(),
@@ -59,7 +59,7 @@ export const thoughts = defineCollection({
 })
 
 export const projects = defineCollection({
-  name : "Projects",
+  name : "Project",
   pattern : "projects/**/*.mdx",
   schema : s.object({
     slug : s.path(),
@@ -84,7 +84,7 @@ export const projects = defineCollection({
 })
 
 export const tils = defineCollection({
-  name : "Tils",
+  name : "Til",
   pattern : "tils/**/*.mdx",
   schema : s.object({
     slug : s.path(),
@@ -92,6 +92,27 @@ export const tils = defineCollection({
     source : s.string().optional(),
     date : s.string().datetime(),
     body : s.mdx(),
+    excerpt : s.excerpt(),
+    metadata : s.metadata(),
+    markdown : s.markdown(),
+  }).transform(computedFields)
+})
+
+export const links = defineCollection({
+  name : "LinkBlog",
+  pattern : "links/**/*.mdx",
+  schema : s.object({
+    slug : s.path(),
+    source : s.object({
+      title : s.string(),
+      url : s.string().url()
+    }),
+    via : s.object({
+      url : s.string().url()
+    }).optional(),
+    date : s.string().datetime(),
+    body : s.mdx(),
+    tags: s.array(s.string()).optional(),
     excerpt : s.excerpt(),
     metadata : s.metadata(),
     markdown : s.markdown(),
@@ -107,7 +128,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { blogs, thoughts,projects,tils },
+  collections: { blogs, thoughts,projects,tils,links },
   mdx: {
     rehypePlugins: [
       rehypeSlug,
