@@ -12,6 +12,10 @@ const navMenu = [
     href: "/about",
   },
   {
+    name : "Links",
+    href : "/links"
+  },
+  {
     name: "Projects",
     href: "/projects",
   },
