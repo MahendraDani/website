@@ -1,12 +1,20 @@
 import { links, LinkBlog } from "#site/content";
-import { A } from "@/components/a";
 import { FadeUp } from "@/components/fade-up";
 import { LinkBlogRenderer } from "@/components/linkblog";
-import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import dayjs from "dayjs";
-import Link from "next/link";
 
 export default function Page() {
+  const publishedLinks = links
+      .sort((a, b) => {
+        const newLinkDate = dayjs(a.date);
+        const prevLinkDate = dayjs(b.date);
+        return newLinkDate.isBefore(prevLinkDate)
+          ? 1
+          : newLinkDate.isSame(prevLinkDate)
+          ? 0
+          : -1;
+      });
+
   return (
     <div>
       <div>
@@ -16,7 +24,7 @@ export default function Page() {
 
       <FadeUp delay={0.3}>
         <div className="flex flex-col justify-between items-start gap-4">
-          {links.map((linkblog, idx) => (
+          {publishedLinks.map((linkblog, idx) => (
             <LinkBlogRenderer key={idx} linkblog={linkblog} />
           ))}
         </div>

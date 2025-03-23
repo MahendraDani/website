@@ -1,0 +1,19 @@
+---
+source : {
+  url : https://github.com/MahendraDani/head,
+  title : My implementation of head(1) CLI in C++
+}
+date: 2025-03-23T00:00:00Z
+---
+
+Last week I implemented one of the most commonly used CLI utility in Linux- [head(1)](https://man7.org/linux/man-pages/man1/head.1.html) inspired by John Crickett's [Build Your Own Head](https://codingchallenges.fyi/challenges/challenge-head/) coding challenge.
+
+As head supports only two options, parsing arguments was easier to handle using if-else (although I don't like it at all). I could've used any library to parse arguments and options, but I really want to implement my own library (I don't know how yet!).
+
+Writing tests in shell scripts is very helpful (especially for CLI tools). The real power of tests comes into play at the time of refactoring. When I abstracted code related to reading files into `FileReader` class, I was afraid that I might've broken some previous feature, but to my surprise I ran the test suite and all passed. 
+
+It helped me in two ways:
+1. I didn't had to test the working of all the combinations options and arguments by manually running the code every time I made a change.
+2. Running test suite after every refactor, suggested exactly which tests failed, that I needed to take care of.
+
+The challenge was fun, took me around 2-3 hours, revised some constructs of C++ like file handling(text and binary mode), classes and class methods, build system using Makefiles and shell scripting.
