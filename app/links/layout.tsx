@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: siteConfig.creator.url,
-    title: `LinkBlog| ${siteConfig.name}`,
+    title: `Link Blog| ${siteConfig.name}`,
     description:
      " Hey! I am Mahendra Dani, and its my personal blog where I write about my learnings, experiences, hackathons and technologies.",
   },

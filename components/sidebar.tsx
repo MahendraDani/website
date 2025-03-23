@@ -1,5 +1,6 @@
 import {
   getRecentBlogs,
+  getRecentLinks,
   getRecentProjects,
   getRecentThoughts,
   getRecentTils,
@@ -12,6 +13,7 @@ export const Sidebar = () => {
   const thoughts = getRecentThoughts();
   const projects = getRecentProjects();
   const tils = getRecentTils();
+  const links = getRecentLinks();
   return (
     <aside className="hidden sm:flex w-1/4 flex-col justify-start gap-4">
       <div>
@@ -50,16 +52,16 @@ export const Sidebar = () => {
 
       <div>
         <div>
-          <h3>Thoughts</h3>
+          <h3>Links</h3>
           <hr className="my-1" />
         </div>
         <div className="flex flex-col justify-start items-start">
-          {thoughts.map((thought, idx) => (
+          {links.map((link, idx) => (
             <SidebarLink
               key={idx}
-              slug={`/thoughts/${thought.slugAsParams}`}
-              title={thought.title}
-              date={thought.date}
+              slug={`/links/${link.slugAsParams}`}
+              title={link.source.title}
+              date={link.date}
             />
           ))}
         </div>
@@ -77,6 +79,23 @@ export const Sidebar = () => {
               slug={`/tils/${til.slugAsParams}`}
               title={til.title}
               date={til.date}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <h3>Thoughts</h3>
+          <hr className="my-1" />
+        </div>
+        <div className="flex flex-col justify-start items-start">
+          {thoughts.map((thought, idx) => (
+            <SidebarLink
+              key={idx}
+              slug={`/thoughts/${thought.slugAsParams}`}
+              title={thought.title}
+              date={thought.date}
             />
           ))}
         </div>

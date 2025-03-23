@@ -1,5 +1,5 @@
 // get links of recent blogs
-import { blogs, thoughts,tils,projects } from "#site/content";
+import { blogs, thoughts,tils,projects, links } from "#site/content";
 import dayjs from "dayjs";
 
 export const getRecentBlogs = () => {
@@ -60,4 +60,20 @@ export const getRecentProjects = () => {
     })
     .slice(0, 10);
 };
+
+export const getRecentLinks = () => {
+  return links
+    .sort((a, b) => {
+      const nextDate = dayjs(a.date);
+      const prevDate = dayjs(b.date);
+      return nextDate.isBefore(prevDate)
+        ? 1
+        : nextDate.isSame(prevDate)
+        ? 0
+        : -1;
+    })
+    .slice(0, 10);
+};
+
+
 
