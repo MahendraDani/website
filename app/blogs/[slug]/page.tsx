@@ -12,11 +12,11 @@ interface BlogPageParams {
   };
 }
 
-// export async function generateStaticParams() : Promise<BlogPageParams["params"][]>{
-//   return  blogs.map((blog)=>({
-//     slug : blog.slugAsParams
-//   }))
-// }
+export async function generateStaticParams() : Promise<BlogPageParams["params"][]>{
+  return  blogs.map((blog)=>({
+    slug : blog.slugAsParams
+  }))
+}
 
 function getBlogFromParam(params: { slug: string }) {
   const slug = params.slug;
@@ -57,7 +57,7 @@ export async function generateMetadata({
 export default async function BlogPage({ params }: BlogPageParams) {
   const blog = getBlogFromParam(params);
   return (
-    <FadeUp delay={0.3}>
+    <FadeUp>
       <div>
         <article className="relative max-w-3xl">
           <div>
