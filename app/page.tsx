@@ -19,6 +19,7 @@ export default function Page() {
     })
     .filter((blog) => blog.slugAsParams != "aboutme")
     .slice(0, 5);
+    
   return (
     <FadeUp delay={0.3}>
       <div className="flex flex-col justify-start gap-2">
