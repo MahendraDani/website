@@ -1,0 +1,61 @@
+---
+title: Rethinking code snippet - why existing tools fall short, Pt 1 
+description: Follow the journey of building an open-source alternative to GitHub Gists — from the idea, motivation, and tech stack to a full product launch, with transparent documentation at every step
+published: true
+tags: ["spool"]
+authors: [{ "name": "Mahendra", "social": "https://x.com/MahendraDani09" }]
+date: 2025-05-08T10:42:00Z
+---
+
+In the [introductory post](https://mahendradani.vercel.app/blogs/document-spool) of this series, I announced that I am building a platform for code sharing. In this post, I will explain the reasons of proceeding with this idea, the gaps in existing tools and how I am going to fix them.
+
+# What are the existing tools?
+GitHub Gists and GitLab Snippets are the go-to tools for quick code sharing. They're fast, familiar, and widely used — but let's be honest: while they're good, they fall short in some critical areas.
+
+## 1. No organization
+Imagine juggling code snippets for school, side projects, freelance work, and production debugging — all in one flat list.
+There's no way to organize them by project, tag them by context, or group them meaningfully. You either search by filename or scroll endlessly. It's chaos at scale.
+
+## 2. No collaboration
+You get two options: public or private. That's it.
+What if you want to share a snippet only with your team? Or collaborate on shared utilities within your organization? That's not possible unless you start using external tools — which defeats the whole purpose.
+
+## 3. "Secret" Gists Aren't Really Secret
+Here's a fun (and slightly scary) experiment:
+Create a secret GitHub Gist, share the link with a friend… and now anyone with that link can access it.
+There's no access control, no audit trail, and no revocation — just obscurity. Spoiler alert: obscurity ≠ privacy.
+
+The next time you want to share a new idea, a clever script, or a work-in-progress snippet with your teammate or co-founder — you sure wouldn't want it accessible to the entire internet, would you?
+
+It's not just about sharing — it's about trust, collaboration, and context.
+
+Tools like Gist served their purpose, but they haven't evolved with the needs of modern developers.
+That's why I'm building something better — a snippet manager that's organized, collaborative, secure, and developer-first.
+
+# What are the primary features?
+This project is more than just a Gist alternative — it's a reimagined way to store, organize, and collaborate on code snippets with modern developer workflows in mind. Here's what it offers:
+
+-  **Organized Snippets by Design** : Group snippets into folders and workspaces. Whether you're managing school notes, side projects, or internal tools — everything stays structured and searchable.
+
+- **Private by Default, Sharable with Control** : Share snippets with specific teammates, collaborators, or keep them entirely private. No more relying on obscure URLs for sensitive content.
+
+- **Workspaces for Teams** : Collaborate within shared workspaces. Perfect for teams, open-source contributors, or friends hacking on ideas together.
+
+- **Comments and Reactions** : Start discussions on snippets, suggest improvements, or drop feedback — all without switching tools.
+
+- **Clean, Minimal UI** : A distraction-free interface focused on productivity. No clutter — just you and your code.
+
+# The first draft
+
+To visualize the end product, I created a simple dashboard, which will evolve as we will progress further.
+
+<div className="mt-4 flex justify-center items-center">
+  <Image
+    src="/static/blogs/spool-zero.svg"
+    height={600}
+    width={600}
+    alt="The first draft of spool"
+  />
+</div>
+
+In the next post, we'll dive into the code and start hacking — beginning with a solid authentication system that supports both email/password and OAuth.
