@@ -33,7 +33,9 @@ export const LinkBlogRenderer = ({ linkblog }: { linkblog: LinkBlog }) => {
           )}
         </div>
       </div>
-      <MDXContentRenderer code={linkblog.body} />
+      <div className="text-justify">
+        <MDXContentRenderer code={linkblog.body} />
+      </div>
       <div className="flex justify-start items-center gap-2 pt-1 text-[0.5rem]">
         <A href={`/links/${linkblog.slugAsParams}`} variant={"underline"}>
           #

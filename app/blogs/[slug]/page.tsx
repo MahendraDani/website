@@ -75,7 +75,7 @@ export default async function BlogPage({ params }: BlogPageParams) {
               <p className="text-muted-foreground">{formatDate(blog.date)}</p>
             </div>
           </div>
-          <div className="mx-auto sm:w-auto min-w-0">
+          <div className="mx-auto sm:w-auto min-w-0 text-justify">
             <MDXContentRenderer code={blog.body} />
           </div>
         </article>

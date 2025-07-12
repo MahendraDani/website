@@ -80,7 +80,7 @@ export default function Page({ params }: ThoughtPageProps) {
               </p>
             </div>
           </div>
-          <div className="mx-auto sm:w-auto min-w-0">
+          <div className="mx-auto sm:w-auto min-w-0 text-justify">
             <MDXContentRenderer code={thought.body} />
           </div>
         </article>

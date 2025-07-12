@@ -18,7 +18,7 @@ export default function Page() {
       <FadeUp delay={0.3}>
         <div>
           <article className="relative max-w-3xl">
-            <div className="mx-auto sm:w-auto min-w-0">
+            <div className="mx-auto sm:w-auto min-w-0 text-justify">
               <MDXContentRenderer code={aboutBlog!.body} />
             </div>
           </article>
