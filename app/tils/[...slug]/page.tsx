@@ -62,7 +62,7 @@ export default async function TilsPage({ params }: TilsPageParams) {
               <p className="text-muted-foreground">{formatDate(til.date)}</p>
             </div>
           </div>
-          <div className="mx-auto sm:w-auto min-w-0 mt-4">
+          <div className="mx-auto sm:w-auto min-w-0 mt-4 text-justify">
             <MDXContentRenderer code={til.body} />
           </div>
         </article>
