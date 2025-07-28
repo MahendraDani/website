@@ -60,7 +60,7 @@ export async function generateMetadata({
 export default function Page({ params }: ThoughtPageProps) {
   const thought = getThoughtFromParams({ params });
   return (
-    <FadeUp delay={0.3}>
+    <FadeUp>
       <div>
         <article className="relative max-w-3xl">
           <div>

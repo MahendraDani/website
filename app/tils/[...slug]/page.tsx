@@ -50,7 +50,7 @@ export default async function TilsPage({ params }: TilsPageParams) {
   const til = getTilsFromParams(params);
   const tag = til.slugAsParams.split("/")[0];
   return (
-    <FadeUp delay={0.3}>
+    <FadeUp>
       <div>
         <article className="relative max-w-3xl">
           <p className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
