@@ -13,6 +13,13 @@ interface ProjectPageParams {
     slug: string;
   };
 }
+
+export async function generateStaticParams() : Promise<ProjectPageParams["params"][]>{
+  return  projects.map((project)=>({
+    slug : project.slugAsParams
+  }))
+}
+
 function getProjectFromParams(params: { slug: string }) {
   const slug = params.slug;
   const project = projects.find((project) => project.slugAsParams === slug);
@@ -52,7 +59,7 @@ export async function generateMetadata({
 export default async function ProjectPage({ params }: ProjectPageParams) {
   const project = getProjectFromParams(params);
   return (
-    <FadeUp delay={0.3}>
+    <FadeUp>
       <div>
         <article className="relative max-w-3xl">
           <div>

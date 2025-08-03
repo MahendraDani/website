@@ -3,8 +3,13 @@ import { CodeBlock } from "./codeblock";
 import Image, { type ImageProps } from "next/image";
 import { Callout } from "./callout";
 import React from "react";
-import {ButtonExample, GreenButtonExample, RedButtonExample, ButtonWithPropsExample} from "@/components/examples/button"
-import { Tabs, TabsContent, TabsList,TabsTrigger } from "../ui/tabs";
+import {
+  ButtonExample,
+  GreenButtonExample,
+  RedButtonExample,
+  ButtonWithPropsExample,
+} from "@/components/examples/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { ArrowUpRight } from "lucide-react";
 import { toast } from "sonner";
 
@@ -38,10 +43,7 @@ export const mdxComponents = {
   ),
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
-      className={cn(
-        "scroll-m-20 font-medium tracking-tight",
-        className
-      )}
+      className={cn("scroll-m-20 font-medium tracking-tight", className)}
       {...props}
     />
   ),
@@ -63,30 +65,39 @@ export const mdxComponents = {
       {...props}
     />
   ),
-  a: ({className,children,...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
+  a: ({
+    className,
+    children,
+    ...props
+  }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium text-blue-700/70 hover:text-blue-800 underline decoration-dashed decoration-[1px] underline-offset-4 inline-flex items-center py-1 text-wrap", className)}
+      className={cn(
+        "font-medium text-blue-700/70 hover:text-blue-800 underline decoration-dashed decoration-[1px] underline-offset-4 items-center py-1",
+        className
+      )}
       target="_blank"
       {...props}
     >
-      {children}
-      <span> <ArrowUpRight strokeWidth={1}  height={12} width={12} /></span>
-    </a>   
+      <span className="break-words">{children}</span>
+    </a>
   ),
-  p: ({
-    className,
-    ...props
-  }: React.HTMLAttributes<HTMLParagraphElement>) => (
+  p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={cn("leading-6 my-1 [&:not(:first-child)]:mt-2",className)}
+      className={cn("leading-6 my-1 [&:not(:first-child)]:mt-2", className)}
       {...props}
     />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn("my-1 leading-6 ml-6 list-disc [&>li]:mt-1", className)} {...props} />
+    <ul
+      className={cn("my-1 leading-6 ml-6 list-disc [&>li]:mt-1", className)}
+      {...props}
+    />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className={cn("my-1 leading-6 ml-6 list-decimal", className)} {...props} />
+    <ol
+      className={cn("my-1 leading-6 ml-6 list-decimal", className)}
+      {...props}
+    />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
     <li className={cn("leading-6", className)} {...props} />
@@ -96,10 +107,7 @@ export const mdxComponents = {
     ...props
   }: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
-      className={cn(
-        "my-3 border-l-4 pl-4 text-muted-foreground",
-        className
-      )}
+      className={cn("my-3 border-l-4 pl-4 text-muted-foreground", className)}
       {...props}
     />
   ),
@@ -109,25 +117,15 @@ export const mdxComponents = {
     ...props
   }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img
-      className={cn("rounded-md border", className)}
-      alt={alt}
-      {...props}
-    />
+    <img className={cn("rounded-md border", className)} alt={alt} {...props} />
   ),
   hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
-  table: ({
-    className,
-    ...props
-  }: React.HTMLAttributes<HTMLTableElement>) => (
+  table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-y-auto">
       <table className={cn("w-full", className)} {...props} />
     </div>
   ),
-  tr: ({
-    className,
-    ...props
-  }: React.HTMLAttributes<HTMLTableRowElement>) => (
+  tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
       className={cn("m-0 border-t p-0 even:bg-muted", className)}
       {...props}
@@ -158,7 +156,11 @@ export const mdxComponents = {
     />
   ),
   pre: CodeBlock,
-  code: ({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) => (
+  code: ({
+    className,
+    children,
+    ...props
+  }: React.HTMLAttributes<HTMLElement>) => (
     // <code
     //   className={cn(
     //     "min-h-[12rem] border overflow-x-auto relative rounded-sm px-[0.3rem] py-1 font-mono text-sm bg-black/70 text-heading-secondary/90 selection:bg-blue-500",
@@ -183,5 +185,5 @@ export const mdxComponents = {
   GreenButtonExample,
   RedButtonExample,
   ButtonWithPropsExample,
-  toast
+  toast,
 };
