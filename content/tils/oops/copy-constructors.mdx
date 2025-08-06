@@ -1,0 +1,98 @@
+---
+title: "What are copy constructors?"
+source: ""
+date: 2025-08-06T17:00:00Z
+---
+
+There are three ways of initializing objects in C++:
+1. No-argument constructor
+2. Parameterized constructor
+3. Copy constructor
+
+When an object is initialized using another object of the same class, copy constructors are used.
+
+<Tabs defaultValue="constructors">
+  <TabsList>
+    <TabsTrigger value="constructors">constructors.cpp</TabsTrigger>
+  </TabsList>
+  <TabsContent value="constructors">
+```cpp
+class Distance {
+  private:
+    int inches;
+    float feet;
+
+  public:
+    // No argument constructor
+    Distance() : inches(0), feet(0.0){}
+
+    // Parameterized constructor
+    Distance(int in, float ft) : inches(in), feet(ft){}
+
+    // Copy constructor
+    Distance(const Distance& other){
+      this->inches = other.inches;
+      this->feet = other.feet;
+    }
+}
+int main(){
+  Distance dist1; // Invokes no argument constructor
+  Distance dist2(dist1); // Invokes parameterized constructor
+  Distance dist3 = dist1; // Invokes copy constructor
+}
+```
+</TabsContent>
+</Tabs>
+
+In a copy constructor, the parameter is typically a **constant reference to an object of the same class**. This ensures that when an object is initialized using the copy constructor, a deep copy of the source object is created.
+
+A deep copy involves **allocating new memory** for the copied object and then **duplicating the values** from the original object into this newly allocated space, rather than simply copying the reference. This way, the new object maintains its own independent copy of the data.
+
+**Question:** If we overload the assignment operator in the above class, what will happen?
+
+<Tabs defaultValue="constructors">
+  <TabsList>
+    <TabsTrigger value="constructors">constructors.cpp</TabsTrigger>
+  </TabsList>
+  <TabsContent value="constructors">
+```cpp
+class Distance {
+  private:
+    int inches;
+    float feet;
+
+  public:
+    // No argument constructor
+    Distance() : inches(0), feet(0.0){}
+
+    // Parameterized constructor
+    Distance(int in, float ft) : inches(in), feet(ft){}
+
+    // Copy constructor
+    Distance(const Distance& other){
+      this->inches = other.inches;
+      this->feet = other.feet;
+    }
+
+    // overloading assignment operator
+    Distance& operator=(Distance& other){
+      this->inches = 1 + other.inches;
+      this->feet = 1 + other.feet;
+      return *this;
+    }
+}
+int main(){
+  Distance dist1;
+  Distance dist2 = dist1; // Invokes copy constructor
+  
+  Distance dist3(3,1.5);
+  dist2 = dist3; // Invokes overloaded assignment operator method
+}
+```
+</TabsContent>
+</Tabs>
+
+During initialization of an object using another object copy constructor will be invoked, though using assignment operator(=) is confusing. Once the object is initialized, then for every
+use of assignment operator, the corresponding overloaded operator  function will be called.
+
+You can also find the code snippets [here](https://github.com/MahendraDani/programming/blob/main/oops/copy-constructor.cpp).
