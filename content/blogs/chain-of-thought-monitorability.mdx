@@ -1,0 +1,109 @@
+---
+title: Paper Notes - Chain Of Thought Monitorability
+description: Notes of the paper- Chain of Thought Monitorability
+published: true
+tags: ["paper-notes"]
+authors: [{ "name": "Mahendra", "social": "https://x.com/MahendraDani09" }]
+date: 2025-10-10T16:43:00Z
+---
+
+> These are my notes based on the paper [Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety](https://arxiv.org/abs/2507.11473)
+
+# TL;DR
+Imagine an AI model that quitely launches a cyberattack or exfiltrates its own weights - and nobody notices until it's too
+late. To prevent such catastrophic events, AI safety is important.
+
+It turns out that LLMs, like humans, rely heavily on
+Chains of Thought(CoT) for tasks that require heavy reasoning. This paper proposes to monitor Chains of Thought to assess how LLMs reason based on different tasks.
+A few questions this paper addresses are:
+1. What is a CoT Monitor? Why CoT's may be monitorable?
+2. Where can CoT Monitorability be used?
+3. How can CoT monitorability be degraded?
+4. How should CoT monitorability be evaluated?
+5. What AI developers should do?
+
+# What is a CoT Monitor? Why CoT's may be monitorable?
+Reasoning models are explictly trained to perform CoT before taking actions or final outputs, and models use natural language
+processing for reasoning. 
+
+A CoT Monitor is an automated system that reads the CoT of a reasoning model and other relevant information and flags suspicous
+or potentially harmful interaction.
+- It could block or replace harmful responses with safe actions.
+- It could review harmful interaction more in depth.
+
+Reasoning models _need_ to externalise their reasoning with CoT for complex tasks(**necessity to think out loud**), and
+even if it's _not needed_ models have a tendency to externalise their reasoning with CoT(**propensity to think out loud**).
+Hence, it could be useful to montior CoT and use of natural lanugage boosts it.
+
+**But why thinking out loud is necessary?**
+The paper assumes that models based on transformer architecture _must_ use CoT as a form of working memory.
+> Working memory: A temporary storage system that holds information the AI is currently using to think or reason.
+
+# Where can CoT Montiorability be used?
+1. **Detecting model misbehaviour**: When models misbehave, they explicitly say so in their reasoning. Example - "Let's Hack"
+"Let's Sabotage", etc.
+
+2. **Discovering of early signals of misalignment**: When models pretend to have goals unapproved by humans, this is reflected
+in their CoT.
+
+3. **Noticing flaws in model evaluations**: Review traces can help AI developers notice when evaluations might not be 
+reflective of deployment-time behaviour.
+
+# How can CoT montiorability be degraded?
+In outcome-based reinforcement learning the reward is directly proportional to final output NOT how he model arrived at the 
+output, hence CoT monitorability is fragile.
+
+1. **Drift from legible CoT due to further scaling up RL**: If compute devoted to reasoning training is scaled up significantly
+, shift away from human data to outcome based learning might affect how monitorable CoTs are.
+
+2. **Direct supervision of CoT**: With outcome-based RL they are rewarded based on the final output and not how they arrived
+there, so reasoning process is not subject to optimization.
+
+3. **Novel Architectures**: If new models stop relying on CoT for reasoning, CoT montiorability would not be helpful.
+
+# How should CoT monitorability be evaluated?
+It is unclear what level of monitorability is sufficient for ensuring safety in a given domain. Hence, there is a need
+for researchers to explore novel evaluations.
+
+1. **Measures of CoT readability** - Using another LLM to asses clarity of a agent.
+2. **Capability evaluations of latent reasoning** - Assess how well LLMs can reason without using CoT for 
+heavy-reasoning based task.
+3. **Measure of causal relevance of CoTs** - Check if slightly modifying a CoT influences the final output.
+	- A low rate of change could indicate that the CoT is more confabulated or performative.
+	- We could also cross-validate CoT monitors by checking whether tokens perceived as important by a CoT monitor also stand out.
+4. **End to end evaluations of monitorability** - One could measure monitorability directly, for example, by examining how effective CoT monitors are at catching misbehavior of LLM agents in proxy environments.
+
+**When is CoT monitorable enough to rely on as a load-bearing safety measure?**
+Knowing the accuracy of CoT monitor is not sufficient for determining whether the monitor will be effective at prevent 
+harm or misbehaviour.
+
+**What kinds of training-time optimization pressure degrade CoT monitorability?**
+- Can models obfuscate their reasoning on purpose?
+- Would CoT be less monitorable if model _knows_ that it is being monitored.
+
+**What types of architectures reduce monitorability of CoTs?**
+- Models that reason in continuous latent spaces limit our visibility into their thought process
+- We should investigate the extent to which various non-standard architectures degrade monitorability, and under what conditions partial monitorability might still be preserved.
+
+**How to construct better CoT monitors?**
+- Ways of improving monitor performance by leveraging test-time compute. For example, monitors could be based on a reasoning model or they could be allowed to interrogate the agent by asking it questions
+- Another line of work involves adversarial training of monitors against an agent that tries to hide its misbehaviour.
+
+# What AI developers should do?
+1. **Develop effective evaluations of CoT monitorability** - Prototype and converge on standard evaluation metrics that reveal CoTs
+are sufficiently monitorable.
+2. **Publish evaluation results in system cards when such evaluations exist** - once evals exists, run these on models and
+publish reports.
+3. **Use monitorability scores in training and deployment decisions**
+	- Developers might consider whether to proceed with a novel model architecture that does not have monitorable CoT.
+	- If monitorability degrades during training, developers might prefer to use an earlier model checkpoint to keep CoTs
+  monitorable.
+	- If process-based supervision dramatically improved alignment at the cost of a small decrease in monitorability, developers might decide that reducing monitorability is justified.
+
+# What are the limitations of CoTs?
+1. In cases where thinking out loud is not required, CoT Monitoring can detect some misbehavior, but does not by itself 
+produce strong evidence of safety.
+2. Monitoring for dangerous tasks that need reasoning may not catch all relevant harms
+3. CoT monitoring may stop working in more advanced, situationally aware models - for models which avoid propensity to
+think out loud.
+4. Firm commitments to protect CoT behavior in its current form may trade off against more effective safety interventions.
