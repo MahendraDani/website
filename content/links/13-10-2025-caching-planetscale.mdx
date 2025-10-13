@@ -1,0 +1,48 @@
+---
+source : {
+  url : "https://planetscale.com/blog/caching",
+  title : Caching - Planetscale Blog 
+}
+date: 2025-10-13T19:00:00Z
+---
+
+**What is Caching?**
+> For a given budget, you can either get a large amount of slower data storage, or a small amount of faster storage. Engineers get around this by combining the two: Pair a large amount of cheaper slow storage with a small amount of expensive fast storage. Data that is accessed more frequently can go in the fast storage, and the other data that we use less often goes in the slow storage.
+
+- **Cache hit**: The requested data is present in cache.
+- **Cache miss**: The requested data is not present in cache.
+- ** Hit rate**: The percentage of time we get cache hits.
+
+**How is Caching used in our computers?**
+- RAM is used as a cache (fast and volatile storage), to get the frequently used in instructions than fetching it from hard disks(slow and non-volatile).
+- L1, L2 and L3 caches are used within CPU, as a layer before hitting the RAM.
+
+**What are the types of Caches?**
+- Temporal Locality: When frequently requested data is time-bound. For example, twitter caches  tweets within last 48 hrs, as those would be frequently requested than tweets made 2 years before.
+
+- Spatial Locality: When the request of "before" and "after" data is highly probable, prefetch and cache the results of each request.
+
+- Geospatial: CDNs are used to cache images, static files, etc in multiple locations around the world.
+
+**What happens when cache is full?**
+We use replacement policies, to evict data and replace with most recently accessed:
+- FIFO: First-In-First-Out, the data that was accessed least-recently gets evicted.
+- LRU: Least-recently used, the data was least recently used is evicted. Most widely used in industry.
+- Time-aware LRU: use time-sensitive strategies to evict least recently used data. For example, automatically evicting posts from cache after 48 hrs in a social network.
+
+**How PostgreSQL provides built-in cache?**
+
+PostgreSQL uses a two layer caching strategy:
+1. `shared_buffers`: an internal cache for data pages that store table information. This keeps frequently read row data in memory while less-frequently accessed data stays on disk.
+2. Operating system's filesystem page cache: Heavily relies, on OS's internal filesystem page cache, which caches disks pages at kernel level.
+
+The ratio of 25%:75% for `shared_buffers` to OS's filesystem page cache is used in many deployments. It also ensures ACID compliance in caching strategy.
+
+**What's Next?**
+- Read on specific tech used for caching - Redis, Memcached, etc.
+- Consistency issues in caching
+- Sharded caches
+
+P.S: The most fun part of this article is the interactive demos that you can play with and visualize how caches work.
+
+

@@ -2,7 +2,7 @@ import type { Metadata } from "next/types";
 import { siteConfig } from "@/configs/site.config";
 
 export const metadata: Metadata = {
-  title: ` LinkBlog | ${siteConfig.name}`,
+  title: ` Linkblog | ${siteConfig.name}`,
   description:
     "Hey! I am Mahendra Dani,  I write here about thoughts I have, things I'm working on, stuff I've read, experiences I've had, and so on. Whenever a thought crystalizes in my head, I type it up and post it here.",
   keywords: siteConfig.keywords,
