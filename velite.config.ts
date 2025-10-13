@@ -99,7 +99,7 @@ export const tils = defineCollection({
 })
 
 export const links = defineCollection({
-  name : "Linkblog",
+  name : "LinkBlog",
   pattern : "links/**/*.mdx",
   schema : s.object({
     slug : s.path(),
