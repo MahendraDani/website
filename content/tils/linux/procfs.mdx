@@ -18,7 +18,7 @@ Linux Kernel uses **procfs** (`/proc` filesystem), a **virtual filesystem** that
 - If the system is shut down or restarted, the RAM is cleared and files of the `/proc` directory are generated from scratch.
 - procfs provides a safe, unified, and simple text-based interface for accessing kernel info — almost everything is exposed as if it were just a file.
 
-> Note that, all the commands in this post were executed in [node:25-alpine](https://hub.docker.com/_/node) docker image.
+> Note that, all the commands in this post were executed in a Docker container based off [node:25-alpine](https://hub.docker.com/_/node) image.
 
 Let's take a look at the various files and directories inside `/proc`:
 <div className="flex justify-center items-center">
@@ -40,7 +40,7 @@ The files within `/proc` provide the kernel and system-related information.
 For more files, please read the kernel docs.
 
 ## Per-Process Information (/proc/PID)
-The information related to each running process is stored within the `/proc/PID` directory:
+The information related to each running process is stored within the `/proc/PID` directories:
 <div className="flex justify-center items-center">
 <Image
       src="/static/tils/19-10-2025/process-level-info.png"
