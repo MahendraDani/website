@@ -1,0 +1,85 @@
+---
+title: "What is procfs in Linux Kernel?"
+source: "https://docs.kernel.org/filesystems/proc.html"
+date: 2025-10-19T19:00:00Z
+---
+**Question**: How does the Linux Kernel handle information of multiple simultaneously running processes and their threads?
+
+<div className="mt-4 flex justify-center items-center">
+<Image
+      src="/static/tils/19-10-2025/procfs.svg"
+      height={600}
+      width={600}
+      alt="An image showing how CPU has to handle many processes simultaneously"/>
+</div>
+
+Linux Kernel uses **procfs** (`/proc` filesystem), a **virtual filesystem** that provides access to the state of each active process and threads in the system.
+- It’s called a **virtual filesystem** because it lives inside of the RAM and consumes no physical storage.
+- If the system is shut down or restarted, the RAM is cleared and files of the `/proc` directory are generated from scratch.
+- procfs provides a safe, unified, and simple text-based interface for accessing kernel info — almost everything is exposed as if it were just a file.
+
+> Note that, all the commands in this post were executed in a Docker container based off [node:25-alpine](https://hub.docker.com/_/node) image.
+
+Let's take a look at the various files and directories inside `/proc`:
+<div className="flex justify-center items-center">
+<Image
+      src="/static/tils/19-10-2025/inside-proc-dir.png"
+      height={600}
+      width={600}
+      alt="Result of execution of ls inside /proc"/>
+</div>
+
+## System-wide information (/proc)
+The files within `/proc` provide the kernel and system-related information.
+- `/proc/cpuinfo` - CPU model, cores, cache.
+- `/proc/meminfo` - total/free memory, swap, etc.
+- `/proc/uptime` - system uptime
+- `/proc/loadavg` — system load averages
+- `/proc/version` — kernel version, build date and compiler used to build the kernel
+
+For more files, please read the kernel docs.
+
+## Per-Process Information (/proc/PID)
+The information related to each running process is stored within the `/proc/PID` directories:
+<div className="flex justify-center items-center">
+<Image
+      src="/static/tils/19-10-2025/process-level-info.png"
+      height={600}
+      width={600}
+      alt="Files for each process within /proc/PID"/>
+</div>
+
+The most important files are:
+- `/proc/PID/cmdline` - command line arguments passed to the process.
+- `/proc/PID/cwd` - link to the current working directory.
+- `/proc/PID/environ` - values of environment variables used by the process.
+- `/proc/PID/exe` - link to executable of the process.
+- `/proc/PID/mem` - memory held by this process.
+- `/proc/PID/stat` - process status (btw I don't know how to interpret the result of `cat /proc/pid/stat` yet!)
+- `/proc/PID/statm` - process memory status information.
+- `/proc/PID/status` - process status in human readable form.
+- `/proc/PID/task` - Threads created and used by the process.
+
+Here's an example of the status information of a process:
+<div className="flex justify-center items-center">
+<Image
+      src="/static/tils/19-10-2025/proc-pid-status.png"
+      height={600}
+      width={600}
+      alt="Status information of a process using /proc/PID/status"/>
+</div>
+
+We can see that the name of the process is `sh`, it's currently in sleeping state and the process id is 1. 
+Now this makes total sense, as I started the container using the following command and `sh` is the first process that the container executes and hence it's the init process of the system (resulting in PID 1).
+```bash
+docker run -it node:25-alpine sh
+```
+
+So using the `/proc` file system, Linux Kernel can easily manage multiple processes and their related information within the RAM. That's good. The best part is that you can always take a look at the [source code](https://github.com/torvalds/linux/tree/master/fs/proc) to confuse yourself more!
+
+# References
+1. https://docs.kernel.org/filesystems/proc.html
+2. https://medium.com/@tepes_alexandru/the-proc-directory-in-linux-63f278e962f1
+3. https://fernandovillalba.substack.com/p/a-journey-into-the-linux-proc-filesystem
+4. https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/4/html/reference_guide/ch-proc#s2-proc-viewing
+5. https://www.ibm.com/docs/en/aix/7.1.0?topic=files-proc-file
