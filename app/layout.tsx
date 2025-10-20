@@ -48,19 +48,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(`relative font-sans antialiased max-w-full mx-auto px-4`, splineSansMono.className)}>
+      <body
+        className={cn(
+          `relative font-sans antialiased max-w-full mx-auto px-4`,
+          splineSansMono.className
+        )}
+      >
         <div className="w-full flex flex-col items-center">
           <Navbar />
           <Toaster richColors={true} position="top-right" />
-          <ContentWrapper className="min-h-[76vh] px-1">
-            <VercelAnalytics />
-            <div className="flex gap-6">
-              <Sidebar />
-              <div className="sm:w-3/4">
-                {children}
+          <main>
+            <ContentWrapper className="min-h-[76vh] px-1">
+              <VercelAnalytics />
+              <div className="flex gap-6">
+                <Sidebar />
+                <div className="sm:w-3/4">{children}</div>
               </div>
-            </div>
-          </ContentWrapper>
+            </ContentWrapper>
+          </main>
           <Footer />
         </div>
       </body>
