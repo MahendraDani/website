@@ -17,7 +17,7 @@ export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6",
+        "scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl text-pretty [&:not(:first-child)]:mt-6",
         className
       )}
       {...props}
@@ -26,7 +26,7 @@ export const mdxComponents = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "scroll-m-20 mt-4 text-lg sm:text-xl font-medium tracking-tight",
+        "scroll-m-20 mt-4 text-lg sm:text-xl font-medium text-pretty tracking-tight",
         className
       )}
       {...props}
@@ -35,7 +35,7 @@ export const mdxComponents = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "mt-2 scroll-m-20 sm:text-lg font-medium tracking-tight",
+        "mt-2 scroll-m-20 sm:text-lg font-medium tracking-tight text-pretty",
         className
       )}
       {...props}
@@ -43,14 +43,14 @@ export const mdxComponents = {
   ),
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
-      className={cn("scroll-m-20 font-medium tracking-tight", className)}
+      className={cn("scroll-m-20 font-medium tracking-tight text-pretty", className)}
       {...props}
     />
   ),
   h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h5
       className={cn(
-        "mt-3 scroll-m-20 text-lg font-semibold tracking-tight text-heading/50",
+        "mt-3 scroll-m-20 text-lg font-semibold tracking-tight text-heading/50 text-pretty",
         className
       )}
       {...props}
@@ -59,7 +59,7 @@ export const mdxComponents = {
   h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h6
       className={cn(
-        "mt-3 scroll-m-20 text-base font-semibold tracking-tight text-heading/50",
+        "mt-3 scroll-m-20 text-base font-semibold tracking-tight text-heading/50 text-pretty",
         className
       )}
       {...props}

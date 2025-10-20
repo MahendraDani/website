@@ -42,7 +42,7 @@ export const Navbar = () => {
     }
   };
   return (
-    <div className="">
+    <header>
       {!showMobileNav ? (
         <div className="w-[90vw] sm:w-[54rem] mt-4 sm:mt-12 sm:mb-4 flex justify-between items-center border-t border-b py-2">
           <Link href={"/"}>
@@ -89,6 +89,6 @@ export const Navbar = () => {
           </div>
         </div>
       )}
-    </div>
+    </header>
   );
 };
