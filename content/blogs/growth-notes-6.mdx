@@ -1,0 +1,76 @@
+---
+title: "Growth Notes #6"
+description: Weekly review from 12th October 2025 to 19th October 2025
+published: true
+tags: ["life"]
+authors: [{ "name": "Mahendra", "social": "https://x.com/MahendraDani09" }]
+date: 2025-10-20T11:00:00Z
+---
+
+Growth Notes: 12th October 2025 - 19th October 2025
+
+# Problem Solving
+
+Some problems that I solved on Codeforces:
+
+1. [A2114. Square Year](https://codeforces.com/contest/2114/problem/A)
+2. [B2092. Lady Bug](https://codeforces.com/contest/2092/problem/B)
+3. [B2117. Shrink](https://codeforces.com/contest/2117/problem/B)
+4. [C2093. Simple Repitition](https://codeforces.com/contest/2093/problem/C)
+5. [A2130. Submission is All You Need](https://codeforces.com/contest/2130/problem/A)
+
+Participated in [Codeforces Round 1059 (Div 3)](https://codeforces.com/submissions/mahendra09/contest/2162), solved problems A and B.
+
+
+Participated in [Leetcode Weekly Contest 471](https://leetcode.com/contest/weekly-contest-471/), solved only first problem and achieved 14292 rank.
+
+The solutions to above problems are in my [MahendraDani/programming](https://github.com/MahendraDani/programming) repo.
+
+# Deep Dives
+
+1. **Containers**: Trying to figure out what really are containers? How are they different from VMs and how do they work?
+    - I watched the video titled [Deepdive Containers - Kernel Sources and nsenter](https://www.youtube.com/watch?v=sHp0Q3rvamk), and it really was an eye-opener. Containers use the host's [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces) and create an isolated environment where we "think" oh it's a container, but in reality it's just another process running on the host with very specific set of permissions. 
+    - The [this](https://youtu.be/BM3aH-wultc?si=xa5xVjKZ3ftMpkSY) talk on Container by the Linux Foundation, explains the foundation and concepts used for building containers.
+    - To finish off, I watched [this](https://youtu.be/Utf-A4rODH8?si=78LsdYgn3kWHgKEU) talk, where an container was implemented in Go from scratch in around ~100 lines of code. 
+
+2. **procfs**: I learnt about `/proc` directory while learning about containers and so I played with it myself.
+    - Read through blogs and docs related to procfs, executed a few commands myself in a Docker container and published my [notes](https://mahendradani.vercel.app/tils/linux/procfs).
+
+3. Downloaded and set up [Inkscape](https://inkscape.org/) from source, tried to understand both the code and the use of graphical editor.
+
+# Reading List
+
+1. [Caching - Planetscale blog](https://planetscale.com/blog/caching).
+   Ok. A good introduction to what is caching, conceptually (not just redis-redis-redis!), spatial, geographical and temporal locality in caching. Read my [notes](http://localhost:3000/links/13-10-2025-caching-planetscale).
+
+2. procfs - Read through the following docs and blogs for exploring procfs. Read my [notes](https://mahendradani.vercel.app/tils/linux/procfs).
+    1. [The /proc Filesystem - Linux Docs](https://docs.kernel.org/filesystems/proc.html). Kernel docs specifying the use of each and every file with reference to the kernel's source code.
+    2. [The /proc directory in Linux](https://medium.com/@tepes_alexandru/the-proc-directory-in-linux-63f278e962f1). Blog explaining the most commonly used files in the proc directory in simple words. A good intro to the concept.
+    3. [A journey into the Linux proc filesystem](https://fernandovillalba.substack.com/p/a-journey-into-the-linux-proc-filesystem). Another blog with many explanations and screenshots showing output of multiple commands. Good for a hands-on overview of the proc dir.
+    4. [The proc File system. - Red Hat](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/4/html/reference_guide/ch-proc#s2-proc-viewing). Specification of the /proc directory specific to Red Hat Linux distro.
+    5. [/proc File - IBM](https://www.ibm.com/docs/en/aix/7.3.0?topic=files-proc-file). Doc file with clear explanations of proc directory and it's usage in Linux.
+
+6. [Rich Dad Poor Dad](https://en.wikipedia.org/wiki/Rich_Dad_Poor_Dad). Finished the second chapter this week. 
+
+# Quotes
+From Rich Dad Poor Dad:
+> Rich people acquire assets. The poor and middle class acquire liabilities that they think are assets.
+
+# What remains unfinished this week
+1. Upsolving [Leetcode Weekly Contest 471](https://leetcode.com/contest/weekly-contest-471/)
+2. Upsolving [Codeforces Round 1059 (Div 3)](https://codeforces.com/contest/2162).
+3. Continuing with learning Go and the interpreter.
+
+# Footnotes
+1. I should also start taking notes of Youtube videos. It happens quite often that I watch a video, and then I find myself deep into a rabbit hole.
+2. It's good to plan out a few todos for the entire week with some buffer that gives me freedom to explore and deep-dive into a few topics at the go rather than just saying "it's in my brain".
+
+
+And here's the first graphic design I created using Inkscape. A smile ball to play with.
+<div className="mt-2 flex justify-center items-center">
+<Image
+      src="/static/blogs/smile-ball.jpeg"
+      height={600}
+      width={600}
+      alt="smile ball"/>
+</div>
