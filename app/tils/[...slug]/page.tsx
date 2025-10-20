@@ -53,16 +53,16 @@ export default async function TilsPage({ params }: TilsPageParams) {
     <FadeUp>
       <div>
         <article className="relative max-w-3xl">
-          <p className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
+          <p className="scroll-m-20 px-4 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
             {til.title}
           </p>
-          <div className="mt-2 py-1 border-t border-b border-dashed flex justify-between items-center">
+          <div className="mt-2 py-1 px-4 border-t border-b border-dashed flex justify-between items-center">
             <div className="w-full py-1 flex justify-between items-center flex-wrap gap-2">
               <span className="bg-emerald-400/70 px-2 rounded-md">{tag}</span>
               <p className="text-muted-foreground">{formatDate(til.date)}</p>
             </div>
           </div>
-          <div className="mx-auto sm:w-auto min-w-0 mt-4 text-justify">
+          <div className="mx-auto w-[100vw] p-4 sm:w-auto min-w-0 mt-4 text-justify">
             <MDXContentRenderer code={til.body} />
           </div>
         </article>
