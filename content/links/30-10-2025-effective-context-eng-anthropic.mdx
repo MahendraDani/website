@@ -1,0 +1,73 @@
+---
+source : {
+  url : "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+  title : Effective context engineering for AI agents
+}
+date: 2025-10-30T16:05:00Z
+---
+## What is an AI Agent and how is it different from a LLM?
+In simple terms, an AI agent uses a LLM to reason, iterates using tool calls to validate or use knowledge in the form of files/docs and system prompt to take an **autonomous decision**.
+
+**LLM** : Takes an input (prompt) and produces an output. It’s reactive and does not act autonomously beyond generating text.
+
+**AI Agent**: Uses an LLM as a reasoning engine, but goes further. It can:
+1. Take autonomous decisions based on goals.
+2. Iterate over multiple steps, using tools, files, or APIs to gather or verify information.
+3. Update its “context” (working memory) with new information after each step.
+
+## Why context engineering over prompt engineering?
+We know : 
+1. AI agents take autonomous decision, use tool calls in loops for knowledge and information. 
+2. The decision is based on context, which might update/change in every iteration.
+3. Prompt engineering fails because it's not iterative.
+
+So how should we provide relevant and useful info to agent in minimal set of tokens as 
+its "working memory" for making next decision in every iteration?
+
+<div className="mt-4 flex justify-center items-center">
+<Image
+      src="/static/links/30-10-2025/context-eng-vs-prompt-eng.png"
+      height={600}
+      width={600}
+      alt="In contrast to the discrete task of writing a prompt, context engineering is iterative and the curation phase happens each time we decide what to pass to the model."/>
+</div>
+
+This figure from the article shows that a system prompt remains static during course of iterations of the agent before making a decision, whereas with context-window, we keep the essential information/tool-calls, files and APIs that can effectively answer the following questions for the agent in any iteration:
+1. **What do I need more to make a decision?**
+2. **Which resources that I have in my context window will help me reach the goal?**
+3. **Given that I have used a resource from window, now do I need to update the window with newer results and evict any previously stored context?**
+
+## What is context?
+A window which holds relevant docs/files, instructions, results of tools, message history
+that in minimum set of tokens are enough for the agent to:
+1. Use some knowledge from this window.
+2. Determine what to do next (take a decision) 
+3. This is such that the agent produces desired results.
+
+## How is context different from system prompt?
+1. A system prompt is static, it doesn't change in every iteration of the agent.
+2. It doesn't utilize say the results of 3rd iteration in 7th iteration, which can be done
+using context.
+
+## How to do context engineering effectively?
+**My advice**: Think like teaching a kid how to take better decisions using the resources he have, without being explicitly forced to go in certain direction or being so ridiculed that he can't determine what to do next even with so many resources.
+
+So ask yourselves: 
+1. How to use the resources?
+2. When to use which resources?
+3. Which knowledge to preserve and which to let go?
+4. What should be ideal behaviour? (don't go disruptive)
+5. structure your instructions 
+6. tell the kid its expected behaviour; rather than hard-coded instructions (because kids can THINK and so do agents!) 
+
+The article covers this in detail with examples on how Anthropic uses context engineering in Claude Code to perform better. My goal here is to simplify it without any technical jargon, just common sense.
+
+## How to solve problems that require too much context?
+1. **Compaction** : Summarise the current context window, re-initalize next window with this summary (ideally saving only summary of historic events).
+2. **Structured note-taking**: Write notes to a persisted memory outside of context window, then use this if context window is insufficient at some point.
+3. **Multi-agent architecture**: Run many agents simulataneously with their own context windows, offload tasks and using a leader keep the processes running with combining outputs.
+
+
+## What's Next?
+1. Find where context engineering is being applied and how? Probably any open-source project?
+2. If suppose I use effective context engineering methods from the article, how can I assess the performance of the agent, and iterative reach to have the effective context?
