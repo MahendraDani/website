@@ -1,0 +1,33 @@
+---
+title: "What Are Message Queues?"
+source: "https://www.ibm.com/think/topics/message-queues"
+date: 2025-11-01T14:35:00Z
+---
+
+Message queues store __messages__ — packets of data that one application (the producer) creates for another application (the consumer) to process later. These messages are held in the queue in the order they were sent, until the consuming application is ready to handle them.
+<div className="mt-4 flex justify-center items-center">
+  <Image
+    src="/static/tils/01-11-2025/message-queue.svg"
+    height={600}
+    width={600}
+    alt="Message queue"
+  />
+</div>
+
+Consider a distributed application where users can upload videos (like Youtube). The challenge for us is to upload the video using __UploadVideoService__, track this event, and push it one of analytics services - __UserAnalyticsService__.
+
+But here’s the catch: there can be multiple services handling uploads and multiple services handling analytics.
+
+So, __how do they communicate with each other reliably and efficiently?__
+
+That’s where __message queues__ come in.
+
+A message queue acts as a __buffer__ or __communication channel__ between services. It stores log entries or event data that can later be consumed by other services.
+
+In our example:
+- __UploadVideoService__ (the producer) writes metadata about a newVideoUpload event to the message queue.
+- __UserAnalyticsService__ (the consumer) then reads this metadata from the queue and processes it asynchronously.
+
+Some popular message queue implementations include RabbitMQ, Apache Kafka, AWS SQS (Simple Queue Service), and Google Cloud Pub/Sub.
+
+Each of these provides a slightly different way to handle message delivery, persistence, and scaling — but they all serve the same core purpose: enabling reliable, asynchronous communication between distributed systems.
