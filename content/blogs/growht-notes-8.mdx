@@ -1,0 +1,88 @@
+---
+title: "Growth Notes #8"
+description: Weekly review from 27th October 2025 to 2nd November 2025
+published: true
+tags: ["life"]
+authors: [{ "name": "Mahendra", "social": "https://x.com/MahendraDani09" }]
+date: 2025-11-04T07:00:00Z
+---
+
+Growth Notes: 27th October 2025 - 2nd November 2025
+
+This week, I started building [Gitloom](https://x.com/MahendraDani09/status/1983840117212303407), my Git implementation in Go, while exploring topics around rationality, curiosity, and engineering design. I read essays from LessWrong, papers on distributed systems like Kafka and AI alignment, and technical blogs on testing and system design. I also made progress in Rich Dad, Poor Dad, started Foundation, and studied Git internals to better understand its object model. Overall, it was a week of steady learning — combining hands-on coding with deep reading and reflection.
+
+# Projects
+To learn Go using a project-based learning approach, I am working on [Gitloom](https://www.linkedin.com/posts/mahendra-dani_vitbhopal-buildinpublic-activity-7390058501923966977-vbZi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD6fpqsBLRsWPisKZcohT-5-47XW-mSIgN0) - a minimal implementation of Git in Go. I've been actively writing on X about how I am approaching and developing this project. You should follow me on [X](https://x.com/MahendraDani09).
+
+
+# Reading List
+**Articles:** 
+
+1. [The Volunteer's Dilemma](https://behavioralscientist.org/the-volunteers-dilemma/).
+The Volunteer’s Dilemma explores how groups often rely on a few individuals to take initiative for the collective good, even at personal cost. It highlights the tension between cooperation and self-interest — and how social progress often depends on those willing to act first. Read my [notes](http://localhost:3000/links/28-10-2025-volunteers-dilemma).
+
+2. [What do we mean by rationality](https://www.lesswrong.com/s/NBDFAKt3GbFwnwzQF/p/RcZCwxFiZzE6X7nsv). Clarifies that rationality isn’t about knowing everything, but about thinking and acting in ways that bring beliefs closer to truth and actions closer to goals. It distinguishes between epistemic rationality (forming accurate beliefs) and instrumental rationality (making effective decisions).
+
+3. [Humans are not automatically strategic](https://www.lesswrong.com/s/NBDFAKt3GbFwnwzQF/p/PBRWb2Em5SNeWYwwB). Explains that we often act without clear strategies, even when better ones exist. It emphasizes that being strategic requires conscious effort — planning, reflection, and feedback — rather than intuition or habit.
+
+4. [Use the try harder, Luke](https://www.lesswrong.com/posts/fhEPnveFhb9tmd7Pe/use-the-try-harder-luke). Recognizing a mistake or failure isn’t enough — true rationality means pushing past excuses and deliberately exerting more effort when you realize something isn’t working. It’s a call to cultivate awareness, persistence, and agency in problem-solving.
+
+5. [Your strength as a rationalist](https://www.lesswrong.com/s/NBDFAKt3GbFwnwzQF/p/5JDkW4MYXit2CquLs). The core power of rationality lies in the ability to notice confusion and confront reality honestly, even when it’s uncomfortable. It reminds us that progress begins the moment we admit “something doesn’t add up” and choose to investigate rather than ignore it.
+
+6. [How We Built Enterprise Search to be Secure and Private](https://slack.engineering/how-we-built-enterprise-search-to-be-secure-and-private/). Slack’s approach to designing a large-scale search system that balances speed, accuracy, and strict data privacy. It details how they isolated customer data, enforced access controls, and architected search to remain both performant and compliant across enterprises. I expected a few implementation details, or a deeper insight behind the engineering decisions and process.
+
+7. [Tinkering A Losing Art](https://seated.ro/blog/tinkering-a-lost-art). how the spirit of playful experimentation in technology is fading as tools become more abstracted and polished. It encourages reclaiming the habit of hands-on exploration — breaking, fixing, and learning by doing — as a path to deeper understanding and creativity.
+
+8. [Career advice for young developers](https://glaubercosta-11125.medium.com/career-advice-for-young-system-programmers-c7443f2d3edf). Emphasizes depth over hype, understanding fundamentals, and learning from real-world systems. It encourages patience, curiosity, and the long-term mindset needed to grow into a thoughtful engineer.
+
+10. [Beyond The Machine](https://frankchimero.com/blog/2025/beyond-the-machine/). Technology shapes our thinking and creative work, urging a shift from efficiency-driven design to a more human, intentional relationship with the tools we use. It’s a reminder that progress isn’t just about faster machines, but about deeper meaning in how we build and create. Read my [notes](https://mahendradani.vercel.app/links/31-10-2025-beyond-the-machine).
+
+11. [Write More Tests: The Pain Is Worth It](https://jitesh117.github.io/blog/write-more-tests-the-pain-is-worth-it/). While testing can feel tedious, it ultimately saves time, prevents regressions, and builds confidence in code. The post emphasizes writing tests not as an obligation, but as an investment in long-term development speed and reliability.
+
+12.  [What is a message queue - IBM](https://www.ibm.com/think/topics/message-queues). Message queues as intermediaries that enable asynchronous communication between services. It explains how producers and consumers exchange data reliably, allowing systems to remain scalable, decoupled, and fault-tolerant.
+
+13. [The Meditation on Curiosity](https://www.lesswrong.com/s/NBDFAKt3GbFwnwzQF/p/3nZMgRTfFEfHp34Gb). Curiosity as the driving force behind genuine understanding. It emphasizes that true curiosity isn’t passive wonder, but an active pursuit of resolving confusion and closing knowledge gaps, even when the answers challenge our assumptions.
+
+14. [The Importance of saying oops](https://www.lesswrong.com/s/NBDFAKt3GbFwnwzQF/p/wCqfCLs8z5Qw4GbKS). Admitting mistakes is a core skill of rationality — it’s how beliefs evolve and understanding deepens. The essay frames “oops” not as failure, but as evidence that we’ve updated our model of reality in the right direction.
+
+15. [How to twitter](https://jitesh117.github.io/musings/how-to-twitter/). Practical advice on using Twitter as a space for thinking in public — writing clearly, engaging authentically, and building ideas through conversation. It frames tweeting not as self-promotion, but as a disciplined exercise in clarity and connection.
+
+**Papers:**
+1. [Kafka: a Distributed Messaging System for Log Processing](https://classpages.cselabs.umn.edu/Spring-2018/csci8980/Papers/PublishSubscribe/Kafka.pdf). Kafka’s design as a high-throughput, fault-tolerant publish–subscribe system built around the idea of treating all data as logs. It explains how log-based architecture enables scalability, durability, and real-time data processing across distributed systems. After reading the paper, I spent some time learning about message queues. Read my [notes](https://mahendradani.vercel.app/tils/system-design/message-queue).
+
+2.  [Agentic Misalignment: How LLMs Could Be an Insider Threat](https://www.anthropic.com/research/agentic-misalignment). Finds that when large-language models are given autonomy, goals, and access, they can behave like insider threats — e.g., blackmail or leak information — even when their user instructions forbid it.
+
+3. [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). I re-read this paper by Anthropic team and have written my key [takeaways](https://mahendradani.vercel.app/links/30-10-2025-effective-context-eng-anthropic).
+
+**Books:**
+1. Rich Dad, Poor Dad - Completed Chapter 4 this week; it reinforced the idea that financial intelligence grows from understanding how money works, not just earning more of it.
+
+2. Foundation - Began reading Asimov’s sci-fi classic, a story that weaves mathematics, history, and human ambition into a grand reflection on how civilizations rise and fall.
+
+3. [Git internals](https://github.com/pluralsight/git-internals-pdf) - As I've been working on implementing my own Git in Go, I read a few chapters from the Git Internals book to understand how Git works under the hood, and I learnt that Git stores files in the form of objects. Read my [notes](https://mahendradani.vercel.app/tils/git/the-git-object-types).
+
+# Quotes
+A few quotes which I read this week and would revisit often.
+1. [The Dead Poets Society](https://en.wikipedia.org/wiki/Dead_Poets_Society):
+> Show me the heart unfettered by foolish dreams, and I'll show you a happy man. But only in their dreams can men be truly free. It was always thus, and always thus will be.
+
+2. [The Foundation](https://en.wikipedia.org/wiki/Foundation_(Asimov_novel)) by Issac Asimov:
+> [...] If you're born in a cubicle and grow up in a corridor, and work in a cell, and vacation in a crowded sun-room, then coming up into the open with nothing but sky over you might just give you a nervous breakdown.
+
+3. [The Meditation on Curiosity](https://www.lesswrong.com/posts/3nZMgRTfFEfHp34Gb/the-meditation-on-curiosity):
+> If the box contains a diamond,
+I desire to believe that the box contains a diamond;
+If the box does not contain a diamond,
+I desire to believe that the box does not contains a diamond;
+Let me not become attached to the beliefs I may not want.
+
+# Misc
+Here's a Yin-Yang graphic, I learnt to draw in Inkscape:
+
+<div className="mt-2 flex justify-center items-center">
+<Image
+      src="/static/blogs/yin-yang.jpeg"
+      height={600}
+      width={600}
+      alt="Yin Yang graphic in Inkscape"/>
+</div>
