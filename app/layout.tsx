@@ -51,7 +51,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          `relative font-sans antialiased mx-auto px-4 min-h-screen flex flex-col`,
+          `relative font-sans antialiased min-h-screen flex flex-col`,
           splineSansMono.className
         )}
       >

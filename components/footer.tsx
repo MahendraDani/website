@@ -17,7 +17,7 @@ const footerLinks = [
 ]
 export const Footer = ()=>{
     return (
-        <footer className="w-[90vw] sm:w-[54rem] my-8 flex justify-between items-center border-t-[1px] pt-2">
+        <footer className="sm:w-[40rem] my-4 flex justify-between items-center border-t-[1px] pt-2">
             <div>
                 <h3 className="">Onto the summit</h3>
             </div>
