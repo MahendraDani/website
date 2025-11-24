@@ -52,7 +52,7 @@ export default async function TilsPage({ params }: TilsPageParams) {
   return (
     <FadeUp>
       <div>
-        <article className="relative max-w-3xl">
+        <article className="relative">
           <p className="scroll-m-20 px-4 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
             {til.title}
           </p>

@@ -59,7 +59,7 @@ export default async function BlogPage({ params }: BlogPageParams) {
   return (
     <FadeUp>
       <div>
-        <article className="relative max-w-3xl">
+        <article>
           <div>
             <p className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
               {blog.title}

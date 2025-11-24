@@ -10,6 +10,7 @@ import { inter, splineSansMono } from "./fonts";
 import { VercelAnalytics } from "@/components/vercel-analytics";
 import { Toaster } from "sonner";
 import { Sidebar } from "@/components/sidebar";
+import { Container } from "@/components/container";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -50,24 +51,17 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          `relative font-sans antialiased max-w-full mx-auto px-4`,
+          `relative font-sans antialiased mx-auto px-4 min-h-screen flex flex-col`,
           splineSansMono.className
         )}
       >
-        <div className="w-full flex flex-col items-center">
+        <Toaster richColors={true} position="top-right" />
+        <VercelAnalytics />
+        <Container classname="flex-1 flex flex-col">
           <Navbar />
-          <Toaster richColors={true} position="top-right" />
-          <main>
-            <ContentWrapper className="min-h-[76vh] px-1">
-              <VercelAnalytics />
-              <div className="flex gap-6">
-                <Sidebar />
-                <div className="sm:w-3/4">{children}</div>
-              </div>
-            </ContentWrapper>
-          </main>
+          <main className="flex-1">{children}</main>
           <Footer />
-        </div>
+        </Container>
       </body>
     </html>
   );

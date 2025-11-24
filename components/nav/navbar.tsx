@@ -44,7 +44,7 @@ export const Navbar = () => {
   return (
     <header>
       {!showMobileNav ? (
-        <div className="w-[90vw] sm:w-[54rem] mt-4 sm:mt-12 sm:mb-4 flex justify-between items-center border-t border-b py-2">
+        <div className="mt-4 sm:mt-12 sm:mb-4 flex justify-between items-center border-t border-b py-2">
           <Link href={"/"}>
             <h3 className="text-xl text-heading font-medium">Mahendra Dani</h3>
           </Link>
@@ -65,7 +65,7 @@ export const Navbar = () => {
         </div>
       ) : (
         <div className="w-full h-full z-50 absolute inset-0 bg-white">
-          <div className="w-[90vw] mx-auto sm:w-[54rem] mt-4 sm:mt-12 sm:mb-4 flex justify-between items-center border-t border-b py-2">
+          <div className="mx-auto sm:w-[54rem] mt-4 sm:mt-12 sm:mb-4 flex justify-between items-center border-t border-b py-2">
             <Link href={"/"}>
               <h3 className="text-xl text-heading font-medium">
                 Mahendra Dani
