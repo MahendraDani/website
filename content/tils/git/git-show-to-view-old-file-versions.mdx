@@ -1,0 +1,40 @@
+---
+title: "How to Time-Travel a Single File in Git?"
+source: "https://git-scm.com/docs/user-manual#viewing-old-file-versions"
+date: 2025-11-25T15:35:00Z
+---
+
+<div className="mt-4 flex justify-center items-center">
+<Image
+      src="/static/tils/25-11-2025/git-show.svg"
+      height={600}
+      width={600}
+      alt="Two ways to time-travel in Git: rewrite your whole working tree, or just read the one file you care about using git show"/>
+</div>
+
+Today I learned that you don’t need to switch commits or enter detached HEAD mode just to look at an old version of a file. Git can show you exactly what a file looked like at any commit — without touching your working tree — because every version of every file is stored as a blob object.
+
+All you need is:
+
+```bash
+git show <commit_sha>:<file_name>
+```
+
+[git-show(1)](https://git-scm.com/docs/git-show) normally displays commit details, but when you append `<file>` after `<commit>:`, Git resolves it to a [blob object](https://mahendradani.vercel.app/tils/git/the-git-object-types) and prints exactly what that file looked like at that moment in history.
+
+It’s a surprisingly clean way to time-travel a single file.
+
+For example: imagine a random tuesday afternoon where you've just cloned the Git source and suddenly feel like reading the first version of `read-cache.c` written by Linus back in 2005.
+
+1. Find the first commit.
+``` bash
+$ git log --reverse --oneline
+```
+(Copy the first SHA you see.)
+
+2. Use git show to view `read-cache.c` from that commit:
+```bash
+$ git show e83c516331:read-cache.c
+```
+
+And now you're looking at 2005 code — no checkouts, no detached HEAD, no messing with your working directory.
