@@ -68,6 +68,7 @@ export const projects = defineCollection({
     publishDate : s.string().datetime(), // YYYY-MM-DDTHH:MM:SSZ
     body : s.mdx(),
     links : s.array(s.object({
+      type : s.enum(["linkedin", "github", "live", "twitter", "youtube", "demoVideo", "blog","other"]),
       title : s.string(),
       url : s.string().url()
     })),
