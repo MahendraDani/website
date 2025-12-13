@@ -72,7 +72,7 @@ export const mdxComponents = {
   }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
       className={cn(
-        "font-medium text-blue-700/70 hover:text-blue-800 underline decoration-dashed decoration-[1px] underline-offset-4 items-center py-1",
+        "font-medium text-sky-600 hover:text-sky-600/80 underline decoration-dashed decoration-[1px] underline-offset-4 items-center py-1",
         className
       )}
       target="_blank"
