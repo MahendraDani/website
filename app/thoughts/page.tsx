@@ -1,7 +1,16 @@
 import { thoughts } from "#site/content";
 import { FadeUp } from "@/components/fade-up";
-import { ListItem } from "@/components/list-item";
 import dayjs from "dayjs";
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemHeader,
+  ItemTitle,
+} from "@/components/ui/item";
+import Link from "next/link";
 
 export default function Page() {
   const publishedThoughts = thoughts
@@ -17,27 +26,37 @@ export default function Page() {
     });
 
   return (
-    <div className="w-[90vw] sm:w-auto">
-      <div>
-        <h3>Thoughts</h3>
-        <hr className="my-1" />
-      </div>
-      {publishedThoughts.map((thought, idx) => {
-        return (
-          <FadeUp key={idx}>
-            <ListItem>
-              <ListItem.Content className="text-balance">
-                <ListItem.Date date={thought.date} className="" />
-                <ListItem.Link href={`thoughts/${thought.slugAsParams}`}>
-                  <ListItem.Title className="text-left hover:text-blue-700 underline underline-offset-4">
-                    {thought.title}
-                  </ListItem.Title>
-                </ListItem.Link>
-              </ListItem.Content>
-            </ListItem>
-          </FadeUp>
-        );
-      })}
+    <div>
+      <ItemGroup className="flex flex-col gap-4">
+        {publishedThoughts.map((thought, idx) => {
+          const formattedDate = dayjs(thought.date).format("MMMM DD, YYYY");
+          return (
+            <FadeUp key={idx}>
+              <div className="group">
+                <Item
+                  asChild
+                  className="rounded-none hover:bg-accent/15 border-accent/35"
+                  variant="outline"
+                >
+                  <Link
+                    href={`/thoughts/${thought.slugAsParams}`}
+                  >
+                    <ItemContent>
+                      <div className="flex justify-between items-center">
+                        <ItemTitle className="text-pretty">
+                          {thought.title}
+                        </ItemTitle>
+                        <p className="text-muted-foreground">{formattedDate}</p>
+                      </div>
+                      <ItemDescription>{thought.excerpt}</ItemDescription>
+                    </ItemContent>
+                  </Link>
+                </Item>
+              </div>
+            </FadeUp>
+          );
+        })}
+      </ItemGroup>
     </div>
   );
 }

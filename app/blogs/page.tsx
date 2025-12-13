@@ -1,7 +1,5 @@
 import { blogs } from "#site/content";
 import { FadeUp } from "@/components/fade-up";
-import { ListItem } from "@/components/list-item";
-import { NotebookPen } from "lucide-react";
 import dayjs from "dayjs";
 import {
   Item,
@@ -15,7 +13,6 @@ import {
 import Link from "next/link";
 
 export default function Blogs() {
-  // TODO : Try to sort blogs faster!
   const publishedBlogs = blogs
     .filter((blog) => blog.published)
     .filter((blog) => blog.slugAsParams != "aboutme")
