@@ -1,7 +1,17 @@
 import { tils } from "#site/content";
 import { FadeUp } from "@/components/fade-up";
 import { ListItem } from "@/components/list-item";
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemHeader,
+  ItemTitle,
+} from "@/components/ui/item";
 import dayjs from "dayjs";
+import Link from "next/link";
 
 export default async function Tils() {
   const publishedTils = tils.sort((a, b) => {
@@ -15,30 +25,37 @@ export default async function Tils() {
   });
 
   return (
-    <div className="w-[90vw] sm:w-auto">
-      <div>
-        <h3>Tils - Things I Learned</h3>
-        <hr className="my-1" />
-      </div>
-      {publishedTils.map((til, idx) => {
-        return (
-          <FadeUp key={idx}>
-            <ListItem>
-              <ListItem.Content className="">
-                <ListItem.Date
-                  date={til.date}
-                  className="text-pretty sm:block"
-                />
-                <ListItem.Link href={`tils/${til.slugAsParams}`}>
-                  <ListItem.Title className="text-left hover:text-blue-700 underline underline-offset-4 text-pretty">
-                    {til.title}
-                  </ListItem.Title>
-                </ListItem.Link>
-              </ListItem.Content>
-            </ListItem>
-          </FadeUp>
-        );
-      })}
+    <div>
+      <ItemGroup className="flex flex-col gap-4">
+        {publishedTils.map((til, idx) => {
+          const formattedDate = dayjs(til.date).format("MMMM DD, YYYY");
+          return (
+            <FadeUp key={idx}>
+              <div className="group">
+                <Item
+                  asChild
+                  className="rounded-none hover:bg-accent/15 border-accent/35"
+                  variant="outline"
+                >
+                  <Link
+                    href={`/tils/${til.slugAsParams}`}
+                  >
+                    <ItemContent>
+                      <div className="flex justify-between items-center">
+                        <ItemTitle className="text-pretty">
+                          {til.title}
+                        </ItemTitle>
+                        <p className="text-muted-foreground">{formattedDate}</p>
+                      </div>
+                      <ItemDescription>{til.excerpt}</ItemDescription>
+                    </ItemContent>
+                  </Link>
+                </Item>
+              </div>
+            </FadeUp>
+          );
+        })}
+      </ItemGroup>
     </div>
   );
 }
