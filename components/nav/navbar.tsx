@@ -5,6 +5,7 @@ import { A } from "../a";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const navMenu = [
   {
@@ -44,20 +45,16 @@ export const Navbar = () => {
   return (
     <header>
       {!showMobileNav ? (
-        <div className="mt-4 sm:mb-4 flex justify-between items-center border-t border-b py-2">
+        <div className="mt-2 sm:mb-4 flex justify-between items-center border-t border-b py-2">
           <Link href={"/"}>
-            <h3 className="text-xl text-heading font-medium">Mahendra Dani</h3>
+            <p className="text-base font-medium">Mahendra Dani</p>
           </Link>
 
           <nav className="hidden sm:flex justify-center items-center gap-3">
             {navMenu.map((navItem, index) => (
-              <A
-                href={navItem.href}
-                key={index}
-                className="text-black/80 hover:text-blue-700/70 underline decoration-white hover:decoration-blue-800/70 underline-offset-4"
-              >
+              <Link href={navItem.href} key={index} className="text-sm text-secondary-foreground  hover:text-accent hover:underline underline-offset-4 decoration-dashed duration-300 ease-in-out">
                 {navItem.name}
-              </A>
+              </Link>
             ))}
           </nav>
 

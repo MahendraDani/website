@@ -31,7 +31,6 @@ export default function Blogs() {
 
   return (
     <div>
-      <h3 className="mb-2">Projects</h3>
       <ItemGroup className="flex flex-col gap-2">
         {allProjects.map((project, idx) => {
           const formattedDate = dayjs(project.publishDate).format(
@@ -43,19 +42,19 @@ export default function Blogs() {
                 <div className="flex justify-end gap-2 my-2">
                   {project.links.map((link, idx) => (
                     <Link key={idx} href={link.url} target="_blank">
-                      {link.type=="linkedin" && <LinkedInIcon className="h-6 w-6 p-1 border hover:bg-secondary hover:border-black duration-300" />}
-                      {link.type=="github" && <GithubIcon className="h-6 w-6 p-1 border hover:bg-secondary hover:border-black duration-300" />}
-                      {link.type=="twitter" && <TwitterIcon className="h-6 w-6 p-1 border hover:bg-secondary hover:border-black duration-300" />}
-                      {link.type=="live" && <GlobeIcon className="h-6 w-6 p-1 border hover:bg-secondary hover:border-black duration-300" />}
-                      {link.type=="blog" && <NotebookPenIcon className="h-6 w-6 p-1 border hover:bg-secondary hover:border-black duration-300" />}
-                      {(link.type=="demoVideo" || link.type=="youtube") && <VideoIcon className="h-6 w-6 p-1 border hover:bg-secondary hover:border-black duration-300" />}
-                      {link.type=="other" && <GlobeIcon className="h-6 w-6 p-1 border hover:bg-secondary hover:border-black duration-300" />}
+                      {link.type=="linkedin" && <LinkedInIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
+                      {link.type=="github" && <GithubIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
+                      {link.type=="twitter" && <TwitterIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
+                      {link.type=="live" && <GlobeIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
+                      {link.type=="blog" && <NotebookPenIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
+                      {(link.type=="demoVideo" || link.type=="youtube") && <VideoIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
+                      {link.type=="other" && <GlobeIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
                     </Link>
                   ))}
                 </div>
                 <Item
                   asChild
-                  className="rounded-none hover:bg-accent/15 hover:border-accent/35"
+                  className="rounded-none hover:bg-accent/15 border-accent/35"
                   variant="outline"
                 >
                   <Link
@@ -68,7 +67,6 @@ export default function Blogs() {
                           <ItemTitle className="text-lg">
                             {project.name}
                           </ItemTitle>
-                          <ArrowUpRight className="h-4 w-4 text-muted-foreground hidden group-hover:block duration-300" />
                         </div>
 
                         <p className="text-muted-foreground">{formattedDate}</p>
