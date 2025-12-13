@@ -6,7 +6,7 @@ import { Navbar } from "@/components/nav/navbar";
 import { Footer } from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/configs/site.config";
-import { inter, splineSansMono } from "./fonts";
+import { geistMono, geistSans, inter, sourceSerif4, splineSansMono } from "./fonts";
 import { VercelAnalytics } from "@/components/vercel-analytics";
 import { Toaster } from "sonner";
 import { Sidebar } from "@/components/sidebar";
@@ -51,7 +51,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          `relative antialiased min-h-screen flex flex-col bg-background`,
+          `relative antialiased min-h-screen flex flex-col bg-background/90`,
           splineSansMono.className
         )}
       >

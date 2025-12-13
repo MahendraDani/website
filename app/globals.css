@@ -65,6 +65,9 @@
     @apply border-accent/35;
   }
 
+  ::selection {
+    @apply bg-orange-400/35
+  }
 }
 
 .underLine {
