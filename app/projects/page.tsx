@@ -64,7 +64,7 @@ export default function Blogs() {
                     <ItemContent>
                       <div className="flex items-center justify-between gap-2">
                         <div className="flex items-center justify-start gap-1">
-                          <ItemTitle className="text-lg">
+                          <ItemTitle className="text-pretty">
                             {project.name}
                           </ItemTitle>
                         </div>
@@ -72,7 +72,7 @@ export default function Blogs() {
                         <p className="text-muted-foreground">{formattedDate}</p>
                       </div>
 
-                      <ItemDescription className="text-secondary-foreground text-base">
+                      <ItemDescription className="text-secondary-foreground">
                         {project.excerpt}
                       </ItemDescription>
 

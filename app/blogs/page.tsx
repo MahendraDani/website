@@ -3,12 +3,22 @@ import { FadeUp } from "@/components/fade-up";
 import { ListItem } from "@/components/list-item";
 import { NotebookPen } from "lucide-react";
 import dayjs from "dayjs";
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemHeader,
+  ItemTitle,
+} from "@/components/ui/item";
+import Link from "next/link";
 
 export default function Blogs() {
   // TODO : Try to sort blogs faster!
   const publishedBlogs = blogs
     .filter((blog) => blog.published)
-    .filter((blog)=> blog.slugAsParams != "aboutme")
+    .filter((blog) => blog.slugAsParams != "aboutme")
     .sort((a, b) => {
       const newBlogDate = dayjs(a.date);
       const prevBlogDate = dayjs(b.date);
@@ -19,27 +29,37 @@ export default function Blogs() {
         : -1;
     });
   return (
-    <div className="w-[90vw] sm:w-auto">
-      <div>
-        <h3>Blogs</h3>
-        <hr className="my-1" />
-      </div>
-      {publishedBlogs.map((blog, idx) => {
-        return (
-          <FadeUp key={idx}>
-            <ListItem>
-              <ListItem.Content className="">
-                <ListItem.Date date={blog.date} className="text-pretty sm:block" />
-                <ListItem.Link href={`blogs/${blog.slugAsParams}`}>
-                  <ListItem.Title className="text-left hover:text-blue-700 underline underline-offset-4 text-pretty">
-                    {blog.title}
-                  </ListItem.Title>
-                </ListItem.Link>
-              </ListItem.Content>
-            </ListItem>
-          </FadeUp>
-        );
-      })}
+    <div>
+      <ItemGroup className="flex flex-col gap-4">
+        {publishedBlogs.map((blog, idx) => {
+          const formattedDate = dayjs(blog.date).format("MMMM DD, YYYY");
+          return (
+            <FadeUp key={idx}>
+              <div className="group">
+                <Item
+                  asChild
+                  className="rounded-none hover:bg-accent/15 border-accent/35"
+                  variant="outline"
+                >
+                  <Link
+                    href={`/blogs/${blog.slugAsParams}`}
+                  >
+                    <ItemContent>
+                      <div className="flex justify-between items-center">
+                        <ItemTitle className="text-pretty">
+                          {blog.title}
+                        </ItemTitle>
+                        <p className="text-muted-foreground">{formattedDate}</p>
+                      </div>
+                      <ItemDescription>{blog.excerpt}</ItemDescription>
+                    </ItemContent>
+                  </Link>
+                </Item>
+              </div>
+            </FadeUp>
+          );
+        })}
+      </ItemGroup>
     </div>
   );
 }
