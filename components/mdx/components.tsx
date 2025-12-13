@@ -17,7 +17,7 @@ export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl text-pretty [&:not(:first-child)]:mt-6",
+        "scroll-m-20 text-xl text-foreground font-bold tracking-tight lg:text-2xl text-pretty [&:not(:first-child)]:mt-6",
         className
       )}
       {...props}
@@ -83,7 +83,7 @@ export const mdxComponents = {
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={cn("leading-6 my-1 [&:not(:first-child)]:mt-2", className)}
+      className={cn("leading-6 my-1 text-primary-foreground [&:not(:first-child)]:mt-2", className)}
       {...props}
     />
   ),

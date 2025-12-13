@@ -55,7 +55,7 @@ export default function Blogs() {
                 </div>
                 <Item
                   asChild
-                  className=" rounded-none hover:bg-secondary hover:border-black"
+                  className="rounded-none hover:bg-accent/15 hover:border-accent/35"
                   variant="outline"
                 >
                   <Link
@@ -74,7 +74,7 @@ export default function Blogs() {
                         <p className="text-muted-foreground">{formattedDate}</p>
                       </div>
 
-                      <ItemDescription className="text-secondary-foreground/80 text-base">
+                      <ItemDescription className="text-secondary-foreground text-base">
                         {project.excerpt}
                       </ItemDescription>
 
