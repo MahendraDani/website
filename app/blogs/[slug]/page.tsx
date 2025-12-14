@@ -75,14 +75,14 @@ export default async function BlogPage({ params }: BlogPageParams) {
               </p>
               <div className="text-center text-wrap space-x-2">
                 {blog.tags.map((tag, idx) => (
-                  <span key={idx} className="italic text-sm text-center text-muted-foreground">
+                  <span key={idx} className="italic lowercase text-sm text-center text-muted-foreground">
                     {"#" + tag}
                   </span>
                 ))}
               </div>
             </div>
           </div>
-          <div className="mx-auto sm:w-auto min-w-0 text-justify">
+          <div className="mx-auto sm:w-auto min-w-0 text-balance">
             <MDXContentRenderer code={blog.body} />
           </div>
         </article>

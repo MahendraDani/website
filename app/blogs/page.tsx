@@ -11,6 +11,7 @@ import {
   ItemTitle,
 } from "@/components/ui/item";
 import Link from "next/link";
+import { formatDateAndTime } from "@/lib/date";
 
 export default function Blogs() {
   const publishedBlogs = blogs
@@ -29,7 +30,6 @@ export default function Blogs() {
     <div>
       <ItemGroup className="flex flex-col gap-4">
         {publishedBlogs.map((blog, idx) => {
-          const formattedDate = dayjs(blog.date).format("MMMM DD, YYYY");
           return (
             <FadeUp key={idx}>
               <div className="group">
@@ -46,7 +46,7 @@ export default function Blogs() {
                         <ItemTitle className="text-pretty">
                           {blog.title}
                         </ItemTitle>
-                        <p className="text-muted-foreground">{formattedDate}</p>
+                        <p className="text-muted-foreground">{formatDateAndTime(blog.date)}</p>
                       </div>
                       <ItemDescription>{blog.excerpt}</ItemDescription>
                     </ItemContent>

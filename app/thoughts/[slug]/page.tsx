@@ -63,24 +63,27 @@ export default function Page({ params }: ThoughtPageProps) {
     <FadeUp>
       <div>
         <article className="relative">
-          <div>
-            <p className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
+          <div className="space-y-4 border py-4 px-4 mb-2 bg-secondary border-dashed">
+            <h1 className="uppercase text-xl md:text-3xl font-bold text-center">
               {thought.title}
-            </p>
-            <div className="my-2 py-1 border-t border-b border-dashed flex justify-between items-center">
-              <div className="flex justify-start items-center gap-2">
+            </h1>
+            <div className="space-y-2">
+              <p className="italic text-sm text-center text-muted-foreground">
+                {formatDateAndTime(thought.date)}
+              </p>
+              <p className="italic text-sm text-pretty text-center">
+                {thought.excerpt}
+              </p>
+              <div className="text-center text-wrap space-x-2">
                 {thought.tags.map((tag, idx) => (
-                  <span className="bg-purple-400/70 px-2 rounded-md" key={idx}>
-                    {tag}
+                  <span key={idx} className="italic lowercase text-sm text-center text-muted-foreground">
+                    {"#" + tag}
                   </span>
                 ))}
               </div>
-              <p className="text-muted-foreground">
-                {formatDateAndTime(thought.date)}
-              </p>
             </div>
           </div>
-          <div className="mx-auto sm:w-auto min-w-0 text-justify">
+          <div className="mx-auto sm:w-auto min-w-0 text-balance">
             <MDXContentRenderer code={thought.body} />
           </div>
         </article>
