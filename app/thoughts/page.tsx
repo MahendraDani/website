@@ -35,7 +35,7 @@ export default function Page() {
               <div className="group">
                 <Item
                   asChild
-                  className="rounded-none hover:bg-accent/15 border-accent/35"
+                  className="rounded-none hover:bg-accent/15 hover:border-accent"
                   variant="outline"
                 >
                   <Link

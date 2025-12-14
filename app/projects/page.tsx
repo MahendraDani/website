@@ -42,19 +42,19 @@ export default function Blogs() {
                 <div className="flex justify-end gap-2 my-2">
                   {project.links.map((link, idx) => (
                     <Link key={idx} href={link.url} target="_blank">
-                      {link.type=="linkedin" && <LinkedInIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
-                      {link.type=="github" && <GithubIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
-                      {link.type=="twitter" && <TwitterIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
-                      {link.type=="live" && <GlobeIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
-                      {link.type=="blog" && <NotebookPenIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
-                      {(link.type=="demoVideo" || link.type=="youtube") && <VideoIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
-                      {link.type=="other" && <GlobeIcon className="h-6 w-6 p-1 border hover:bg-accent/15 duration-300" />}
+                      {link.type=="linkedin" && <LinkedInIcon className="h-6 w-6 p-1 border hover:bg-accent/15 hover:border-accent duration-300" />}
+                      {link.type=="github" && <GithubIcon className="h-6 w-6 p-1 border hover:bg-accent/15 hover:border-accent duration-300" />}
+                      {link.type=="twitter" && <TwitterIcon className="h-6 w-6 p-1 border hover:bg-accent/15 hover:border-accent duration-300" />}
+                      {link.type=="live" && <GlobeIcon className="h-6 w-6 p-1 border hover:bg-accent/15 hover:border-accent duration-300" />}
+                      {link.type=="blog" && <NotebookPenIcon className="h-6 w-6 p-1 border hover:bg-accent/15 hover:border-accent duration-300" />}
+                      {(link.type=="demoVideo" || link.type=="youtube") && <VideoIcon className="h-6 w-6 p-1 border hover:bg-accent/15 hover:border-accent duration-300" />}
+                      {link.type=="other" && <GlobeIcon className="h-6 w-6 p-1 border hover:bg-accent/15 hover:border-accent duration-300" />}
                     </Link>
                   ))}
                 </div>
                 <Item
                   asChild
-                  className="rounded-none hover:bg-accent/15 border-accent/35"
+                  className="rounded-none hover:bg-accent/15 hover:border-accent"
                   variant="outline"
                 >
                   <Link
