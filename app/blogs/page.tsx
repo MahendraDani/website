@@ -48,7 +48,7 @@ export default function Blogs() {
                         </ItemTitle>
                         <p className="text-muted-foreground">{formatDateAndTime(blog.date)}</p>
                       </div>
-                      <ItemDescription>{blog.excerpt}</ItemDescription>
+                      <ItemDescription>{blog.description}</ItemDescription>
                     </ItemContent>
                   </Link>
                 </Item>
