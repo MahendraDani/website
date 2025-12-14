@@ -6,7 +6,7 @@ import { Navbar } from "@/components/nav/navbar";
 import { Footer } from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/configs/site.config";
-import { geistMono, geistSans, inter, sourceSerif4, splineSansMono } from "./fonts";
+import { geistMono, geistSans, inter, splineSansMono } from "./fonts";
 import { VercelAnalytics } from "@/components/vercel-analytics";
 import { Toaster } from "sonner";
 import { Sidebar } from "@/components/sidebar";
