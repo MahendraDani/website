@@ -17,6 +17,7 @@ import { GithubIcon } from "@/components/icon/github";
 import { TwitterIcon } from "@/components/icon/twitter";
 import { LinkedInIcon } from "@/components/icon/linkedin";
 import { YouTubeIcon } from "@/components/icon/youtube";
+import { formatDateAndTime } from "@/lib/date";
 
 export default function Blogs() {
   const allProjects = projects.sort((a, b) => {
@@ -33,9 +34,9 @@ export default function Blogs() {
     <div>
       <ItemGroup className="flex flex-col gap-2">
         {allProjects.map((project, idx) => {
-          const formattedDate = dayjs(project.publishDate).format(
-            "MMMM DD, YYYY"
-          );
+          // const formattedDate = dayjs(project.publishDate).format(
+          //   "MMMM DD, YYYY"
+          // );
           return (
             <FadeUp key={idx}>
               <div className="group">
@@ -69,7 +70,7 @@ export default function Blogs() {
                           </ItemTitle>
                         </div>
 
-                        <p className="text-muted-foreground">{formattedDate}</p>
+                        <p className="text-muted-foreground">{formatDateAndTime(project.publishDate)}</p>
                       </div>
 
                       <ItemDescription className="text-secondary-foreground">

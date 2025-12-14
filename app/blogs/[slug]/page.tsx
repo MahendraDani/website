@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { FadeUp } from "@/components/fade-up";
 import { siteConfig } from "@/configs/site.config";
 import { Metadata } from "next";
-import { formatDate } from "@/lib/date";
+import { formatDateAndTime } from "@/lib/date";
 
 interface BlogPageParams {
   params: {
@@ -12,10 +12,12 @@ interface BlogPageParams {
   };
 }
 
-export async function generateStaticParams() : Promise<BlogPageParams["params"][]>{
-  return  blogs.map((blog)=>({
-    slug : blog.slugAsParams
-  }))
+export async function generateStaticParams(): Promise<
+  BlogPageParams["params"][]
+> {
+  return blogs.map((blog) => ({
+    slug: blog.slugAsParams,
+  }));
 }
 
 function getBlogFromParam(params: { slug: string }) {
@@ -60,19 +62,24 @@ export default async function BlogPage({ params }: BlogPageParams) {
     <FadeUp>
       <div>
         <article>
-          <div>
-            <p className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
+          <div className="space-y-4 border py-4 px-4 mb-2 bg-secondary border-dashed">
+            <h1 className="uppercase text-xl md:text-3xl font-bold text-center">
               {blog.title}
-            </p>
-            <div className="my-2 py-1 border-t border-b border-dashed flex justify-between items-center">
-              <div className="flex justify-start items-center gap-2">
+            </h1>
+            <div className="space-y-2">
+              <p className="italic text-sm text-center text-muted-foreground">
+                {formatDateAndTime(blog.date)}
+              </p>
+              <p className="italic text-sm text-pretty text-center">
+                {blog.excerpt}
+              </p>
+              <div className="text-center text-wrap space-x-2">
                 {blog.tags.map((tag, idx) => (
-                  <span className="bg-emerald-400/70 px-2 rounded-md" key={idx}>
-                    {tag}
+                  <span key={idx} className="italic text-sm text-center text-muted-foreground">
+                    {"#" + tag}
                   </span>
                 ))}
               </div>
-              <p className="text-muted-foreground">{formatDate(blog.date)}</p>
             </div>
           </div>
           <div className="mx-auto sm:w-auto min-w-0 text-justify">

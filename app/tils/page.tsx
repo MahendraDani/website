@@ -1,6 +1,5 @@
 import { tils } from "#site/content";
 import { FadeUp } from "@/components/fade-up";
-import { ListItem } from "@/components/list-item";
 import {
   Item,
   ItemActions,
@@ -10,6 +9,7 @@ import {
   ItemHeader,
   ItemTitle,
 } from "@/components/ui/item";
+import { formatDateAndTime } from "@/lib/date";
 import dayjs from "dayjs";
 import Link from "next/link";
 
@@ -28,7 +28,6 @@ export default async function Tils() {
     <div>
       <ItemGroup className="flex flex-col gap-4">
         {publishedTils.map((til, idx) => {
-          const formattedDate = dayjs(til.date).format("MMMM DD, YYYY");
           return (
             <FadeUp key={idx}>
               <div className="group">
@@ -45,7 +44,7 @@ export default async function Tils() {
                         <ItemTitle className="text-pretty">
                           {til.title}
                         </ItemTitle>
-                        <p className="text-muted-foreground">{formattedDate}</p>
+                        <p className="text-muted-foreground">{formatDateAndTime(til.date)}</p>
                       </div>
                       <ItemDescription>{til.excerpt}</ItemDescription>
                     </ItemContent>

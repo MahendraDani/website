@@ -1,7 +1,7 @@
 import { projects } from "#site/content";
 import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { notFound } from "next/navigation";
-import {formatDate} from "@/lib/date"
+import {formatDateAndTime} from "@/lib/date"
 import { FadeUp } from "@/components/fade-up";
 import { siteConfig } from "@/configs/site.config";
 import { Metadata } from "next";
@@ -75,7 +75,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                 ))}
               </div>
               <p className="text-muted-foreground">
-                {formatDate(project.publishDate)}
+                {formatDateAndTime(project.publishDate)}
               </p>
             </div>
             <div className="mb-2 border-b py-1 border-dashed flex flex-wrap justify-start items-center gap-4">

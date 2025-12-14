@@ -11,6 +11,7 @@ import {
   ItemTitle,
 } from "@/components/ui/item";
 import Link from "next/link";
+import { formatDateAndTime } from "@/lib/date";
 
 export default function Page() {
   const publishedThoughts = thoughts
@@ -29,7 +30,6 @@ export default function Page() {
     <div>
       <ItemGroup className="flex flex-col gap-4">
         {publishedThoughts.map((thought, idx) => {
-          const formattedDate = dayjs(thought.date).format("MMMM DD, YYYY");
           return (
             <FadeUp key={idx}>
               <div className="group">
@@ -46,7 +46,7 @@ export default function Page() {
                         <ItemTitle className="text-pretty">
                           {thought.title}
                         </ItemTitle>
-                        <p className="text-muted-foreground">{formattedDate}</p>
+                        <p className="text-muted-foreground">{formatDateAndTime(thought.date)}</p>
                       </div>
                       <ItemDescription>{thought.excerpt}</ItemDescription>
                     </ItemContent>

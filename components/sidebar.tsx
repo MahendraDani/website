@@ -6,7 +6,7 @@ import {
   getRecentTils,
 } from "@/lib/recent-posts";
 import { A } from "./a";
-import { formatDate } from "@/lib/date";
+import { formatDateAndTime } from "@/lib/date";
 
 export const Sidebar = () => {
   const blogs = getRecentBlogs();
@@ -95,7 +95,7 @@ function SidebarLink({
   title: string;
   date: string;
 }) {
-  const formattedDate = formatDate(date);
+  const formattedDate = formatDateAndTime(date);
   return (
     <div>
       <A variant={"underline"} href={slug}>

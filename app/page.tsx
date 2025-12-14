@@ -5,7 +5,7 @@ import { FadeUp } from "@/components/fade-up";
 
 export default function Page() {
   const aboutBlog = blogs.find((blog) => blog.slugAsParams === "aboutme");
-  const formatDate = (rawDate: string) => {
+  const formatDateAndTime = (rawDate: string) => {
     return dayjs(rawDate).format("MMM D, YYYY [at] h:m a");
   };
 

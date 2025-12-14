@@ -4,7 +4,7 @@ import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/configs/site.config";
 import { Metadata } from "next";
-import {formatDate} from "@/lib/date"
+import {formatDateAndTime} from "@/lib/date"
 
 interface ThoughtPageProps {
   params: {
@@ -76,7 +76,7 @@ export default function Page({ params }: ThoughtPageProps) {
                 ))}
               </div>
               <p className="text-muted-foreground">
-                {formatDate(thought.date)}
+                {formatDateAndTime(thought.date)}
               </p>
             </div>
           </div>

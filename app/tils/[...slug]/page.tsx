@@ -5,7 +5,7 @@ import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { siteConfig } from "@/configs/site.config";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { formatDate } from "@/lib/date";
+import { formatDateAndTime } from "@/lib/date";
 
 interface TilsPageParams {
   params: {
@@ -60,7 +60,7 @@ export default async function TilsPage({ params }: TilsPageParams) {
             <div className="w-full py-1 flex justify-between items-center flex-wrap gap-2">
               <span className="bg-emerald-400/70 px-2 rounded-md">{tag}</span>
               <div className="flex justify-start items-center gap-4">
-                <p className="text-muted-foreground">{formatDate(til.date)}</p>
+                <p className="text-muted-foreground">{formatDateAndTime(til.date)}</p>
                 {til.source && (
                   <A
                     className="text-blue-700/70 hover:text-blue-800 underline decoration-dashed decoration-[1px] underline-offset-4"
