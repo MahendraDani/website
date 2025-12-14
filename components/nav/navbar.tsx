@@ -48,7 +48,7 @@ export const Navbar = () => {
   return (
     <header>
       {!showMobileNav ? (
-        <div className="mt-2 sm:mb-4 flex justify-between items-center border-t border-b py-2">
+        <div className="mt-2 mb-4 flex justify-between items-center border-t border-b py-2">
           <Link href={"/"}>
             <p className="text-base font-medium">Mahendra Dani</p>
           </Link>
