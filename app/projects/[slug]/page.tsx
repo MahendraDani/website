@@ -95,7 +95,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
             </div>
             }
           </div>
-          <div className="mx-auto sm:w-auto min-w-0">
+          <div className="mx-auto sm:w-auto min-w-0 text-justify">
             <MDXContentRenderer code={project.body} />
           </div>
         </article>

@@ -66,7 +66,7 @@ export default async function TilsPage({ params }: TilsPageParams) {
               </p>
             </div>
           </div>
-          <div className="mx-auto sm:w-auto min-w-0 text-balance">
+          <div className="mx-auto sm:w-auto min-w-0 text-justify">
             <MDXContentRenderer code={til.body} />
           </div>
         </article>

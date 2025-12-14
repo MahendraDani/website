@@ -55,7 +55,7 @@ export default function Blogs() {
                 </div>
                 <Item
                   asChild
-                  className="rounded-none hover:bg-accent/15 hover:border-accent"
+                  className="rounded-none bg-secondary hover:bg-accent/15 hover:border-accent duration-300 ease-in-out"
                   variant="outline"
                 >
                   <Link

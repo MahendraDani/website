@@ -82,7 +82,7 @@ export default async function BlogPage({ params }: BlogPageParams) {
               </div>
             </div>
           </div>
-          <div className="mx-auto sm:w-auto min-w-0 text-balance">
+          <div className="mx-auto sm:w-auto min-w-0 text-justify">
             <MDXContentRenderer code={blog.body} />
           </div>
         </article>
