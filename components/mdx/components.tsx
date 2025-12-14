@@ -83,31 +83,31 @@ export const mdxComponents = {
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={cn("text-sm leading-7 my-1 text-primary-foreground font-normal [&:not(:first-child)]:mt-2", className)}
+      className={cn("text-sm leading-6 my-1 text-primary-foreground font-normal [&:not(:first-child)]:mt-2", className)}
       {...props}
     />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ul
-      className={cn("my-1 leading-7 ml-6 list-disc [&>li]:mt-1", className)}
+      className={cn("my-1 leading-6 ml-6 text-sm list-disc [&>li]:mt-1", className)}
       {...props}
     />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
     <ol
-      className={cn("my-1 leading-7 ml-6 list-decimal", className)}
+      className={cn("my-1 leading-6 ml-6 text-sm list-decimal", className)}
       {...props}
     />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
-    <li className={cn("leading-7", className)} {...props} />
+    <li className={cn("leading-6 text-sm", className)} {...props} />
   ),
   blockquote: ({
     className,
     ...props
   }: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
-      className={cn("my-3 border-l-4 pl-4 text-muted-foreground", className)}
+      className={cn("my-3 border-l-4 pl-4 text-muted-foreground bg-secondary p-2", className)}
       {...props}
     />
   ),
