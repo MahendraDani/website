@@ -40,7 +40,7 @@ export default function Blogs() {
           return (
             <FadeUp key={idx}>
               <div className="group">
-                <div className="flex justify-end gap-2 my-2">
+                <div className="flex justify-end gap-1 my-1">
                   {project.links.map((link, idx) => (
                     <Link key={idx} href={link.url} target="_blank">
                       {link.type=="linkedin" && <LinkedInIcon className="h-6 w-6 p-1 border hover:bg-accent/15 hover:border-accent duration-300" />}
