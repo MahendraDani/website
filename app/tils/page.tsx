@@ -41,12 +41,12 @@ export default async function Tils() {
                   >
                     <ItemContent>
                       <div className="flex justify-between items-center">
-                        <ItemTitle className="text-pretty">
+                        <ItemTitle className="flex-1 text-pretty">
                           {til.title}
                         </ItemTitle>
                         <p className="text-muted-foreground">{formatDateAndTime(til.date)}</p>
                       </div>
-                      <ItemDescription>{til.excerpt}</ItemDescription>
+                      <ItemDescription>{til.description}</ItemDescription>
                     </ItemContent>
                   </Link>
                 </Item>

@@ -90,6 +90,7 @@ export const tils = defineCollection({
   schema : s.object({
     slug : s.path(),
     title : s.string(),
+    description : s.string(),
     source : s.string().optional(),
     date : s.string().datetime(),
     body : s.mdx(),

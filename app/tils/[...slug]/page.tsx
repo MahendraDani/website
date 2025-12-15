@@ -62,7 +62,7 @@ export default async function TilsPage({ params }: TilsPageParams) {
                 {formatDateAndTime(til.date)}
               </p>
               <p className="italic text-sm text-pretty text-center">
-                {til.excerpt}
+                {til.description}
               </p>
             </div>
           </div>
