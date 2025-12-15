@@ -71,7 +71,7 @@ export default async function BlogPage({ params }: BlogPageParams) {
                 {formatDateAndTime(blog.date)}
               </p>
               <p className="italic text-sm text-pretty text-center">
-                {blog.excerpt}
+                {blog.description}
               </p>
               <div className="text-center text-wrap space-x-2">
                 {blog.tags.map((tag, idx) => (

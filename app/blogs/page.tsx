@@ -43,12 +43,12 @@ export default function Blogs() {
                   >
                     <ItemContent>
                       <div className="flex justify-between items-center">
-                        <ItemTitle className="text-pretty">
+                        <ItemTitle className="flex-1 text-pretty">
                           {blog.title}
                         </ItemTitle>
                         <p className="text-muted-foreground">{formatDateAndTime(blog.date)}</p>
                       </div>
-                      <ItemDescription>{blog.description}</ItemDescription>
+                      <ItemDescription className="flex-1">{blog.description}</ItemDescription>
                     </ItemContent>
                   </Link>
                 </Item>
