@@ -72,7 +72,7 @@ export default function Page({ params }: ThoughtPageProps) {
                 {formatDateAndTime(thought.date)}
               </p>
               <p className="italic text-sm text-pretty text-center">
-                {thought.excerpt}
+                {thought.description}
               </p>
               <div className="text-center text-wrap space-x-2">
                 {thought.tags.map((tag, idx) => (

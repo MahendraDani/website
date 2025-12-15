@@ -48,7 +48,7 @@ export default function Page() {
                         </ItemTitle>
                         <p className="text-muted-foreground">{formatDateAndTime(thought.date)}</p>
                       </div>
-                      <ItemDescription>{thought.excerpt}</ItemDescription>
+                      <ItemDescription>{thought.description}</ItemDescription>
                     </ItemContent>
                   </Link>
                 </Item>
