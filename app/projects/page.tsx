@@ -55,15 +55,15 @@ export default function Blogs() {
                 </div>
                 <Item
                   asChild
-                  className="rounded-none bg-secondary hover:bg-accent/15 hover:border-accent duration-300 ease-in-out"
+                  className="rounded-none bg-secondary hover:bg-accent/15 hover:border-accent duration-300 ease-in-out items-start"
                   variant="outline"
                 >
                   <Link
                     href={`/projects/${project.slugAsParams}`}
                     className="flex flex-col gap-2"
                   >
-                    <ItemContent>
-                      <div className="flex items-center justify-between gap-2">
+                    <ItemContent className="w-full">
+                      <div className="w-full flex items-center justify-between gap-2">
                         <div className="flex items-center justify-start gap-1">
                           <ItemTitle className="text-pretty">
                             {project.name}
@@ -73,8 +73,8 @@ export default function Blogs() {
                         <p className="text-muted-foreground">{formatDateAndTime(project.publishDate)}</p>
                       </div>
 
-                      <ItemDescription className="text-secondary-foreground">
-                        {project.excerpt}
+                      <ItemDescription className="text-secondary-foreground text-balance">
+                        {project.abstract}
                       </ItemDescription>
 
                       <div className="space-x-2 text-muted-foreground">

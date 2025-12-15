@@ -111,7 +111,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                 {formatDateAndTime(project.publishDate)}
               </p>
               <p className="italic text-sm text-pretty text-center">
-                {project.excerpt}
+                {project.abstract}
               </p>
               <div className="text-center text-wrap space-x-2">
                 {project.stack.map((stack, idx) => (
