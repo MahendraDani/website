@@ -24,14 +24,10 @@ We know :
 So how should we provide relevant and useful info to agent in minimal set of tokens as 
 its "working memory" for making next decision in every iteration?
 
-<div className="mt-4 flex justify-center items-center">
-<Image
-      src="/static/links/30-10-2025/context-eng-vs-prompt-eng.png"
-      height={600}
-      width={600}
-      alt="In contrast to the discrete task of writing a prompt, context engineering is iterative and the curation phase happens each time we decide what to pass to the model."/>
-</div>
-
+<MDXImage
+  src="/static/links/30-10-2025/context-eng-vs-prompt-eng.png"
+  alt="In contrast to the discrete task of writing a prompt, context engineering is iterative and the curation phase happens each time we decide what to pass to the model."
+/>
 This figure from the article shows that a system prompt remains static during course of iterations of the agent before making a decision, whereas with context-window, we keep the essential information/tool-calls, files and APIs that can effectively answer the following questions for the agent in any iteration:
 1. **What do I need more to make a decision?**
 2. **Which resources that I have in my context window will help me reach the goal?**

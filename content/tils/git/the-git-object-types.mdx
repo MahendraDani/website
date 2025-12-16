@@ -25,14 +25,6 @@ Fun Fact: When a git repository is initalized using `git init`, git creates a di
 
 ## How Git Stores Data
 
-{/* <div className="mt-4 flex justify-center items-center">
-<Image
-      src="/static/tils/29-10-2025/git-objects.svg"
-      height={600}
-      width={600}
-      alt="How Git represents your working directory internally — every file becomes a blob, folders become trees, and the entire project snapshot is linked together by a commit object pointing to the root tree"/>
-</div> */}
-
 <MDXImage
  src="/static/tils/29-10-2025/git-objects.svg"
  alt="How Git represents your working directory internally — every file becomes a blob, folders become trees, and the entire project snapshot is linked together by a commit object pointing to the root tree"
@@ -44,14 +36,10 @@ If we observe the figure above, to the left we can see the directories and files
 `HEAD` acts as the pointer to the current commit, as Git stores the data in the form of [direct acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) of the git objects, so using the HEAD, we can traverse through the graph and retrieve the working directory of any commit.
 
 ## The Git Object Graph
-<div className="mt-4 flex justify-center items-center">
-<Image
-      src="/static/tils/29-10-2025/git-data-model.svg"
-      height={600}
-      width={600}
-      alt="The Git data model as a directed acyclic graph (DAG) — showing how HEAD points to a branch, which points to a commit, which in turn links to tree and blob objects that represent the project’s files and directories."/>
-</div>
-
+<MDXImage
+  src="/static/tils/29-10-2025/git-data-model.svg"
+  alt="The Git data model as a directed acyclic graph (DAG) — showing how HEAD points to a branch, which points to a commit, which in turn links to tree and blob objects that represent the project’s files and directories."
+/>
 Observe how Git stores all the data in files within the `.git` directory can be used to create 
 a direct acyclic graph like shown for the todo-app. Also note, how Git here doesn't care about the content of each blob, or tree or commit, it just needs the SHA-1 value to traverse through the graph.
 

@@ -18,10 +18,10 @@ export function MDXImage({
         style={{
           aspectRatio,
           backgroundColor: "hsl(180 20% 98%)",
-          maskImage:
-            "linear-gradient(to right, transparent, white 6%, white 94%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent, white 6%, white 94%, transparent)",
+          // maskImage:
+          //   "linear-gradient(to right, transparent, white 6%, white 94%, transparent)",
+          // WebkitMaskImage:
+          //   "linear-gradient(to right, transparent, white 6%, white 94%, transparent)",
         }}
       >
         <Image fill className="object-contain" {...props} />

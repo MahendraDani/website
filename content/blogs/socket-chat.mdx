@@ -11,15 +11,10 @@ Socket Programming is the core of HTTP/HTTPS, TCP/IP, UDP, FTP protocols used to
 
 Let's understand the process via a client-server architecture of how sockets are implemented in C programming language.
 
-<div className="mt-4 flex justify-center items-center">
-  <Image
-    src="/static/tils/07-02-2025/socket.png"
-    height={600}
-    width={600}
-    alt="Client-server architecture implementation using socket programming"
-  />
-</div>
-
+<MDXImage
+  src="/static/tils/07-02-2025/socket.png"
+  alt="Client-server architecture implementation using socket programming"
+/>
 The server opens a socket, binds it to an IP address and listens at a particular port. The client connects to the port and the server accepts the request and the connection is thus established between the server and the client.
 
 Then they can send and receive data using `send` and `recv` system calls.
