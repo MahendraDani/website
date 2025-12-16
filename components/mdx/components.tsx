@@ -12,6 +12,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { ArrowUpRight } from "lucide-react";
 import { toast } from "sonner";
+import { MDXImage } from "./mdx-image";
 
 export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -186,4 +187,5 @@ export const mdxComponents = {
   RedButtonExample,
   ButtonWithPropsExample,
   toast,
+  MDXImage
 };

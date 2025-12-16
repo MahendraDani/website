@@ -25,13 +25,18 @@ Fun Fact: When a git repository is initalized using `git init`, git creates a di
 
 ## How Git Stores Data
 
-<div className="mt-4 flex justify-center items-center">
+{/* <div className="mt-4 flex justify-center items-center">
 <Image
       src="/static/tils/29-10-2025/git-objects.svg"
       height={600}
       width={600}
       alt="How Git represents your working directory internally — every file becomes a blob, folders become trees, and the entire project snapshot is linked together by a commit object pointing to the root tree"/>
-</div>
+</div> */}
+
+<MDXImage
+ src="/static/tils/29-10-2025/git-objects.svg"
+ alt="How Git represents your working directory internally — every file becomes a blob, folders become trees, and the entire project snapshot is linked together by a commit object pointing to the root tree"
+/>
 
 If we observe the figure above, to the left we can see the directories and files in our project - a basic todo-app server, and to the right we can see how Git stores these contents in the Git Directory as blobs, trees, commits and tags.
 
