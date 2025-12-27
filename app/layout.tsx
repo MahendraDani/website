@@ -11,6 +11,8 @@ import { VercelAnalytics } from "@/components/vercel-analytics";
 import { Toaster } from "sonner";
 import { Sidebar } from "@/components/sidebar";
 import { Container } from "@/components/container";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),

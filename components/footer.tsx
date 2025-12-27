@@ -19,7 +19,7 @@ export const Footer = ()=>{
     return (
         <footer className="mt-4 mb-2 flex justify-between items-center border-t border-b py-2">
             <div>
-                <h3 className="">Onto the summit</h3>
+                <h3 className="text-sm">Onto the summit</h3>
             </div>
             <div className="flex justify-between items-center gap-2">
                 {footerLinks.map((item,index)=>(
