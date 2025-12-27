@@ -46,8 +46,9 @@ export default function Blogs() {
                         <ItemTitle className="flex-1 text-pretty">
                           {blog.title}
                         </ItemTitle>
-                        <p className="text-muted-foreground">{formatDateAndTime(blog.date)}</p>
+                        <p className="text-muted-foreground hidden sm:block">{formatDateAndTime(blog.date)}</p>
                       </div>
+                      <p className="text-muted-foreground sm:hidden">{formatDateAndTime(blog.date)}</p>
                       <ItemDescription className="flex-1">{blog.description}</ItemDescription>
                     </ItemContent>
                   </Link>

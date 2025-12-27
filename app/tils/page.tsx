@@ -44,8 +44,9 @@ export default async function Tils() {
                         <ItemTitle className="flex-1 text-pretty">
                           {til.title}
                         </ItemTitle>
-                        <p className="text-muted-foreground">{formatDateAndTime(til.date)}</p>
+                        <p className="text-muted-foreground hidden sm:block">{formatDateAndTime(til.date)}</p>
                       </div>
+                      <p className="text-muted-foreground sm:hidden">{formatDateAndTime(til.date)}</p>
                       <ItemDescription>{til.description}</ItemDescription>
                     </ItemContent>
                   </Link>

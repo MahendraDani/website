@@ -51,10 +51,13 @@ export default function Page() {
                         <ItemTitle className="text-pretty">
                           {link.source.title}
                         </ItemTitle>
-                        <p className="text-muted-foreground">
+                        <p className="text-muted-foreground hidden sm:block">
                           {formatDateAndTime(link.date)}
                         </p>
                       </div>
+                      <p className="text-muted-foreground sm:hidden">
+                          {formatDateAndTime(link.date)}
+                        </p>
                     </ItemContent>
                   </Link>
                 </Item>

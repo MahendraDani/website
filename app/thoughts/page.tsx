@@ -46,8 +46,9 @@ export default function Page() {
                         <ItemTitle className="text-pretty">
                           {thought.title}
                         </ItemTitle>
-                        <p className="text-muted-foreground">{formatDateAndTime(thought.date)}</p>
+                        <p className="text-muted-foreground sm:block hidden">{formatDateAndTime(thought.date)}</p>
                       </div>
+                      <p className="text-muted-foreground sm:hidden">{formatDateAndTime(thought.date)}</p>
                       <ItemDescription>{thought.description}</ItemDescription>
                     </ItemContent>
                   </Link>

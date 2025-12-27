@@ -70,8 +70,10 @@ export default function Blogs() {
                           </ItemTitle>
                         </div>
 
-                        <p className="text-muted-foreground">{formatDateAndTime(project.publishDate)}</p>
+                        <p className="text-muted-foreground hidden sm:block">{formatDateAndTime(project.publishDate)}</p>
                       </div>
+
+                      <p className="text-muted-foreground sm:hidden">{formatDateAndTime(project.publishDate)}</p>
 
                       <ItemDescription className="text-secondary-foreground text-balance">
                         {project.abstract}
