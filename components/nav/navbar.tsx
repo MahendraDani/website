@@ -61,9 +61,9 @@ export const Navbar = () => {
               href={navItem.href}
               key={index}
               className={cn(
-                "text-sm text-secondary-foreground  hover:text-accent hover:underline underline-offset-4 decoration-dashed duration-300 ease-in-out",
+                "text-sm text-secondary-foreground hover:text-accent hover:underline underline-offset-4 decoration-dashed duration-300 ease-in-out",
                 {
-                  "underline text-accent": pathname.includes(navItem.href),
+                  "underline text-accent/80": pathname.includes(navItem.href),
                 }
               )}
             >

@@ -17,7 +17,7 @@
     --secondary-foreground: 200 3% 17%; /* secondary texts (descriptions, etcs) */
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%; /* anything extra that needs least priority in a view */
-    --accent: 173.4 80.4% 40%;            /* teal-500 */
+    --accent: 200 98% 39%;            /* sky-600 */
     --accent-foreground: 240 10% 3.9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
