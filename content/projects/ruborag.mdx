@@ -1,0 +1,75 @@
+---
+name: Ruborag — Ask the Rust Book
+abstract: "A CLI tool that lets you query The Rust Programming Language book using semantic search and retrieval-augmented generation, helping you find the right chapters for the concepts you want to learn."
+links:
+  [
+    {
+      title: "Launch",
+      url: "https://x.com/MahendraDani09/status/2001539777200587022?s=20",
+      type : "twitter"
+    },
+    { title: "Source", url: "https://github.com/MahendraDani/ruborag", type : "github" },
+  ]
+stack: ["Go", "RAG", "Gemini"]
+publishDate: 2026-01-04T14:35:00Z
+---
+
+
+While learning Rust, I often knew what concept I wanted to understand, but not where in [The Rust Programming Language book](https://doc.rust-lang.org/book/) it was explained clearly. Topics like borrowing, lifetimes, or shadowing are well covered in the book, but locating the most relevant chapter or section is not always obvious.
+
+Ruborag is a command-line tool built to solve this problem.
+
+<MDXImage
+  src="/static/projects/ruborag-search.png"
+  alt="Querying the Rust Book using ruborag - semantic retrieval and RAG-based answers in the terminal, compared with a traditional keyword search in the browser."
+/>
+
+It implements a simple Retrieval-Augmented Generation (RAG) pipeline over the Rust Book. Given a query, it **semantically searches** the book content and uses the retrieved context to generate an answer grounded strictly in the source material.
+
+The project is written in Go and is designed as a learning exercise to understand RAG systems from first principles rather than relying on hosted frameworks.
+
+# How it works
+
+The workflow is intentionally explicit and broken into steps:
+1. HTML chapters from the Rust Book are parsed and cleaned into plain text.
+2. The cleaned text is split into chunks and converted into vector embeddings.
+3. Embeddings are stored locally in a SQLite database.
+4. Queries are embedded and matched against the corpus using cosine similarity.
+5. The most relevant sections are provided as context to an LLM to generate answers.
+6. Each step is exposed as a separate CLI command, making the system easy to inspect and reason about.
+
+# Usage
+Clone the project and ensure that Go compiler. Build the CLI tool, and use Gemini's API Key:
+`export GEMINI_API_KEY=<api_key>`
+
+1. Parse and clean Rust Book chapters:
+```bash
+ruborag parse chapter1.html chapter2.html
+```
+The corpus I used for the project is available in the Github repo.
+
+2. Generate embeddings for parsed text:
+```bash
+ruborag embed -w <path_to_files>
+```
+
+3. Search the corpus semantically:
+```bash
+ruborag search "What is shadowing in Rust?"
+```
+
+4. Ask a question using retrieval-augmented generation:
+```bash
+ruborag ask "What is borrowing in Rust?"
+```
+
+# Performance note
+
+While implementing the parsing stage, I compared buffered and unbuffered file I/O. Buffered I/O resulted in approximately a 3.5× speed improvement during parsing. This was a small but useful reminder that low-level implementation details matter, even in tooling projects.
+
+# Footnote
+
+ruborag is not intended to be a production-ready RAG system. It is a focused learning project built to understand how document parsing, embeddings, semantic search, and retrieval-augmented answering fit together in practice.
+
+The source code is available at:
+https://github.com/MahendraDani/ruborag

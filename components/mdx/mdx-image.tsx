@@ -7,7 +7,7 @@ type MDXImageProps = Omit<ImageProps, "width" | "height"> & {
 };
 
 export function MDXImage({
-  aspectRatio = 4 / 3,
+  aspectRatio = 16/9,
   className,
   ...props
 }: MDXImageProps) {
