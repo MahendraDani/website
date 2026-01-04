@@ -1,5 +1,6 @@
 ---
 title : "How are all computers connected?"
+description : "A set of beginner-friendly notes on how the Internet is structured and how computers communicate. It breaks down core networking concepts like hosts, packets, routes, ISPs, and protocols using simple language and everyday analogies, building intuition before formal definitions from standard networking literature."
 source : "Computer Networking: A top-down approach"
 date: 2025-01-31T10:00:00Z
 ---
@@ -32,14 +33,10 @@ how a program running on one end system asks the Internet infrastructure to deli
 data to a specific destination program running on another end system
 
 ### Analogy with post office
-<div className="mt-4 flex justify-center items-center">
-<Image
-      src="/static/tils/24-10-2024/analogy.png"
-      height={600}
-      width={580}
-      alt="Post Office Analogy"/>
-</div>
-
+<MDXImage
+  src="/static/tils/24-10-2024/analogy.png"
+  alt="Post Office Analogy"
+/>
 From the above example, the following analogy can be established:
 - Sender -> Alice
 - Receiver -> Bob
@@ -78,10 +75,7 @@ Examples:
 3. Protocols in routers determine a packet's path from source to destination
 
 Example : Requesting a web page on the browser
-<div className="mt-4 flex justify-center items-center">
-<Image
-      src="/static/tils/24-10-2024/protocol.png"
-      height={600}
-      width={580}
-      alt="TCP Protocol"/>
-</div>
+<MDXImage
+  src="/static/tils/24-10-2024/protocol.png"
+  alt="TCP Protocol"
+/>

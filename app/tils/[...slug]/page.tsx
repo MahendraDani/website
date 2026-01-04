@@ -5,7 +5,7 @@ import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { siteConfig } from "@/configs/site.config";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { formatDate } from "@/lib/date";
+import { formatDateAndTime } from "@/lib/date";
 
 interface TilsPageParams {
   params: {
@@ -52,27 +52,21 @@ export default async function TilsPage({ params }: TilsPageParams) {
   return (
     <FadeUp>
       <div>
-        <article className="relative max-w-3xl">
-          <p className="scroll-m-20 px-4 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
-            {til.title}
-          </p>
-          <div className="mt-2 py-1 px-4 border-t border-b border-dashed flex justify-between items-center">
-            <div className="w-full py-1 flex justify-between items-center flex-wrap gap-2">
-              <span className="bg-emerald-400/70 px-2 rounded-md">{tag}</span>
-              <div className="flex justify-start items-center gap-4">
-                <p className="text-muted-foreground">{formatDate(til.date)}</p>
-                {til.source && (
-                  <A
-                    className="text-blue-700/70 hover:text-blue-800 underline decoration-dashed decoration-[1px] underline-offset-4"
-                    href={til.source}
-                  >
-                    source
-                  </A>
-                )}
-              </div>
+        <article className="relative">
+          <div className="space-y-4 border py-4 px-4 mb-2 bg-secondary border-dashed">
+            <h1 className="uppercase text-xl md:text-3xl font-bold text-center">
+              {til.title}
+            </h1>
+            <div className="space-y-2">
+              <p className="italic text-sm text-center text-muted-foreground">
+                {formatDateAndTime(til.date)}
+              </p>
+              <p className="italic text-sm text-pretty text-center">
+                {til.description}
+              </p>
             </div>
           </div>
-          <div className="mx-auto w-[100vw] p-4 sm:w-auto min-w-0 text-justify">
+          <div className="mx-auto sm:w-auto min-w-0 text-justify">
             <MDXContentRenderer code={til.body} />
           </div>
         </article>

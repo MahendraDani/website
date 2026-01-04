@@ -1,18 +1,15 @@
 ---
 title: "What is procfs in Linux Kernel?"
+description : "The Linux kernel uses procfs, a virtual filesystem at /proc, to manage and expose information about all running processes and system state. It provides a lightweight, text-based interface in RAM that lets you inspect everything from CPU and memory stats to per-process details like command-line arguments, environment variables, and thread info—making process management and monitoring simple and efficient."
 source: "https://docs.kernel.org/filesystems/proc.html"
 date: 2025-10-19T19:00:00Z
 ---
 **Question**: How does the Linux Kernel handle information of multiple simultaneously running processes and their threads?
 
-<div className="mt-4 flex justify-center items-center">
-<Image
-      src="/static/tils/19-10-2025/procfs.svg"
-      height={600}
-      width={600}
-      alt="An image showing how CPU has to handle many processes simultaneously"/>
-</div>
-
+<MDXImage
+  src="/static/tils/19-10-2025/procfs.svg"
+  alt="An image showing how CPU has to handle many processes simultaneously"
+/>
 Linux Kernel uses **procfs** (`/proc` filesystem), a **virtual filesystem** that provides access to the state of each active process and threads in the system.
 - It’s called a **virtual filesystem** because it lives inside of the RAM and consumes no physical storage.
 - If the system is shut down or restarted, the RAM is cleared and files of the `/proc` directory are generated from scratch.

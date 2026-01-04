@@ -1,5 +1,6 @@
 ---
 title: "Search an element in biotonic array"
+description : "A walk-through of searching in a bitonic array, including a common mistake and why it fails. The key insight is breaking the problem into finding the peak first, then applying binary search on both halves to get a clean O(log N) solution."
 source: ""
 date: 2025-02-05T05:00:00Z
 ---
@@ -8,15 +9,10 @@ An array is said to be **biotonic** if it contains distinct integers such that, 
 
 If the array is plotted on a graph, it forms a mountain-like structure.
 
-<div className="mt-4 flex justify-center items-center">
-  <Image
-    src="/static/tils/05-02-2025/biotonic-array.png"
-    height={600}
-    width={600}
-    alt="Biotonic Array"
-  />
-</div>
-
+<MDXImage
+  src="/static/tils/05-02-2025/biotonic-array.png"
+  alt="Biotonic Array"
+/>
 The naive approach is to use Linear Search, which runs in O(N) time. The time complexity can be reduced to O(log(N)) using Binary Search.
 
 ### Incorrect Algorithm
@@ -25,15 +21,10 @@ The naive approach is to use Linear Search, which runs in O(N) time. The time co
 This algorithm is incorrect, because I assumed that, `target` will surely lie in sorted half, but since in the other half, the element can be present, the following algorithm fails. 
 
 I found this mistake by dry-running the code for `target==4` on the given array.
-<div className="mt-4 flex justify-center items-center">
-  <Image
-    src="/static/tils/05-02-2025/biotonic-array-search.png"
-    height={600}
-    width={600}
-    alt="Search in Biotonic Array"
-  />
-</div>
-
+<MDXImage
+  src="/static/tils/05-02-2025/biotonic-array-search.png"
+  alt="Search in Biotonic Array"
+/>
 In every iteration, check which half is sorted, then if *target* lies in the sorted half move in its direction else move in opposite direction.
 
 <Tabs defaultValue="search">

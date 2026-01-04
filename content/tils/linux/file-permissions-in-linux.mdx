@@ -1,5 +1,6 @@
 ---
 title: "File permissions in Linux"
+description : "A practical breakdown of how Linux file permissions actually work, from symbolic flags like rwx to numeric modes like 400 and 755. Useful for understanding why commands like chmod 400 key.pem matter and how Linux enforces security at the filesystem level."
 source: ""
 date: 2025-02-11T17:00:00Z
 ---
@@ -25,14 +26,10 @@ Here, [chmod](https://linux.die.net/man/1/chmod) command is used to change permi
 
 When you run `ls -la` it lists all directories and files present in the root, but what's with the `drwxr-xr-x@` and `-rw-r--r--@`?
 
-<div className="mt-4 flex justify-center items-center">
-<Image
-      src="/static/tils/11-02-2025/file-permissions.png"
-      height={600}
-      width={600}
-      alt="File permissions"/>
-</div>
-
+<MDXImage
+  src="/static/tils/11-02-2025/file-permissions.png"
+  alt="File permissions"
+/>
 
 ...and the solution is (drumroll) __File system in Linux__.
 
@@ -53,14 +50,10 @@ As there are 3 permissions for 3 types of users, we can allocate 3 cells to each
 
 Then, for each cell we can store 1 if the user has that permission else 0. Thus we convert the chars to binary system.
 
-<div className="mt-4 flex justify-center items-center">
-<Image
-      src="/static/tils/11-02-2025/permissions.png"
-      height={600}
-      width={600}
-      alt="File permissions system"/>
-</div>
-
+<MDXImage
+  src="/static/tils/11-02-2025/permissions.png"
+  alt="File permissions system"
+/>
 In 3 bits, we can store values from 0-7 in decimal system, and for three types of user it turns combinations of three values that represent permissions.
 
 As shown in the figure above:
@@ -73,14 +66,10 @@ Combining the result for all types of users gives the three-digit number 755.
 Thus, all combinations for permissions can be signified with a 3-digit number instead of `drwxr-xr-x@`.
 
 Combining back to Question 01, can you find out which permissions does a file have with code 400?
-<div className="mt-4 flex justify-center items-center">
-<Image
-      src="/static/tils/11-02-2025/permission-400.png"
-      height={600}
-      width={600}
-      alt="File permissions system"/>
-</div>
-
+<MDXImage
+  src="/static/tils/11-02-2025/permission-400.png"
+  alt="File permissions system"
+/>
 Observe that, code 400, implies that only owner has read access to the file.
 It's significance is that, the `Instance2.pem` contains SHH key-pair which should be stored securely, hence it has only read access.
 

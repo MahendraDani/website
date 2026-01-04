@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 
 export default function AboutPage() {
   const aboutBlog = blogs.find((blog) => blog.slugAsParams === "aboutme");
-  const formatDate = (rawDate: string) => {
+  const formatDateAndTime = (rawDate: string) => {
     return dayjs(rawDate).format("MMM D, YYYY [at] h:m a");
   };
   // console.log(aboutBlog);
@@ -60,7 +60,7 @@ export default function AboutPage() {
                   ))}
                 </div>
                 <p className="text-muted-foreground">
-                  {formatDate(aboutBlog.date)}
+                  {formatDateAndTime(aboutBlog.date)}
                 </p>
               </div>
             </div> */}

@@ -68,6 +68,7 @@ export const projects = defineCollection({
     publishDate : s.string().datetime(), // YYYY-MM-DDTHH:MM:SSZ
     body : s.mdx(),
     links : s.array(s.object({
+      type : s.enum(["linkedin", "github", "live", "twitter", "youtube", "demoVideo", "blog","other"]),
       title : s.string(),
       url : s.string().url()
     })),
@@ -89,6 +90,7 @@ export const tils = defineCollection({
   schema : s.object({
     slug : s.path(),
     title : s.string(),
+    description : s.string(),
     source : s.string().optional(),
     date : s.string().datetime(),
     body : s.mdx(),

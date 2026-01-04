@@ -1,77 +1,86 @@
 ---
 name: CruxxAI
-abstract: CruxxAI chrome extension
+abstract: Chrome extension and API that makes reading online easier. Hover over any link, click Summarize, and get a quick, clear summary of the website—perfect for saving time and staying informed.
 stack: ["Hono", "Gemini", "Typescript", "Chrome API", "Html", "Css"]
 links:
   [
     {
       title: "Launch",
       url: "https://www.linkedin.com/posts/mahendra-dani_last-weekend-8th-10th-november-i-participated-activity-7262058060280434689-zSkZ?utm_source=share&utm_medium=member_android",
+      type: "linkedin",
     },
-    { title: "Source", url: "https://github.com/MahendraDani/cruxxai" },
+    {
+      title: "Source",
+      url: "https://github.com/MahendraDani/cruxxai",
+      type: "github",
+    },
   ]
 publishDate: 2024-11-10T18:00:00Z
 ---
 
 ### Abstract
-CruxxAI is summarizer package to make your reading experience better on the internet. It's a chrome extension that can be directly installed on your browser or you can use Cruxx API to integrate it in your applications.
+
+CruxxAI is a Chrome extension and API that makes reading online easier. Hover over any link, click Summarize, and get a quick, clear summary of the website—perfect for saving time and staying informed.
 
 ### Deliverables
+
 1. Chrome Extension : Not published on chrome web store yet, needs to be locally set up.
 2. Cruxx API : Live API that can be integrated with any project
 
-
 ### Usage
+
 Go on any website on the internet, and if there's a hyperlink that references to any website, just hover over it and you will a popover. Click `Summarize` button and the website will be scraped and summarized for you within seconds.
 
-
 <div className="w-full flex sm:hidden justify-center items-center">
-<Image
-      src="/static/blogs/cruxx1.png"
-      height={400}
-      width={400}
-      className = "mx-auto"
-      alt="Cruxx AI"/>
+  <Image
+    src="/static/blogs/cruxx1.png"
+    height={400}
+    width={400}
+    className="mx-auto"
+    alt="Cruxx AI"
+  />
 </div>
 <div className="hidden w-full sm:flex justify-center items-center">
-<Image
-      src="/static/blogs/cruxx1.png"
-      height={600}
-      width={600}
-      className = "mx-auto"
-      alt="Cruxx AI"/>
+  <Image
+    src="/static/blogs/cruxx1.png"
+    height={600}
+    width={600}
+    className="mx-auto"
+    alt="Cruxx AI"
+  />
 </div>
 
-<br/>
+<br />
 <div className="w-full flex sm:hidden justify-center items-center">
-<Image
-      src="/static/blogs/cruxx2.png"
-      height={400}
-      width={400}
-      className = "mx-auto"
-      alt="Cruxx AI"/>
+  <Image
+    src="/static/blogs/cruxx2.png"
+    height={400}
+    width={400}
+    className="mx-auto"
+    alt="Cruxx AI"
+  />
 </div>
 <div className="hidden w-full sm:flex justify-center items-center">
-<Image
-      src="/static/blogs/cruxx2.png"
-      height={600}
-      width={600}
-      className = "mx-auto"
-      alt="Cruxx AI"/>
+  <Image
+    src="/static/blogs/cruxx2.png"
+    height={600}
+    width={600}
+    className="mx-auto"
+    alt="Cruxx AI"
+  />
 </div>
-
 
 ### API Reference
+
 Cruxx API allows you to integrate website summzarization services directly within your application/project. The API provides support for the languages
+
 - Typescript/Javascript
 - Python
 - Go
 - Rust
 
-
-
 1. Summarize a website
-Examples : 
+   Examples :
 <Tabs defaultValue="response">
 <TabsList>
     <TabsTrigger value="response">Response</TabsTrigger>
@@ -80,16 +89,21 @@ Examples :
     <TabsTrigger value="api.go">Go</TabsTrigger>
   </TabsList>
   <TabsContent value="api.js">
+
 ```js
 const requestOptions = {
   method: "GET",
 };
 
-fetch("https://api.danimahendra0904.workers.dev/cruxx/summarize?url=<website_url>", requestOptions)
+fetch(
+  "https://api.danimahendra0904.workers.dev/cruxx/summarize?url=<website_url>",
+  requestOptions
+)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.error(error));
 ```
+
   </TabsContent>
   <TabsContent value="api.py">
 ```py
@@ -103,7 +117,8 @@ headers = {}
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
-```
+
+````
   </TabsContent>
   <TabsContent value="api.go">
 ```go
@@ -142,7 +157,8 @@ func main() {
   }
   fmt.Println(string(body))
 }
-```
+````
+
   </TabsContent>
   <TabsContent value="response">
 ```json
@@ -157,9 +173,8 @@ func main() {
   </TabsContent>
 </Tabs>
 
-
 2. Summarize all external references from a website
-Examples:
+   Examples:
 <Tabs defaultValue="response">
 <TabsList>
     <TabsTrigger value="response">Response</TabsTrigger>
@@ -168,16 +183,21 @@ Examples:
     <TabsTrigger value="api.go">Go</TabsTrigger>
   </TabsList>
   <TabsContent value="api.js">
+
 ```js
 const requestOptions = {
   method: "GET",
 };
 
-fetch("http://localhost:8787/cruxx/summarize/all?url=<website_url>", requestOptions)
+fetch(
+  "http://localhost:8787/cruxx/summarize/all?url=<website_url>",
+  requestOptions
+)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.error(error));
 ```
+
   </TabsContent>
   <TabsContent value="api.py">
 ```py
@@ -191,7 +211,8 @@ headers = {}
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
-```
+
+````
   </TabsContent>
   <TabsContent value="api.go">
 ```go
@@ -230,7 +251,8 @@ func main() {
   }
   fmt.Println(string(body))
 }
-```
+````
+
   </TabsContent>
   <TabsContent value="response">
 ```json
@@ -243,4 +265,4 @@ func main() {
 }
 ```
   </TabsContent>
-</Tabs> 
+</Tabs>

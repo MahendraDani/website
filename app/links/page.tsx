@@ -2,33 +2,76 @@ import { links, LinkBlog } from "#site/content";
 import { FadeUp } from "@/components/fade-up";
 import { LinkBlogRenderer } from "@/components/linkblog";
 import dayjs from "dayjs";
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemHeader,
+  ItemTitle,
+} from "@/components/ui/item";
+import Link from "next/link";
+import { formatDateAndTime } from "@/lib/date";
+import { GlobeIcon } from "lucide-react";
 
 export default function Page() {
-  const publishedLinks = links
-      .sort((a, b) => {
-        const newLinkDate = dayjs(a.date);
-        const prevLinkDate = dayjs(b.date);
-        return newLinkDate.isBefore(prevLinkDate)
-          ? 1
-          : newLinkDate.isSame(prevLinkDate)
-          ? 0
-          : -1;
-      });
+  const publishedLinks = links.sort((a, b) => {
+    const newLinkDate = dayjs(a.date);
+    const prevLinkDate = dayjs(b.date);
+    return newLinkDate.isBefore(prevLinkDate)
+      ? 1
+      : newLinkDate.isSame(prevLinkDate)
+      ? 0
+      : -1;
+  });
 
   return (
-    <div>
+    <div className="space-y-4">
       <div>
-        <h3>Link Blog</h3>
-        <hr className="my-1" />
+        <h1 className="font-medium">Linkblog (Bookmarks)</h1>
+        <p className="text-sm text-muted-foreground">
+          Short posts about things I read, watched, or discovered online, often with my take or commentary. If you want to know why I started doing these, check out <Link href={"https://mahendradani.vercel.app/blogs/linkblog"} className="font-medium text-sky-600 hover:text-sky-600/80 underline decoration-dashed decoration-[1px] underline-offset-4 items-center py-1">this post</Link>.
+        </p>
       </div>
-
-      <FadeUp delay={0.3}>
-        <div className="flex flex-col justify-between items-start gap-4">
-          {publishedLinks.map((linkblog, idx) => (
-            <LinkBlogRenderer key={idx} linkblog={linkblog} />
-          ))}
-        </div>
-      </FadeUp>
+      <ItemGroup className="flex flex-col gap-2">
+        {publishedLinks.map((link, idx) => {
+          return (
+            <FadeUp key={idx}>
+              <div className="group">
+                {/* <div className="flex justify-end gap-1 my-1">
+                  <Link key={idx} href={link.source.url} target="_blank">
+                    {
+                      <GlobeIcon className="h-6 w-6 p-1 border hover:bg-accent/15 hover:border-accent duration-300" />
+                    }
+                  </Link>
+                </div> */}
+                <Item
+                  asChild
+                  className="rounded-none bg-secondary hover:bg-accent/15 hover:border-accent duration-300 ease-in-out"
+                  variant="outline"
+                >
+                  <Link href={`/links/${link.slugAsParams}`}>
+                    <ItemContent>
+                      <div className="flex justify-between items-center">
+                        <ItemTitle className="text-pretty">
+                          {link.source.title}
+                        </ItemTitle>
+                        <p className="text-muted-foreground hidden sm:block">
+                          {formatDateAndTime(link.date)}
+                        </p>
+                      </div>
+                      <p className="text-muted-foreground sm:hidden">
+                          {formatDateAndTime(link.date)}
+                        </p>
+                    </ItemContent>
+                  </Link>
+                </Item>
+              </div>
+            </FadeUp>
+          );
+        })}
+      </ItemGroup>
     </div>
   );
 }

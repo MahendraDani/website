@@ -1,16 +1,18 @@
 ---
 name: Rhymes and Fables
-abstract: A web app to read, write and share stories, poems and quotes
+abstract: Web app to read, write and share stories, poems and quotes.
 links:
   [
-    { title: "Website", url: "https://rhymes-and-fables.vercel.app" },
+    { title: "Website", url: "https://rhymes-and-fables.vercel.app", type : "live" },
     {
       title: "Video",
       url: "https://drive.google.com/file/d/1WjDVINE3DSfQlCke7_jA_0Iuo_MR4faN/view",
+      type : "demoVideo"
     },
     {
       title: "Source",
       url: "https://github.com/MahendraDani/supabase-hackathon",
+      type : "github"
     },
   ]
 stack: ["Nextjs", "Supabase", "shadcn UI", "Zod"]
@@ -22,14 +24,10 @@ publishDate: 2023-12-18T13:30:00Z
 ### Abstract
 Have a crazy story in your mind but can't showcase it to the world? We have just the right solution for you: Rhymes and Fables is a platform where you can convert your crazy ideas into amazing stories and poems. Share your thoughts and opinions as quotes.
 
-<div className="mt-4 flex justify-center items-center">
-<Image
-      src="/static/blogs/rf-feed.png"
-      height={600}
-      width={640}
-      alt="Rhymes and Fables"/>
-</div>
-
+<MDXImage
+  src="/static/blogs/rf-feed.png"
+  alt="Rhymes and Fables"
+/>
 ### Features
 1. Fully functional two factor authentication with Email, Google OAuth and Github OAuth.
 2. Personalized Feeds : Users are recommend content based on their read history

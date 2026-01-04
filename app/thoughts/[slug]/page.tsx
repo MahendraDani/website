@@ -4,7 +4,7 @@ import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/configs/site.config";
 import { Metadata } from "next";
-import {formatDate} from "@/lib/date"
+import {formatDateAndTime} from "@/lib/date"
 
 interface ThoughtPageProps {
   params: {
@@ -62,22 +62,25 @@ export default function Page({ params }: ThoughtPageProps) {
   return (
     <FadeUp>
       <div>
-        <article className="relative max-w-3xl">
-          <div>
-            <p className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
+        <article className="relative">
+          <div className="space-y-4 border py-4 px-4 mb-2 bg-secondary border-dashed">
+            <h1 className="uppercase text-xl md:text-3xl font-bold text-center">
               {thought.title}
-            </p>
-            <div className="my-2 py-1 border-t border-b border-dashed flex justify-between items-center">
-              <div className="flex justify-start items-center gap-2">
+            </h1>
+            <div className="space-y-2">
+              <p className="italic text-sm text-center text-muted-foreground">
+                {formatDateAndTime(thought.date)}
+              </p>
+              <p className="italic text-sm text-pretty text-center">
+                {thought.description}
+              </p>
+              <div className="text-center text-wrap space-x-2">
                 {thought.tags.map((tag, idx) => (
-                  <span className="bg-purple-400/70 px-2 rounded-md" key={idx}>
-                    {tag}
+                  <span key={idx} className="italic lowercase text-sm text-center text-muted-foreground">
+                    {"#" + tag}
                   </span>
                 ))}
               </div>
-              <p className="text-muted-foreground">
-                {formatDate(thought.date)}
-              </p>
             </div>
           </div>
           <div className="mx-auto sm:w-auto min-w-0 text-justify">

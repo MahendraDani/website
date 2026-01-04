@@ -1,7 +1,17 @@
 import { thoughts } from "#site/content";
 import { FadeUp } from "@/components/fade-up";
-import { ListItem } from "@/components/list-item";
 import dayjs from "dayjs";
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemHeader,
+  ItemTitle,
+} from "@/components/ui/item";
+import Link from "next/link";
+import { formatDateAndTime } from "@/lib/date";
 
 export default function Page() {
   const publishedThoughts = thoughts
@@ -17,27 +27,43 @@ export default function Page() {
     });
 
   return (
-    <div className="w-[90vw] sm:w-auto">
+    <div className="space-y-4">
       <div>
-        <h3>Thoughts</h3>
-        <hr className="my-1" />
+        <h1 className="font-medium">Thoughts</h1>
+        <p className="text-sm text-muted-foreground">
+          Raw, unpolished notes—questions, half-formed ideas, and observations I’m not ready to turn into essays. This is my public scratchpad.
+        </p>
       </div>
-      {publishedThoughts.map((thought, idx) => {
-        return (
-          <FadeUp key={idx}>
-            <ListItem>
-              <ListItem.Content className="text-balance">
-                <ListItem.Date date={thought.date} className="" />
-                <ListItem.Link href={`thoughts/${thought.slugAsParams}`}>
-                  <ListItem.Title className="text-left hover:text-blue-700 underline underline-offset-4">
-                    {thought.title}
-                  </ListItem.Title>
-                </ListItem.Link>
-              </ListItem.Content>
-            </ListItem>
-          </FadeUp>
-        );
-      })}
+      <ItemGroup className="flex flex-col gap-4">
+        {publishedThoughts.map((thought, idx) => {
+          return (
+            <FadeUp key={idx}>
+              <div className="group">
+                <Item
+                  asChild
+                  className="rounded-none bg-secondary hover:bg-accent/15 hover:border-accent duration-300 ease-in-out"
+                  variant="outline"
+                >
+                  <Link
+                    href={`/thoughts/${thought.slugAsParams}`}
+                  >
+                    <ItemContent>
+                      <div className="flex justify-between items-center">
+                        <ItemTitle className="text-pretty">
+                          {thought.title}
+                        </ItemTitle>
+                        <p className="text-muted-foreground sm:block hidden">{formatDateAndTime(thought.date)}</p>
+                      </div>
+                      <p className="text-muted-foreground sm:hidden">{formatDateAndTime(thought.date)}</p>
+                      <ItemDescription>{thought.description}</ItemDescription>
+                    </ItemContent>
+                  </Link>
+                </Item>
+              </div>
+            </FadeUp>
+          );
+        })}
+      </ItemGroup>
     </div>
   );
 }

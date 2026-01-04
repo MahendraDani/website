@@ -6,10 +6,13 @@ import { Navbar } from "@/components/nav/navbar";
 import { Footer } from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/configs/site.config";
-import { inter, splineSansMono } from "./fonts";
+import { geistMono, geistSans, inter, splineSansMono } from "./fonts";
 import { VercelAnalytics } from "@/components/vercel-analytics";
 import { Toaster } from "sonner";
 import { Sidebar } from "@/components/sidebar";
+import { Container } from "@/components/container";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -50,24 +53,17 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          `relative font-sans antialiased max-w-full mx-auto px-4`,
+          `relative antialiased min-h-screen flex flex-col bg-background/90`,
           splineSansMono.className
         )}
       >
-        <div className="w-full flex flex-col items-center">
+        <Toaster richColors={true} position="top-right" />
+        <VercelAnalytics />
+        <Container classname="flex-1 flex flex-col">
           <Navbar />
-          <Toaster richColors={true} position="top-right" />
-          <main>
-            <ContentWrapper className="min-h-[76vh] px-1">
-              <VercelAnalytics />
-              <div className="flex gap-6">
-                <Sidebar />
-                <div className="sm:w-3/4">{children}</div>
-              </div>
-            </ContentWrapper>
-          </main>
+          <main className="flex-1">{children}</main>
           <Footer />
-        </div>
+        </Container>
       </body>
     </html>
   );

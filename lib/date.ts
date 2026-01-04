@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
-export const formatDate = (rawDate: string) => {
-  return dayjs(rawDate).format("MMM D, YYYY [at] HH:mm a");
+
+export const formatDateAndTime = (rawDate: string) => {
+  return dayjs(rawDate).format("MMMM DD, YYYY | hh:mm A");
 };

@@ -1,5 +1,6 @@
 ---
 title: "How to check if the pair-wise bitwise AND of all elements of an array is zero?"
+description : "An efficient way to think about pairwise bitwise AND by reframing the problem in terms of bit positions instead of element pairs. Using a running bitmask, this approach reduces a quadratic check to a linear scan while building intuition around AND and OR operations."
 source: ""
 date: 2025-03-18T15:00:00Z
 ---
@@ -13,15 +14,10 @@ The time complexity will be O(N^2), where N is the length of the array.
 __Question 01__: Given two numbers, what really happens when you perform bitwise AND?
 
 Let's perform bitwise AND operation on 3 and 5.
-<div className="mt-4 flex justify-center items-center">
-  <Image
-    src="/static/tils/18-03-2025/bitwise-and.svg"
-    height={600}
-    width={600}
-    alt="Bitwise AND of two numbers"
-  />
-</div>
-
+<MDXImage
+  src="/static/tils/18-03-2025/bitwise-and.svg"
+  alt="Bitwise AND of two numbers"
+/>
 Observe in the figure that, the `result` contains 1 bit, only if both the bits in operands were 1. That's the truth table of AND gate. I know xd.
 
 To solve our problem we require that the `result` contains all the bits as 0, for each pair in the array. What if we just track the 1 bit after each operation and check that result should not contain any 1 bit? But how?
@@ -30,15 +26,10 @@ __Question 02__: Given two numbers, what really happens when you perform bitwise
 
 Let's perform bitwise OR operation on 3 and 5.
 
-<div className="mt-4 flex justify-center items-center">
-  <Image
-    src="/static/tils/18-03-2025/bitwise-or.svg"
-    height={600}
-    width={600}
-    alt="Bitwise OR of two numbers"
-  />
-</div>
-
+<MDXImage
+  src="/static/tils/18-03-2025/bitwise-or.svg"
+  alt="Bitwise OR of two numbers"
+/>
 What can we infer from the result? That bitwise OR will tell us the positions of 1 bit in the result.
 
 How can we use the two results, we learned above and solve the initial problem?

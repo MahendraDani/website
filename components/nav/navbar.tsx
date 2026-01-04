@@ -5,6 +5,19 @@ import { A } from "../a";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { SidebarTrigger } from "../ui/sidebar";
 
 const navMenu = [
   {
@@ -12,8 +25,8 @@ const navMenu = [
     href: "/about",
   },
   {
-    name : "Links",
-    href : "/links"
+    name: "Links",
+    href: "/links",
   },
   {
     name: "Projects",
@@ -33,62 +46,59 @@ const navMenu = [
   },
 ];
 export const Navbar = () => {
-  const [showMobileNav, setShowMobileNav] = useState(false);
-  const handleShowMobileNav = () => {
-    if (showMobileNav) {
-      setShowMobileNav(false);
-    } else {
-      setShowMobileNav(true);
-    }
-  };
+  const pathname = usePathname();
+
   return (
     <header>
-      {!showMobileNav ? (
-        <div className="w-[90vw] sm:w-[54rem] mt-4 sm:mt-12 sm:mb-4 flex justify-between items-center border-t border-b py-2">
-          <Link href={"/"}>
-            <h3 className="text-xl text-heading font-medium">Mahendra Dani</h3>
-          </Link>
+      <div className="mt-2 mb-4 flex justify-between items-center border-t border-b py-2">
+        <Link href={"/"}>
+          <p className="text-base font-medium">Mahendra Dani</p>
+        </Link>
 
-          <nav className="hidden sm:flex justify-center items-center gap-3">
-            {navMenu.map((navItem, index) => (
-              <A
-                href={navItem.href}
-                key={index}
-                className="text-black/80 hover:text-blue-700/70 underline decoration-white hover:decoration-blue-800/70 underline-offset-4"
-              >
-                {navItem.name}
-              </A>
-            ))}
-          </nav>
-
-          <Menu strokeWidth={1} onClick={handleShowMobileNav} className="sm:hidden block" />
-        </div>
-      ) : (
-        <div className="w-full h-full z-50 absolute inset-0 bg-white">
-          <div className="w-[90vw] mx-auto sm:w-[54rem] mt-4 sm:mt-12 sm:mb-4 flex justify-between items-center border-t border-b py-2">
-            <Link href={"/"}>
-              <h3 className="text-xl text-heading font-medium">
-                Mahendra Dani
-              </h3>
+        <nav className="hidden sm:flex justify-center items-center gap-3">
+          {navMenu.map((navItem, index) => (
+            <Link
+              href={navItem.href}
+              key={index}
+              className={cn(
+                "text-sm text-secondary-foreground hover:text-accent hover:underline underline-offset-4 decoration-dashed duration-300 ease-in-out",
+                {
+                  "underline text-accent/80": pathname.includes(navItem.href),
+                }
+              )}
+            >
+              {navItem.name}
             </Link>
-            <X strokeWidth={1} onClick={handleShowMobileNav} className="block sm:hidden" />
-          </div>
-          <div className="min-h-[60vh] flex justify-center items-center">
-          <nav className="flex sm:hidden flex-col justify-start items-center gap-3">
-            {navMenu.map((navItem, index) => (
-              <A
-                href={navItem.href}
-                key={index}
-                className="text-black/80 hover:text-blue-700/70 underline decoration-white hover:decoration-blue-800/70 underline-offset-4"
-                onClick={handleShowMobileNav}
-              >
-                {navItem.name}
-              </A>
-            ))}
-          </nav>
-          </div>
-        </div>
-      )}
+          ))}
+        </nav>
+
+        <Sheet>
+          <SheetTrigger className="sm:hidden">
+            <Menu strokeWidth={1} />
+          </SheetTrigger>
+          <SheetContent className="w-[60vw] space-y-4 bg-secondary">
+            <SheetHeader>
+              <SheetTitle>Mahendra Dani</SheetTitle>
+            </SheetHeader>
+            <nav className="flex flex-col justify-center items-center gap-3">
+              {navMenu.map((navItem, index) => (
+                <Link
+                  href={navItem.href}
+                  key={index}
+                  className={cn(
+                    "text-sm text-secondary-foreground  hover:text-accent hover:underline underline-offset-4 decoration-dashed duration-300 ease-in-out",
+                    {
+                      "underline text-accent": pathname.includes(navItem.href),
+                    }
+                  )}
+                >
+                  {navItem.name}
+                </Link>
+              ))}
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
     </header>
   );
 };
