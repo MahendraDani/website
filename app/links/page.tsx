@@ -27,7 +27,13 @@ export default function Page() {
   });
 
   return (
-    <div>
+    <div className="space-y-4">
+      <div>
+        <h1 className="font-medium">Linkblog (Bookmarks)</h1>
+        <p className="text-sm text-muted-foreground">
+          Short posts about things I read, watched, or discovered online, often with my take or commentary. If you want to know why I started doing these, check out <Link href={"https://mahendradani.vercel.app/blogs/linkblog"} className="font-medium text-sky-600 hover:text-sky-600/80 underline decoration-dashed decoration-[1px] underline-offset-4 items-center py-1">this post</Link>.
+        </p>
+      </div>
       <ItemGroup className="flex flex-col gap-2">
         {publishedLinks.map((link, idx) => {
           return (

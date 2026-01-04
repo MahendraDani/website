@@ -31,7 +31,13 @@ export default function Blogs() {
   });
 
   return (
-    <div>
+    <div className="space-y-2">
+      <div>
+        <h1 className="font-medium">Projects</h1>
+        <p className="text-sm text-muted-foreground">
+          Things I’ve built to learn, experiment, or satisfy curiosity, often by going one level deeper than necessary. Expect rough edges, write-ups, and lessons learned along the way.
+        </p>
+      </div>
       <ItemGroup className="flex flex-col gap-2">
         {allProjects.map((project, idx) => {
           // const formattedDate = dayjs(project.publishDate).format(

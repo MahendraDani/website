@@ -27,7 +27,13 @@ export default function Page() {
     });
 
   return (
-    <div>
+    <div className="space-y-4">
+      <div>
+        <h1 className="font-medium">Thoughts</h1>
+        <p className="text-sm text-muted-foreground">
+          Raw, unpolished notes—questions, half-formed ideas, and observations I’m not ready to turn into essays. This is my public scratchpad.
+        </p>
+      </div>
       <ItemGroup className="flex flex-col gap-4">
         {publishedThoughts.map((thought, idx) => {
           return (

@@ -25,7 +25,13 @@ export default async function Tils() {
   });
 
   return (
-    <div>
+    <div className="space-y-4">
+      <div>
+        <h1 className="font-medium">Tils - Things I learned</h1>
+        <p className="text-sm text-muted-foreground">
+          Small, concrete learnings picked up while building, reading, or debugging—usually the kind you forget if you don’t write down. Practical, specific, and optimized for future-me more than anyone else.
+        </p>
+      </div>
       <ItemGroup className="flex flex-col gap-4">
         {publishedTils.map((til, idx) => {
           return (
@@ -36,17 +42,19 @@ export default async function Tils() {
                   className="rounded-none bg-secondary hover:bg-accent/15 hover:border-accent duration-300 ease-in-out"
                   variant="outline"
                 >
-                  <Link
-                    href={`/tils/${til.slugAsParams}`}
-                  >
+                  <Link href={`/tils/${til.slugAsParams}`}>
                     <ItemContent>
                       <div className="flex justify-between items-center">
                         <ItemTitle className="flex-1 text-pretty">
                           {til.title}
                         </ItemTitle>
-                        <p className="text-muted-foreground hidden sm:block">{formatDateAndTime(til.date)}</p>
+                        <p className="text-muted-foreground hidden sm:block">
+                          {formatDateAndTime(til.date)}
+                        </p>
                       </div>
-                      <p className="text-muted-foreground sm:hidden">{formatDateAndTime(til.date)}</p>
+                      <p className="text-muted-foreground sm:hidden">
+                        {formatDateAndTime(til.date)}
+                      </p>
                       <ItemDescription>{til.description}</ItemDescription>
                     </ItemContent>
                   </Link>
