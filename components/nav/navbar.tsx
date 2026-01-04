@@ -21,10 +21,6 @@ import { SidebarTrigger } from "../ui/sidebar";
 
 const navMenu = [
   {
-    name: "About",
-    href: "/about",
-  },
-  {
     name: "Links",
     href: "/links",
   },

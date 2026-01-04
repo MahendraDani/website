@@ -1,75 +1,41 @@
-import Image from "next/image";
 import { blogs } from "#site/content";
-import { FadeUp } from "@/components/fade-up";
-import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
 import dayjs from "dayjs";
+import { MDXContentRenderer } from "@/components/mdx/mdx-content-renderer";
+import { FadeUp } from "@/components/fade-up";
+import { notFound } from "next/navigation";
 
-export default function AboutPage() {
+export default function Page() {
   const aboutBlog = blogs.find((blog) => blog.slugAsParams === "aboutme");
   const formatDateAndTime = (rawDate: string) => {
     return dayjs(rawDate).format("MMM D, YYYY [at] h:m a");
   };
-  // console.log(aboutBlog);
+
+  if (!aboutBlog) {
+    return notFound();
+  }
+
   return (
-    <div>
+    <FadeUp>
       <div>
-        <h3>About</h3>
-        <hr className="my-1" />
-      </div>
-      {/* <div className="flex justify-start items-start gap-2">
-        <div className="flex flex-col justify-start items-start gap-2">
-          <p className="text-pretty">
-            I'm Mahendra, studying Computer Science at VIT Bhopal University,
-            India.
-          </p>
-          <p className="text-pretty">
-            I like to design and implement robust systems from first principles
-            using modern technology.
-          </p>
-          <p className="text-pretty">
-            My goal is to be on wikipedia by developing something that blows up
-            the internet.
-          </p>
-        </div>
-        <div className="">
-          <Image
-            src={"/static/blogs/me2.jpeg"}
-            height={400}
-            width={300}
-            className="hidden sm:block rounded-full"
-            alt="Mahendra's Profile Picture"
-          />
-        </div>
-      </div> */}
-      <FadeUp delay={0.3}>
-        <div>
-          <article className="relative max-w-3xl">
-            {/* <div>
-              <p className="scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl [&:not(:first-child)]:mt-6">
-                {aboutBlog.title}
-              </p>
-              <div className="my-2 py-1 border-t border-b border-dashed flex justify-between items-center">
-                <div className="flex justify-start items-center gap-2">
-                  {aboutBlog.tags.map((tag, idx) => (
-                    <span
-                      className="bg-emerald-400/70 px-2 rounded-md"
-                      key={idx}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+        <article>
+          <div className="space-y-4 border py-4 px-4 mb-2 bg-secondary border-dashed">
+                <h1 className="uppercase text-xl md:text-3xl font-bold text-center">
+                  {aboutBlog.title}
+                </h1>
+                <div className="space-y-2">
+                  {/* <p className="italic text-sm text-center text-muted-foreground">
+                    {formatDateAndTime(aboutBlog.date)}
+                  </p> */}
+                  <p className="italic text-sm text-pretty text-center">
+                    {aboutBlog.description}
+                  </p>
                 </div>
-                <p className="text-muted-foreground">
-                  {formatDateAndTime(aboutBlog.date)}
-                </p>
               </div>
-            </div> */}
-            <div className="mx-auto sm:w-auto min-w-0">
-              <MDXContentRenderer code={aboutBlog!.body} />
-            </div>
-          </article>
-        </div>
-      </FadeUp>
-    </div>
+          <div className="mx-auto sm:w-auto min-w-0 text-justify">
+            <MDXContentRenderer code={aboutBlog.body} />
+          </div>
+        </article>
+      </div>
+    </FadeUp>
   );
 }
