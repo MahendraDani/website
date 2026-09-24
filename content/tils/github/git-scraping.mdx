@@ -1,0 +1,60 @@
+---
+title: "How to automate commits from GitHub Actions"
+description : "GitHub Actions can be used to make automated commits in the repository."
+source: "https://simonwillison.net/2020/Oct/9/git-scraping/"
+date: 2026-09-24T11:45:00Z
+---
+
+I was reading Simon's blog on a scraping technique he calls [git-scraping](https://simonwillison.net/2020/Oct/9/git-scraping/) when I realized that he directly commits the scraping results into his repositories on GitHub. 
+
+There's one step that I've seen in many actions but never really paid attention to - **actions/checkout**. It's setting up the repository locally in the runner, which means that the runner clone's the repository before executing any further steps defined in the action. That's the catch!
+
+```yaml
+name: Log Github Action run times
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/7 * * * *"
+
+permissions: 
+  contents: write
+
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v7
+
+      - name: Configure git for commits
+        run: |-
+          git config --global user.name "Automated Monkey"
+          git config --global user.email "actions@users.noreply.github.com"
+
+      - name: Log execution time
+        run: |-
+          timestamp=$(date -u)
+          echo "Executed: ${timestamp} by ${{github.run_id}}" >> actions-log.txt
+
+      - name: Commit changes
+        run: |-
+          git add .
+          timestamp=$(date -u)
+          git commit -m "Update latest execution run: ${timestamp}"
+          git push
+```
+
+Ensure that write permissions are configured in the flow, then configure git with any name, and email. I've used the one Simon uses, I'm not user if I can use any email?
+
+The above [action](https://github.com/MahendraDani/til-git-scraping/blob/main/.github/workflows/job.yaml), runs every 7 minutes, and logs the execution time in a file named "actions-logs.txt". So, using shell scripts/commands, you can write files to repositories, make API requests and save results directly in the repo.
+
+<div className="mt-4 flex justify-center items-center">
+<Image
+      src="/static/tils/24-09-2026/github-commit.png"
+      height={800}
+      width={800}
+      alt="Screenshot of automated GitHub commit"/>
+</div>
+
+Look at the commit message and committer's name "Automated Monkey", haha!
