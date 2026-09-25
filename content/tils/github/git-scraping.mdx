@@ -5,7 +5,7 @@ source: "https://simonwillison.net/2020/Oct/9/git-scraping/"
 date: 2026-09-24T11:45:00Z
 ---
 
-I was reading Simon's blog on a scraping technique he calls [git-scraping](https://simonwillison.net/2020/Oct/9/git-scraping/) when I realized that he directly commits the scraping results into his repositories on GitHub. 
+I was reading Simon's blog on a scraping technique he calls [git-scraping](https://simonwillison.net/2020/Oct/9/git-scraping/) when I realized that he directly commits the scraping results into his repositories using github actions. 
 
 There's one step that I've seen in many actions but never really paid attention to - **actions/checkout**. It's setting up the repository locally in the action's [Runner](https://docs.github.com/en/actions/concepts/runners/github-hosted-runners), which means that the runner clones the repository before executing any further steps defined in the action. That's the catch!
 
